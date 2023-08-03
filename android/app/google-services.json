@@ -1,0 +1,99 @@
+{
+  "project_info": {
+    "project_number": "210255862837",
+    "firebase_url": "https://gochap-577b0-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "gochap-577b0",
+    "storage_bucket": "gochap-577b0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:210255862837:android:7871f14330af7f2a70257c",
+        "android_client_info": {
+          "package_name": "solutions.digiplay.gochapdriver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "210255862837-2235nkqq9kfvp1tmt6istsm1n098p6jp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "solutions.digiplay.gochapdriver",
+            "certificate_hash": "64fea83f1e23a55f1e88681886ffa804500610d6"
+          }
+        },
+        {
+          "client_id": "210255862837-2evgubkrhh4undremak1p77b2q8bvp1h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTdnBO8O43lm2s4f9axd8pYW80rhIn-Hk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "210255862837-2evgubkrhh4undremak1p77b2q8bvp1h.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "210255862837-0903e0nbh3nu19bq18rkdd1p8on06j9q.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "solutions.digiplay.gochapdriver"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:210255862837:android:0448afdf6da1fdf370257c",
+        "android_client_info": {
+          "package_name": "solutions.digiplay.gochapuser"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "210255862837-9rtm1nslojqv1ljrok0as8ff36gocjv6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "solutions.digiplay.gochapuser",
+            "certificate_hash": "64fea83f1e23a55f1e88681886ffa804500610d6"
+          }
+        },
+        {
+          "client_id": "210255862837-2evgubkrhh4undremak1p77b2q8bvp1h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTdnBO8O43lm2s4f9axd8pYW80rhIn-Hk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "210255862837-2evgubkrhh4undremak1p77b2q8bvp1h.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "210255862837-0903e0nbh3nu19bq18rkdd1p8on06j9q.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "solutions.digiplay.gochapdriver"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
