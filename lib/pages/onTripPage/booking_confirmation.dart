@@ -1239,11 +1239,12 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                     alignment: Alignment.center,
                                                     child: Text(
                                                       'SOS',
-                                                      style: GoogleFonts.roboto(
-                                                          fontSize:
-                                                              media.width *
-                                                                  fourteen,
-                                                          color: page),
+                                                      style: GoogleFonts
+                                                          .robotoCondensed(
+                                                              fontSize:
+                                                                  media.width *
+                                                                      fourteen,
+                                                              color: page),
                                                     ),
                                                   ))
                                               : Container(),
@@ -1382,12 +1383,13 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                     choosenLanguage]
                                                                 [
                                                                 'text_availablerides'],
-                                                            style: GoogleFonts.roboto(
-                                                                fontSize: media
-                                                                        .width *
-                                                                    fourteen,
-                                                                color:
-                                                                    textColor),
+                                                            style: GoogleFonts
+                                                                .robotoCondensed(
+                                                                    fontSize: media
+                                                                            .width *
+                                                                        fourteen,
+                                                                    color:
+                                                                        textColor),
                                                           ),
                                                         ],
                                                       ),
@@ -1513,11 +1515,11 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                                                           (minutes[etaDetails[i]['type_id']] != null && minutes[etaDetails[i]['type_id']] != '')
                                                                                                               ? Text(
                                                                                                                   minutes[etaDetails[i]['type_id']].toString(),
-                                                                                                                  style: GoogleFonts.roboto(fontSize: media.width * twelve, color: (isDarkTheme == true) ? textColor.withOpacity(0.6) : textColor.withOpacity(0.3)),
+                                                                                                                  style: GoogleFonts.robotoCondensed(fontSize: media.width * twelve, color: (isDarkTheme == true) ? textColor.withOpacity(0.6) : textColor.withOpacity(0.3)),
                                                                                                                 )
                                                                                                               : Text(
                                                                                                                   '- -',
-                                                                                                                  style: GoogleFonts.roboto(fontSize: media.width * twelve, color: (isDarkTheme == true) ? textColor.withOpacity(0.6) : textColor.withOpacity(0.3)),
+                                                                                                                  style: GoogleFonts.robotoCondensed(fontSize: media.width * twelve, color: (isDarkTheme == true) ? textColor.withOpacity(0.6) : textColor.withOpacity(0.3)),
                                                                                                                 ),
                                                                                                         ],
                                                                                                       ),
@@ -1532,7 +1534,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                                                             children: [
                                                                                                               Text(
                                                                                                                 etaDetails[i]['name'],
-                                                                                                                style: GoogleFonts.roboto(fontSize: media.width * twelve, color: textColor),
+                                                                                                                style: GoogleFonts.robotoCondensed(fontSize: media.width * twelve, color: textColor),
                                                                                                               ),
                                                                                                               SizedBox(
                                                                                                                 width: media.width * 0.01,
@@ -1551,15 +1553,15 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                                                             height: media.width * 0.015,
                                                                                                           ),
                                                                                                           Text(
-                                                                                                            etaDetails[i]['currency'] + ' ' + etaDetails[i]['total'].toStringAsFixed(2),
-                                                                                                            style: (etaDetails[i]['has_discount'] != true) ? GoogleFonts.roboto(fontSize: media.width * twelve, color: textColor, fontWeight: FontWeight.w600) : GoogleFonts.roboto(fontSize: media.width * twelve, color: textColor, fontWeight: FontWeight.w600, decoration: TextDecoration.lineThrough),
+                                                                                                            etaDetails[i]['currency'] + ' ' + etaDetails[i]['total'].toStringAsFixed(0),
+                                                                                                            style: (etaDetails[i]['has_discount'] != true) ? GoogleFonts.robotoCondensed(fontSize: media.width * twelve, color: textColor, fontWeight: FontWeight.w600) : GoogleFonts.robotoCondensed(fontSize: media.width * twelve, color: textColor, fontWeight: FontWeight.w600, decoration: TextDecoration.lineThrough),
                                                                                                           ),
                                                                                                           (etaDetails[i]['has_discount'] == true)
                                                                                                               ? Container(
                                                                                                                   padding: EdgeInsets.only(top: media.width * 0.015, bottom: media.width * 0.015),
                                                                                                                   child: Text(
-                                                                                                                    etaDetails[i]['currency'] + ' ' + etaDetails[i]['discounted_totel'].toStringAsFixed(2),
-                                                                                                                    style: GoogleFonts.roboto(fontSize: media.width * twelve, color: textColor, fontWeight: FontWeight.w600),
+                                                                                                                    etaDetails[i]['currency'] + ' ' + etaDetails[i]['discounted_totel'].toStringAsFixed(0),
+                                                                                                                    style: GoogleFonts.robotoCondensed(fontSize: media.width * twelve, color: textColor, fontWeight: FontWeight.w600),
                                                                                                                   ),
                                                                                                                 )
                                                                                                               : Container()
@@ -1614,7 +1616,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                                                 },
                                                                                                 child: Text(
                                                                                                   etaDetails[i]['package_name'],
-                                                                                                  style: GoogleFonts.roboto(fontSize: media.width * sixteen, fontWeight: FontWeight.w600, color: (rentalChoosenOption == i) ? Colors.white : Colors.black),
+                                                                                                  style: GoogleFonts.robotoCondensed(fontSize: media.width * sixteen, fontWeight: FontWeight.w600, color: (rentalChoosenOption == i) ? Colors.white : Colors.black),
                                                                                                 ),
                                                                                               ),
                                                                                             ));
@@ -1717,11 +1719,11 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                                                                 (minutes[rentalOption[i]['type_id']] != null && minutes[rentalOption[i]['type_id']] != '')
                                                                                                                     ? Text(
                                                                                                                         minutes[rentalOption[i]['type_id']].toString(),
-                                                                                                                        style: GoogleFonts.roboto(fontSize: media.width * twelve, color: (isDarkTheme == true) ? textColor.withOpacity(0.6) : textColor.withOpacity(0.3)),
+                                                                                                                        style: GoogleFonts.robotoCondensed(fontSize: media.width * twelve, color: (isDarkTheme == true) ? textColor.withOpacity(0.6) : textColor.withOpacity(0.3)),
                                                                                                                       )
                                                                                                                     : Text(
                                                                                                                         '- -',
-                                                                                                                        style: GoogleFonts.roboto(fontSize: media.width * twelve, color: (isDarkTheme == true) ? textColor.withOpacity(0.6) : textColor.withOpacity(0.3)),
+                                                                                                                        style: GoogleFonts.robotoCondensed(fontSize: media.width * twelve, color: (isDarkTheme == true) ? textColor.withOpacity(0.6) : textColor.withOpacity(0.3)),
                                                                                                                       ),
                                                                                                               ],
                                                                                                             ),
@@ -1736,7 +1738,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                                                                   children: [
                                                                                                                     Text(
                                                                                                                       rentalOption[i]['name'],
-                                                                                                                      style: GoogleFonts.roboto(fontSize: media.width * twelve, color: textColor),
+                                                                                                                      style: GoogleFonts.robotoCondensed(fontSize: media.width * twelve, color: textColor),
                                                                                                                     ),
                                                                                                                     SizedBox(
                                                                                                                       width: media.width * 0.01,
@@ -1755,15 +1757,15 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                                                                   height: media.width * 0.015,
                                                                                                                 ),
                                                                                                                 Text(
-                                                                                                                  rentalOption[i]['currency'] + ' ' + rentalOption[i]['fare_amount'].toStringAsFixed(2),
-                                                                                                                  style: (rentalOption[i]['has_discount'] != true) ? GoogleFonts.roboto(fontSize: media.width * twelve, color: textColor, fontWeight: FontWeight.w600) : GoogleFonts.roboto(fontSize: media.width * twelve, color: textColor, fontWeight: FontWeight.w600, decoration: TextDecoration.lineThrough),
+                                                                                                                  rentalOption[i]['currency'] + ' ' + rentalOption[i]['fare_amount'].toStringAsFixed(0),
+                                                                                                                  style: (rentalOption[i]['has_discount'] != true) ? GoogleFonts.robotoCondensed(fontSize: media.width * twelve, color: textColor, fontWeight: FontWeight.w600) : GoogleFonts.robotoCondensed(fontSize: media.width * twelve, color: textColor, fontWeight: FontWeight.w600, decoration: TextDecoration.lineThrough),
                                                                                                                 ),
                                                                                                                 (rentalOption[i]['has_discount'] == true)
                                                                                                                     ? Container(
                                                                                                                         padding: EdgeInsets.only(top: media.width * 0.015, bottom: media.width * 0.015),
                                                                                                                         child: Text(
-                                                                                                                          rentalOption[i]['currency'] + ' ' + rentalOption[i]['discounted_totel'].toStringAsFixed(2),
-                                                                                                                          style: GoogleFonts.roboto(fontSize: media.width * twelve, color: textColor, fontWeight: FontWeight.w600),
+                                                                                                                          rentalOption[i]['currency'] + ' ' + rentalOption[i]['discounted_totel'].toStringAsFixed(0),
+                                                                                                                          style: GoogleFonts.robotoCondensed(fontSize: media.width * twelve, color: textColor, fontWeight: FontWeight.w600),
                                                                                                                         ),
                                                                                                                       )
                                                                                                                     : Container()
@@ -1808,7 +1810,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                           choosenLanguage]
                                                                       [
                                                                       'text_pick_contact'],
-                                                                  style: GoogleFonts.roboto(
+                                                                  style: GoogleFonts.robotoCondensed(
                                                                       fontSize:
                                                                           media.width *
                                                                               fourteen,
@@ -1859,7 +1861,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                           child:
                                                                               Text(
                                                                             addressList[0].name,
-                                                                            style: GoogleFonts.roboto(
+                                                                            style: GoogleFonts.robotoCondensed(
                                                                                 fontSize: media.width * twelve,
                                                                                 color: buttonColor,
                                                                                 fontWeight: FontWeight.w600),
@@ -1877,7 +1879,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                             children: [
                                                                               Text(
                                                                                 addressList[0].number,
-                                                                                style: GoogleFonts.roboto(fontSize: media.width * twelve, color: buttonColor, fontWeight: FontWeight.w600),
+                                                                                style: GoogleFonts.robotoCondensed(fontSize: media.width * twelve, color: buttonColor, fontWeight: FontWeight.w600),
                                                                                 textAlign: TextAlign.end,
                                                                                 maxLines: 1,
                                                                                 overflow: TextOverflow.ellipsis,
@@ -1908,7 +1910,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                           (addressList[0].instructions != null)
                                                                               ? languages[choosenLanguage]['text_instructions'] + ' : ' + addressList[0].instructions
                                                                               : languages[choosenLanguage]['text_add_instructions'],
-                                                                          style: GoogleFonts.roboto(
+                                                                          style: GoogleFonts.robotoCondensed(
                                                                               fontSize: media.width * twelve,
                                                                               color: buttonColor,
                                                                               fontWeight: FontWeight.w600),
@@ -1952,7 +1954,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                   [
                                                                   'text_payingvia'],
                                                               style: GoogleFonts
-                                                                  .roboto(
+                                                                  .robotoCondensed(
                                                                 color:
                                                                     textColor,
                                                                 fontSize: media
@@ -2024,7 +2026,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                       .toList()[
                                                                           payingVia]
                                                                       .toString(),
-                                                                  style: GoogleFonts.roboto(
+                                                                  style: GoogleFonts.robotoCondensed(
                                                                       fontSize:
                                                                           media.width *
                                                                               fourteen,
@@ -2108,7 +2110,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                           .toList()[
                                                                               payingVia]
                                                                           .toString(),
-                                                                      style: GoogleFonts.roboto(
+                                                                      style: GoogleFonts.robotoCondensed(
                                                                           fontSize: media.width *
                                                                               fourteen,
                                                                           fontWeight: FontWeight
@@ -2168,7 +2170,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                             choosenLanguage]
                                                                         [
                                                                         'text_goods_type'],
-                                                                    style: GoogleFonts.roboto(
+                                                                    style: GoogleFonts.robotoCondensed(
                                                                         fontSize:
                                                                             media.width *
                                                                                 fourteen,
@@ -2211,7 +2213,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                               ' (' +
                                                                               goodsSize +
                                                                               ')',
-                                                                          style: GoogleFonts.roboto(
+                                                                          style: GoogleFonts.robotoCondensed(
                                                                               fontSize: media.width * twelve,
                                                                               color: buttonColor),
                                                                           maxLines:
@@ -2247,6 +2249,8 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                             choosenTransportType ==
                                                                 1)
                                                         ? Button(
+                                                            textcolor:
+                                                                buttonText,
                                                             onTap: () async {
                                                               var val = await Navigator.push(
                                                                   context,
@@ -2698,7 +2702,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                               etaDetails[
                                                                       _showInfoInt]
                                                                   ['name'],
-                                                              style: GoogleFonts.roboto(
+                                                              style: GoogleFonts.robotoCondensed(
                                                                   fontSize: media
                                                                           .width *
                                                                       sixteen,
@@ -2719,7 +2723,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                   [
                                                                   'description'],
                                                               style: GoogleFonts
-                                                                  .roboto(
+                                                                  .robotoCondensed(
                                                                 fontSize: media
                                                                         .width *
                                                                     fourteen,
@@ -2736,7 +2740,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                       choosenLanguage]
                                                                   [
                                                                   'text_supported_vehicles'],
-                                                              style: GoogleFonts.roboto(
+                                                              style: GoogleFonts.robotoCondensed(
                                                                   fontSize: media
                                                                           .width *
                                                                       sixteen,
@@ -2757,7 +2761,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                   [
                                                                   'supported_vehicles'],
                                                               style: GoogleFonts
-                                                                  .roboto(
+                                                                  .robotoCondensed(
                                                                 fontSize: media
                                                                         .width *
                                                                     fourteen,
@@ -2783,7 +2787,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                             choosenLanguage]
                                                                         [
                                                                         'text_estimated_amount'],
-                                                                    style: GoogleFonts.roboto(
+                                                                    style: GoogleFonts.robotoCondensed(
                                                                         fontSize:
                                                                             media.width *
                                                                                 sixteen,
@@ -2804,8 +2808,8 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                           Text(
                                                                             etaDetails[_showInfoInt]['currency'] +
                                                                                 ' ' +
-                                                                                etaDetails[_showInfoInt]['total'].toStringAsFixed(2),
-                                                                            style: GoogleFonts.roboto(
+                                                                                etaDetails[_showInfoInt]['total'].toStringAsFixed(0),
+                                                                            style: GoogleFonts.robotoCondensed(
                                                                                 fontSize: media.width * fourteen,
                                                                                 color: textColor,
                                                                                 fontWeight: FontWeight.w600),
@@ -2819,22 +2823,22 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                           Text(
                                                                             etaDetails[_showInfoInt]['currency'] +
                                                                                 ' ',
-                                                                            style: GoogleFonts.roboto(
+                                                                            style: GoogleFonts.robotoCondensed(
                                                                                 fontSize: media.width * fourteen,
                                                                                 color: textColor,
                                                                                 fontWeight: FontWeight.w600),
                                                                           ),
                                                                           Text(
-                                                                            etaDetails[_showInfoInt]['total'].toStringAsFixed(2),
-                                                                            style: GoogleFonts.roboto(
+                                                                            etaDetails[_showInfoInt]['total'].toStringAsFixed(0),
+                                                                            style: GoogleFonts.robotoCondensed(
                                                                                 fontSize: media.width * fourteen,
                                                                                 color: textColor,
                                                                                 fontWeight: FontWeight.w600,
                                                                                 decoration: TextDecoration.lineThrough),
                                                                           ),
                                                                           Text(
-                                                                            ' ${etaDetails[_showInfoInt]['discounted_totel'].toStringAsFixed(2)}',
-                                                                            style: GoogleFonts.roboto(
+                                                                            ' ${etaDetails[_showInfoInt]['discounted_totel'].toStringAsFixed(0)}',
+                                                                            style: GoogleFonts.robotoCondensed(
                                                                                 fontSize: media.width * fourteen,
                                                                                 color: textColor,
                                                                                 fontWeight: FontWeight.w600),
@@ -2854,7 +2858,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                               rentalOption[
                                                                       _showInfoInt]
                                                                   ['name'],
-                                                              style: GoogleFonts.roboto(
+                                                              style: GoogleFonts.robotoCondensed(
                                                                   fontSize: media
                                                                           .width *
                                                                       sixteen,
@@ -2875,7 +2879,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                   [
                                                                   'description'],
                                                               style: GoogleFonts
-                                                                  .roboto(
+                                                                  .robotoCondensed(
                                                                 fontSize: media
                                                                         .width *
                                                                     fourteen,
@@ -2892,7 +2896,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                       choosenLanguage]
                                                                   [
                                                                   'text_supported_vehicles'],
-                                                              style: GoogleFonts.roboto(
+                                                              style: GoogleFonts.robotoCondensed(
                                                                   fontSize: media
                                                                           .width *
                                                                       sixteen,
@@ -2913,7 +2917,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                   [
                                                                   'supported_vehicles'],
                                                               style: GoogleFonts
-                                                                  .roboto(
+                                                                  .robotoCondensed(
                                                                 fontSize: media
                                                                         .width *
                                                                     fourteen,
@@ -2935,7 +2939,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                           choosenLanguage]
                                                                       [
                                                                       'text_estimated_amount'],
-                                                                  style: GoogleFonts.roboto(
+                                                                  style: GoogleFonts.robotoCondensed(
                                                                       fontSize:
                                                                           media.width *
                                                                               sixteen,
@@ -2956,8 +2960,8 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                           Text(
                                                                             rentalOption[_showInfoInt]['currency'] +
                                                                                 ' ' +
-                                                                                rentalOption[_showInfoInt]['fare_amount'].toStringAsFixed(2),
-                                                                            style: GoogleFonts.roboto(
+                                                                                rentalOption[_showInfoInt]['fare_amount'].toStringAsFixed(0),
+                                                                            style: GoogleFonts.robotoCondensed(
                                                                                 fontSize: media.width * fourteen,
                                                                                 color: textColor,
                                                                                 fontWeight: FontWeight.w600),
@@ -2970,22 +2974,22 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                         children: [
                                                                           Text(
                                                                             rentalOption[_showInfoInt]['currency'],
-                                                                            style: GoogleFonts.roboto(
+                                                                            style: GoogleFonts.robotoCondensed(
                                                                                 fontSize: media.width * fourteen,
                                                                                 color: textColor,
                                                                                 fontWeight: FontWeight.w600),
                                                                           ),
                                                                           Text(
-                                                                            ' ${rentalOption[_showInfoInt]['fare_amount'].toStringAsFixed(2)}',
-                                                                            style: GoogleFonts.roboto(
+                                                                            ' ${rentalOption[_showInfoInt]['fare_amount'].toStringAsFixed(0)}',
+                                                                            style: GoogleFonts.robotoCondensed(
                                                                                 fontSize: media.width * fourteen,
                                                                                 color: textColor,
                                                                                 fontWeight: FontWeight.w600,
                                                                                 decoration: TextDecoration.lineThrough),
                                                                           ),
                                                                           Text(
-                                                                            ' ${rentalOption[_showInfoInt]['discounted_totel'].toStringAsFixed(2)}',
-                                                                            style: GoogleFonts.roboto(
+                                                                            ' ${rentalOption[_showInfoInt]['discounted_totel'].toStringAsFixed(0)}',
+                                                                            style: GoogleFonts.robotoCondensed(
                                                                                 fontSize: media.width * fourteen,
                                                                                 color: textColor,
                                                                                 fontWeight: FontWeight.w600),
@@ -3055,17 +3059,20 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                 Text(
                                                   languages[choosenLanguage]
                                                       ['text_nodriver'],
-                                                  style: GoogleFonts.roboto(
-                                                      fontSize: media.width *
-                                                          eighteen,
-                                                      fontWeight:
-                                                          FontWeight.w600,
-                                                      color: textColor),
+                                                  style: GoogleFonts
+                                                      .robotoCondensed(
+                                                          fontSize:
+                                                              media.width *
+                                                                  eighteen,
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                          color: textColor),
                                                 ),
                                                 SizedBox(
                                                   height: media.width * 0.05,
                                                 ),
                                                 Button(
+                                                    textcolor: buttonText,
                                                     onTap: () {
                                                       setState(() {
                                                         noDriverFound = false;
@@ -3134,13 +3141,15 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                       languages[choosenLanguage]
                                                           [
                                                           'text_internal_server_error'],
-                                                      style: GoogleFonts.roboto(
-                                                          fontSize:
-                                                              media.width *
-                                                                  eighteen,
-                                                          fontWeight:
-                                                              FontWeight.w600,
-                                                          color: textColor),
+                                                      style: GoogleFonts
+                                                          .robotoCondensed(
+                                                              fontSize:
+                                                                  media.width *
+                                                                      eighteen,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w600,
+                                                              color: textColor),
                                                       textAlign:
                                                           TextAlign.center),
                                                 ),
@@ -3148,6 +3157,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                   height: media.width * 0.05,
                                                 ),
                                                 Button(
+                                                    textcolor: buttonText,
                                                     onTap: () {
                                                       setState(() {
                                                         tripReqError = false;
@@ -3215,13 +3225,15 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                   child: Text(
                                                       languages[choosenLanguage]
                                                           ['text_no_service'],
-                                                      style: GoogleFonts.roboto(
-                                                          fontSize:
-                                                              media.width *
-                                                                  eighteen,
-                                                          fontWeight:
-                                                              FontWeight.w600,
-                                                          color: textColor),
+                                                      style: GoogleFonts
+                                                          .robotoCondensed(
+                                                              fontSize:
+                                                                  media.width *
+                                                                      eighteen,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w600,
+                                                              color: textColor),
                                                       textAlign:
                                                           TextAlign.center),
                                                 ),
@@ -3229,6 +3241,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                   height: media.width * 0.05,
                                                 ),
                                                 Button(
+                                                    textcolor: buttonText,
                                                     onTap: () async {
                                                       setState(() {
                                                         serviceNotAvailable =
@@ -3347,7 +3360,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                       choosenLanguage]
                                                                   [
                                                                   'text_paymentmethod'],
-                                                              style: GoogleFonts.roboto(
+                                                              style: GoogleFonts.robotoCondensed(
                                                                   fontSize: media
                                                                           .width *
                                                                       twenty,
@@ -3367,7 +3380,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                       choosenLanguage]
                                                                   [
                                                                   'text_choose_paynoworlater'],
-                                                              style: GoogleFonts.roboto(
+                                                              style: GoogleFonts.robotoCondensed(
                                                                   fontSize: media
                                                                           .width *
                                                                       twelve,
@@ -3440,7 +3453,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                                             children: [
                                                                                               Text(
                                                                                                 etaDetails[choosenVehicle]['payment_type'].toString().split(',').toList()[i].toString(),
-                                                                                                style: GoogleFonts.roboto(fontSize: media.width * fourteen, fontWeight: FontWeight.w600, color: textColor),
+                                                                                                style: GoogleFonts.robotoCondensed(fontSize: media.width * fourteen, fontWeight: FontWeight.w600, color: textColor),
                                                                                               ),
                                                                                               Text(
                                                                                                 (etaDetails[choosenVehicle]['payment_type'].toString().split(',').toList()[i] == 'cash')
@@ -3452,7 +3465,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                                                             : (etaDetails[choosenVehicle]['payment_type'].toString().split(',').toList()[i] == 'upi')
                                                                                                                 ? languages[choosenLanguage]['text_payupi']
                                                                                                                 : '',
-                                                                                                style: GoogleFonts.roboto(fontSize: media.width * ten, color: textColor),
+                                                                                                style: GoogleFonts.robotoCondensed(fontSize: media.width * ten, color: textColor),
                                                                                               )
                                                                                             ],
                                                                                           ),
@@ -3532,7 +3545,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                                             children: [
                                                                                               Text(
                                                                                                 rentalOption[choosenVehicle]['payment_type'].toString().split(',').toList()[i].toString(),
-                                                                                                style: GoogleFonts.roboto(fontSize: media.width * fourteen, fontWeight: FontWeight.w600, color: textColor),
+                                                                                                style: GoogleFonts.robotoCondensed(fontSize: media.width * fourteen, fontWeight: FontWeight.w600, color: textColor),
                                                                                               ),
                                                                                               Text(
                                                                                                 (rentalOption[choosenVehicle]['payment_type'].toString().split(',').toList()[i] == 'cash')
@@ -3544,7 +3557,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                                                             : (rentalOption[choosenVehicle]['payment_type'].toString().split(',').toList()[i] == 'upi')
                                                                                                                 ? languages[choosenLanguage]['text_payupi']
                                                                                                                 : '',
-                                                                                                style: GoogleFonts.roboto(fontSize: media.width * ten, color: textColor),
+                                                                                                style: GoogleFonts.robotoCondensed(fontSize: media.width * ten, color: textColor),
                                                                                               )
                                                                                             ],
                                                                                           ),
@@ -3632,9 +3645,9 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                             decoration: InputDecoration(
                                                                                 border: InputBorder.none,
                                                                                 hintText: languages[choosenLanguage]['text_enterpromo'],
-                                                                                hintStyle: GoogleFonts.roboto(fontSize: media.width * twelve, color: (isDarkTheme == true) ? textColor.withOpacity(0.5) : hintColor)),
+                                                                                hintStyle: GoogleFonts.robotoCondensed(fontSize: media.width * twelve, color: (isDarkTheme == true) ? textColor.withOpacity(0.5) : hintColor)),
                                                                             style:
-                                                                                GoogleFonts.roboto(color: textColor),
+                                                                                GoogleFonts.robotoCondensed(color: textColor),
                                                                           )
                                                                         : (promoStatus ==
                                                                                 1)
@@ -3645,8 +3658,8 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                                   children: [
                                                                                     Column(
                                                                                       children: [
-                                                                                        Text(promoKey.text, style: GoogleFonts.roboto(fontSize: media.width * ten, color: const Color(0xff319900))),
-                                                                                        Text(languages[choosenLanguage]['text_promoaccepted'], style: GoogleFonts.roboto(fontSize: media.width * ten, color: const Color(0xff319900))),
+                                                                                        Text(promoKey.text, style: GoogleFonts.robotoCondensed(fontSize: media.width * ten, color: const Color(0xff319900))),
+                                                                                        Text(languages[choosenLanguage]['text_promoaccepted'], style: GoogleFonts.robotoCondensed(fontSize: media.width * ten, color: const Color(0xff319900))),
                                                                                       ],
                                                                                     ),
                                                                                     InkWell(
@@ -3670,7 +3683,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                                           }
                                                                                         });
                                                                                       },
-                                                                                      child: Text(languages[choosenLanguage]['text_remove'], style: GoogleFonts.roboto(fontSize: media.width * twelve, color: const Color(0xff319900))),
+                                                                                      child: Text(languages[choosenLanguage]['text_remove'], style: GoogleFonts.robotoCondensed(fontSize: media.width * twelve, color: const Color(0xff319900))),
                                                                                     )
                                                                                   ],
                                                                                 ),
@@ -3681,7 +3694,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                                     child: Row(
                                                                                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                                                       children: [
-                                                                                        Text(promoKey.text, style: GoogleFonts.roboto(fontSize: media.width * twelve, color: const Color(0xffFF0000))),
+                                                                                        Text(promoKey.text, style: GoogleFonts.robotoCondensed(fontSize: media.width * twelve, color: const Color(0xffFF0000))),
                                                                                         InkWell(
                                                                                           onTap: () async {
                                                                                             setState(() {
@@ -3701,7 +3714,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                                             }
                                                                                             setState(() {});
                                                                                           },
-                                                                                          child: Text(languages[choosenLanguage]['text_remove'], style: GoogleFonts.roboto(fontSize: media.width * twelve, color: const Color(0xffFF0000))),
+                                                                                          child: Text(languages[choosenLanguage]['text_remove'], style: GoogleFonts.robotoCondensed(fontSize: media.width * twelve, color: const Color(0xffFF0000))),
                                                                                         )
                                                                                       ],
                                                                                     ),
@@ -3728,7 +3741,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                         languages[choosenLanguage]
                                                                             [
                                                                             'text_promorejected'],
-                                                                        style: GoogleFonts.roboto(
+                                                                        style: GoogleFonts.robotoCondensed(
                                                                             fontSize: media.width *
                                                                                 ten,
                                                                             color:
@@ -3741,6 +3754,8 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                       0.02,
                                                             ),
                                                             Button(
+                                                                textcolor:
+                                                                    buttonText,
                                                                 onTap:
                                                                     () async {
                                                                   if (promoCode ==
@@ -3905,7 +3920,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                     : languages[choosenLanguage]
                                                                         ['text_onride']
                                                                 : '',
-                                                    style: GoogleFonts.roboto(
+                                                    style: GoogleFonts.robotoCondensed(
                                                       fontSize:
                                                           media.width * twelve,
                                                       color: (userRequestData[
@@ -3973,12 +3988,14 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                 Text(
                                                   languages[choosenLanguage]
                                                       ['text_findingdriver'],
-                                                  style: GoogleFonts.roboto(
-                                                      fontSize: media.width *
-                                                          fourteen,
-                                                      color: textColor,
-                                                      fontWeight:
-                                                          FontWeight.w600),
+                                                  style: GoogleFonts
+                                                      .robotoCondensed(
+                                                          fontSize:
+                                                              media.width *
+                                                                  fourteen,
+                                                          color: textColor,
+                                                          fontWeight:
+                                                              FontWeight.w600),
                                                 ),
                                                 SizedBox(
                                                   height: media.height * 0.02,
@@ -4030,7 +4047,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                     (timing != null)
                                                         ? Text(
                                                             '${Duration(seconds: timing).toString().substring(3, 7)} mins',
-                                                            style: GoogleFonts.roboto(
+                                                            style: GoogleFonts.robotoCondensed(
                                                                 fontSize: media
                                                                         .width *
                                                                     ten,
@@ -4047,7 +4064,8 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                 Text(
                                                   languages[choosenLanguage]
                                                       ['text_finddriverdesc'],
-                                                  style: GoogleFonts.roboto(
+                                                  style: GoogleFonts
+                                                      .robotoCondensed(
                                                     fontSize:
                                                         media.width * twelve,
                                                     color: textColor,
@@ -4059,6 +4077,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                   height: media.height * 0.02,
                                                 ),
                                                 Button(
+                                                    textcolor: buttonText,
                                                     width: media.width * 0.5,
                                                     onTap: () async {
                                                       var val =
@@ -4151,7 +4170,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                     userRequestData[
                                                                             'ride_otp']
                                                                         .toString(),
-                                                                style: GoogleFonts.roboto(
+                                                                style: GoogleFonts.robotoCondensed(
                                                                     fontSize: media
                                                                             .width *
                                                                         fourteen,
@@ -4201,7 +4220,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                             'driverDetail']
                                                                         ['data']
                                                                     ['name'],
-                                                                style: GoogleFonts.roboto(
+                                                                style: GoogleFonts.robotoCondensed(
                                                                     fontSize: media
                                                                             .width *
                                                                         eighteen,
@@ -4218,11 +4237,12 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                               Row(
                                                                 children: [
                                                                   Text(
-                                                                    userRequestData['driverDetail']['data']
-                                                                            [
-                                                                            'rating']
-                                                                        .toString(),
-                                                                    style: GoogleFonts.roboto(
+                                                                    userRequestData['driverDetail']['data']['rating'] ==
+                                                                            null
+                                                                        ? ''
+                                                                        : userRequestData['driverDetail']['data']['rating']
+                                                                            .toString(),
+                                                                    style: GoogleFonts.robotoCondensed(
                                                                         fontSize:
                                                                             media.width *
                                                                                 twelve,
@@ -4266,10 +4286,8 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                               0.01),
                                                                       child:
                                                                           Text(
-                                                                        userRequestData['driverDetail']['data']
-                                                                            [
-                                                                            'car_number'],
-                                                                        style: GoogleFonts.roboto(
+                                                                        "${userRequestData['driverDetail']['data']['car_number']}",
+                                                                        style: GoogleFonts.robotoCondensed(
                                                                             fontSize: media.width *
                                                                                 fourteen,
                                                                             fontWeight:
@@ -4281,16 +4299,10 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                         height: media.width *
                                                                             0.03),
                                                                     Text(
-                                                                      userRequestData['driverDetail']['data']['car_color'] +
-                                                                          ' ' +
-                                                                          userRequestData['driverDetail']['data']
-                                                                              [
-                                                                              'car_make_name'] +
-                                                                          ' ' +
-                                                                          userRequestData['driverDetail']['data']
-                                                                              [
-                                                                              'car_model_name'],
-                                                                      style: GoogleFonts.roboto(
+                                                                       "${userRequestData['driverDetail']['data']['car_color']} "
+                                                                      "${userRequestData['driverDetail']['data']['car_make_name']} "
+                                                                      "${userRequestData['driverDetail']['data']['car_model_name']}",
+                                                                      style: GoogleFonts.robotoCondensed(
                                                                           fontSize: media.width *
                                                                               twelve,
                                                                           color:
@@ -4411,7 +4423,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                             (chatList.where((element) => element['from_type'] == 2 && element['seen'] == 0).isEmpty)
                                                                                 ? languages[choosenLanguage]['text_pickup_instruction']
                                                                                 : languages[choosenLanguage]['text_newmessagereceived'],
-                                                                            style: GoogleFonts.roboto(
+                                                                            style: GoogleFonts.robotoCondensed(
                                                                                 fontSize: media.width * twelve,
                                                                                 color: (chatList.where((element) => element['from_type'] == 2 && element['seen'] == 0).isEmpty)
                                                                                     ? (isDarkTheme == true)
@@ -4427,7 +4439,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                               )
                                                                             : Text(
                                                                                 chatList.where((element) => element['from_type'] == 2 && element['seen'] == 0).length.toString(),
-                                                                                style: GoogleFonts.roboto(fontSize: media.width * twelve, color: const Color(0xffFF0000)),
+                                                                                style: GoogleFonts.robotoCondensed(fontSize: media.width * twelve, color: const Color(0xffFF0000)),
                                                                               )
                                                                       ],
                                                                     ),
@@ -4497,7 +4509,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                             Text(
                                                                           userRequestData[
                                                                               'pick_address'],
-                                                                          style: GoogleFonts.roboto(
+                                                                          style: GoogleFonts.robotoCondensed(
                                                                               fontSize: media.width * twelve,
                                                                               color: textColor),
                                                                           maxLines:
@@ -4529,13 +4541,13 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                                               children: [
                                                                                                 Text(
                                                                                                   (i + 1).toString(),
-                                                                                                  style: GoogleFonts.roboto(fontSize: media.width * twelve, color: const Color(0xffFF0000)),
+                                                                                                  style: GoogleFonts.robotoCondensed(fontSize: media.width * twelve, color: const Color(0xffFF0000)),
                                                                                                 ),
                                                                                                 SizedBox(
                                                                                                   width: media.width * 0.75,
                                                                                                   child: Text(
                                                                                                     tripStops[i]['address'],
-                                                                                                    style: GoogleFonts.roboto(fontSize: media.width * twelve, color: textColor),
+                                                                                                    style: GoogleFonts.robotoCondensed(fontSize: media.width * twelve, color: textColor),
                                                                                                     maxLines: 1,
                                                                                                     overflow: TextOverflow.ellipsis,
                                                                                                   ),
@@ -4572,7 +4584,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                               width: media.width * 0.75,
                                                                               child: Text(
                                                                                 userRequestData['drop_address'],
-                                                                                style: GoogleFonts.roboto(fontSize: media.width * twelve, color: textColor),
+                                                                                style: GoogleFonts.robotoCondensed(fontSize: media.width * twelve, color: textColor),
                                                                                 maxLines: 1,
                                                                                 overflow: TextOverflow.ellipsis,
                                                                               ),
@@ -4642,7 +4654,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                                     ),
                                                                                     Text(
                                                                                       languages[choosenLanguage]['text_cancel'],
-                                                                                      style: GoogleFonts.roboto(fontSize: media.width * ten, fontWeight: FontWeight.w600, color: textColor),
+                                                                                      style: GoogleFonts.robotoCondensed(fontSize: media.width * ten, fontWeight: FontWeight.w600, color: textColor),
                                                                                     )
                                                                                   ],
                                                                                 ),
@@ -4696,7 +4708,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                         [
                                                                         'text_payingvia'],
                                                                     style: GoogleFonts
-                                                                        .roboto(
+                                                                        .robotoCondensed(
                                                                       fontSize:
                                                                           media.width *
                                                                               twelve,
@@ -4732,11 +4744,11 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                           (userRequestData.isEmpty)
                                                                               ? Text(
                                                                                   etaDetails[choosenVehicle]['payment_type'].toString().split(',').toList()[payingVia].toString(),
-                                                                                  style: GoogleFonts.roboto(fontSize: media.width * fourteen, fontWeight: FontWeight.w600, color: textColor),
+                                                                                  style: GoogleFonts.robotoCondensed(fontSize: media.width * fourteen, fontWeight: FontWeight.w600, color: textColor),
                                                                                 )
                                                                               : Text(
                                                                                   userRequestData['payment_type_string'],
-                                                                                  style: GoogleFonts.roboto(fontSize: media.width * fourteen, fontWeight: FontWeight.w600, color: textColor),
+                                                                                  style: GoogleFonts.robotoCondensed(fontSize: media.width * fourteen, fontWeight: FontWeight.w600, color: textColor),
                                                                                 ),
                                                                           Text(
                                                                             (userRequestData['payment_opt'] == '1')
@@ -4747,7 +4759,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                                         ? languages[choosenLanguage]['text_paycard']
                                                                                         : '',
                                                                             style:
-                                                                                GoogleFonts.roboto(fontSize: media.width * ten, color: textColor),
+                                                                                GoogleFonts.robotoCondensed(fontSize: media.width * ten, color: textColor),
                                                                           )
                                                                         ],
                                                                       ),
@@ -4975,7 +4987,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                         choosenLanguage]
                                                                     [
                                                                     'text_cancelRideReason'],
-                                                                hintStyle: GoogleFonts.roboto(
+                                                                hintStyle: GoogleFonts.robotoCondensed(
                                                                     color: textColor
                                                                         .withOpacity(
                                                                             0.4),
@@ -4983,7 +4995,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                             .width *
                                                                         twelve)),
                                                             style: GoogleFonts
-                                                                .roboto(
+                                                                .robotoCondensed(
                                                                     color:
                                                                         textColor),
                                                             maxLines: 4,
@@ -5002,19 +5014,20 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                           padding: EdgeInsets.only(
                                                               top: media.width *
                                                                   0.02,
-                                                              bottom:
-                                                                  media.width *
-                                                                      0.02),
+                                                              bottom: media
+                                                                      .width *
+                                                                  0.02),
                                                           width:
                                                               media.width * 0.9,
                                                           child: Text(
                                                               _cancellingError,
-                                                              style: GoogleFonts.roboto(
-                                                                  fontSize: media
-                                                                          .width *
-                                                                      twelve,
-                                                                  color: Colors
-                                                                      .red)))
+                                                              style: GoogleFonts
+                                                                  .robotoCondensed(
+                                                                      fontSize:
+                                                                          media.width *
+                                                                              twelve,
+                                                                      color: Colors
+                                                                          .red)))
                                                       : Container(),
                                                   Row(
                                                     mainAxisAlignment:
@@ -5083,6 +5096,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                   choosenLanguage]
                                                               ['text_cancel']),
                                                       Button(
+                                                          textcolor: buttonText,
                                                           width: media.width *
                                                               0.39,
                                                           onTap: () {
@@ -5181,6 +5195,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                     padding: EdgeInsets.all(
                                                         media.width * 0.05),
                                                     child: Button(
+                                                        textcolor: buttonText,
                                                         onTap: () {
                                                           setState(() {
                                                             _dateTimePicker =
@@ -5259,7 +5274,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                             [
                                                             'text_confirmridelater'],
                                                         style: GoogleFonts
-                                                            .roboto(
+                                                            .robotoCondensed(
                                                                 fontSize: media
                                                                         .width *
                                                                     fourteen,
@@ -5275,8 +5290,8 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                             .format(
                                                                 choosenDateTime)
                                                             .toString(),
-                                                        style:
-                                                            GoogleFonts.roboto(
+                                                        style: GoogleFonts
+                                                            .robotoCondensed(
                                                                 fontSize: media
                                                                         .width *
                                                                     sixteen,
@@ -5291,6 +5306,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                             media.width * 0.05,
                                                       ),
                                                       Button(
+                                                          textcolor: buttonText,
                                                           onTap: () async {
                                                             if (widget.type !=
                                                                 1) {
@@ -5932,8 +5948,8 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                 choosenLanguage]
                                                             [
                                                             'text_rideLaterSuccess'],
-                                                        style:
-                                                            GoogleFonts.roboto(
+                                                        style: GoogleFonts
+                                                            .robotoCondensed(
                                                                 fontSize: media
                                                                         .width *
                                                                     fourteen,
@@ -5948,6 +5964,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                             media.width * 0.05,
                                                       ),
                                                       Button(
+                                                          textcolor: buttonText,
                                                           onTap: () {
                                                             addressList.removeWhere(
                                                                 (element) =>
@@ -6085,14 +6102,14 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                           children: [
                                                                             Text(
                                                                               languages[choosenLanguage]['text_notifyadmin'],
-                                                                              style: GoogleFonts.roboto(fontSize: media.width * sixteen, color: textColor, fontWeight: FontWeight.w600),
+                                                                              style: GoogleFonts.robotoCondensed(fontSize: media.width * sixteen, color: textColor, fontWeight: FontWeight.w600),
                                                                             ),
                                                                             (notifyCompleted == true)
                                                                                 ? Container(
                                                                                     padding: EdgeInsets.only(top: media.width * 0.01),
                                                                                     child: Text(
                                                                                       languages[choosenLanguage]['text_notifysuccess'],
-                                                                                      style: GoogleFonts.roboto(
+                                                                                      style: GoogleFonts.robotoCondensed(
                                                                                         fontSize: media.width * twelve,
                                                                                         color: const Color(0xff319900),
                                                                                       ),
@@ -6133,7 +6150,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                                                 width: media.width * 0.4,
                                                                                                 child: Text(
                                                                                                   sosData[i]['name'],
-                                                                                                  style: GoogleFonts.roboto(fontSize: media.width * fourteen, color: textColor, fontWeight: FontWeight.w600),
+                                                                                                  style: GoogleFonts.robotoCondensed(fontSize: media.width * fourteen, color: textColor, fontWeight: FontWeight.w600),
                                                                                                 ),
                                                                                               ),
                                                                                               SizedBox(
@@ -6141,7 +6158,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                                               ),
                                                                                               Text(
                                                                                                 sosData[i]['number'],
-                                                                                                style: GoogleFonts.roboto(
+                                                                                                style: GoogleFonts.robotoCondensed(
                                                                                                   fontSize: media.width * twelve,
                                                                                                   color: textColor,
                                                                                                 ),
@@ -6167,7 +6184,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                           languages[choosenLanguage]
                                                                               [
                                                                               'text_noDataFound'],
-                                                                          style: GoogleFonts.roboto(
+                                                                          style: GoogleFonts.robotoCondensed(
                                                                               fontSize: media.width * eighteen,
                                                                               fontWeight: FontWeight.w600,
                                                                               color: textColor),
@@ -6251,14 +6268,16 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                   choosenLanguage]
                                                               [
                                                               'text_open_loc_settings'],
-                                                          style: GoogleFonts.roboto(
-                                                              fontSize:
-                                                                  media.width *
+                                                          style: GoogleFonts
+                                                              .robotoCondensed(
+                                                                  fontSize: media
+                                                                          .width *
                                                                       sixteen,
-                                                              color: textColor,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w600),
+                                                                  color:
+                                                                      textColor,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w600),
                                                         )),
                                                     SizedBox(
                                                         height:
@@ -6278,7 +6297,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                       choosenLanguage]
                                                                   [
                                                                   'text_open_settings'],
-                                                              style: GoogleFonts.roboto(
+                                                              style: GoogleFonts.robotoCondensed(
                                                                   fontSize: media
                                                                           .width *
                                                                       sixteen,
@@ -6311,7 +6330,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                               languages[
                                                                       choosenLanguage]
                                                                   ['text_done'],
-                                                              style: GoogleFonts.roboto(
+                                                              style: GoogleFonts.robotoCondensed(
                                                                   fontSize: media
                                                                           .width *
                                                                       sixteen,
@@ -6357,13 +6376,14 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                     choosenLanguage]
                                                                 [
                                                                 'text_confirm_details'],
-                                                            style: GoogleFonts.roboto(
-                                                                fontSize: media
-                                                                        .width *
-                                                                    sixteen,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w600)),
+                                                            style: GoogleFonts
+                                                                .robotoCondensed(
+                                                                    fontSize: media
+                                                                            .width *
+                                                                        sixteen,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w600)),
                                                         (addressList.length <
                                                                     5 &&
                                                                 widget.type !=
@@ -6394,7 +6414,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                             [
                                                                             'text_add_stop'] +
                                                                         ' +',
-                                                                    style: GoogleFonts.roboto(
+                                                                    style: GoogleFonts.robotoCondensed(
                                                                         fontSize:
                                                                             media.width *
                                                                                 sixteen,
@@ -6502,7 +6522,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                               addressList[0]
                                                                   .address
                                                                   .toString(),
-                                                              style: GoogleFonts.roboto(
+                                                              style: GoogleFonts.robotoCondensed(
                                                                   color:
                                                                       textColor,
                                                                   fontSize: media
@@ -6687,7 +6707,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                                     Expanded(
                                                                                       child: Text(
                                                                                         addressList[i].address.toString(),
-                                                                                        style: GoogleFonts.roboto(fontSize: media.width * twelve, color: textColor),
+                                                                                        style: GoogleFonts.robotoCondensed(fontSize: media.width * twelve, color: textColor),
                                                                                         maxLines: 1,
                                                                                         overflow: TextOverflow.ellipsis,
                                                                                       ),
@@ -6724,6 +6744,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                             .toList()),
                                                   ),
                                                   Button(
+                                                      textcolor: buttonText,
                                                       onTap: () async {
                                                         setState(() {
                                                           _isLoading = true;
@@ -6863,7 +6884,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                           children: [
                                                             Text(
                                                               'Give User Data',
-                                                              style: GoogleFonts.roboto(
+                                                              style: GoogleFonts.robotoCondensed(
                                                                   color:
                                                                       textColor,
                                                                   fontSize: media
@@ -6944,9 +6965,8 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                             hintText: languages[
                                                                     choosenLanguage]
                                                                 ['text_name'],
-                                                            hintStyle:
-                                                                GoogleFonts
-                                                                    .roboto(
+                                                            hintStyle: GoogleFonts
+                                                                .robotoCondensed(
                                                               fontSize:
                                                                   media.width *
                                                                       twelve,
@@ -6959,7 +6979,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                               TextAlignVertical
                                                                   .center,
                                                           style: GoogleFonts
-                                                              .roboto(
+                                                              .robotoCondensed(
                                                                   color:
                                                                       textColor,
                                                                   fontSize: media
@@ -7015,7 +7035,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                     choosenLanguage]
                                                                 [
                                                                 'text_givenumber'],
-                                                            hintStyle: GoogleFonts.roboto(
+                                                            hintStyle: GoogleFonts.robotoCondensed(
                                                                 color: textColor
                                                                     .withOpacity(
                                                                         0.4),
@@ -7028,7 +7048,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                               TextAlignVertical
                                                                   .center,
                                                           style: GoogleFonts
-                                                              .roboto(
+                                                              .robotoCondensed(
                                                                   color:
                                                                       textColor,
                                                                   fontSize: media
@@ -7080,7 +7100,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                     choosenLanguage]
                                                                 [
                                                                 'text_instructions'],
-                                                            hintStyle: GoogleFonts.roboto(
+                                                            hintStyle: GoogleFonts.robotoCondensed(
                                                                 color: textColor
                                                                     .withOpacity(
                                                                         0.4),
@@ -7092,7 +7112,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                               TextAlignVertical
                                                                   .center,
                                                           style: GoogleFonts
-                                                              .roboto(
+                                                              .robotoCondensed(
                                                                   color:
                                                                       textColor,
                                                                   fontSize: media
@@ -7107,6 +7127,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                             media.width * 0.03,
                                                       ),
                                                       Button(
+                                                          textcolor: buttonText,
                                                           onTap: () async {
                                                             setState(() {
                                                               addressList[0]
@@ -7227,14 +7248,16 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                   choosenLanguage]
                                                               [
                                                               'text_pickpoint'],
-                                                          style: GoogleFonts.roboto(
-                                                              color: textColor,
-                                                              fontSize:
-                                                                  media.width *
+                                                          style: GoogleFonts
+                                                              .robotoCondensed(
+                                                                  color:
+                                                                      textColor,
+                                                                  fontSize: media
+                                                                          .width *
                                                                       twelve,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .bold),
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .bold),
                                                         ),
                                                         (userRequestData
                                                                 .isNotEmpty)
@@ -7246,7 +7269,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                     TextOverflow
                                                                         .fade,
                                                                 softWrap: false,
-                                                                style: GoogleFonts.roboto(
+                                                                style: GoogleFonts.robotoCondensed(
                                                                     color:
                                                                         textColor,
                                                                     fontSize: media
@@ -7271,7 +7294,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                             .fade,
                                                                     softWrap:
                                                                         false,
-                                                                    style: GoogleFonts.roboto(
+                                                                    style: GoogleFonts.robotoCondensed(
                                                                         color:
                                                                             textColor,
                                                                         fontSize:
@@ -7351,7 +7374,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                                 children: [
                                                                                   Text(
                                                                                     languages[choosenLanguage]['text_droppoint'],
-                                                                                    style: GoogleFonts.roboto(fontSize: media.width * twelve, fontWeight: FontWeight.bold, color: textColor),
+                                                                                    style: GoogleFonts.robotoCondensed(fontSize: media.width * twelve, fontWeight: FontWeight.bold, color: textColor),
                                                                                   ),
                                                                                   (addressList[i].address.isNotEmpty)
                                                                                       ? Text(
@@ -7359,7 +7382,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                                           maxLines: 1,
                                                                                           overflow: TextOverflow.fade,
                                                                                           softWrap: false,
-                                                                                          style: GoogleFonts.roboto(fontSize: media.width * twelve, color: textColor),
+                                                                                          style: GoogleFonts.robotoCondensed(fontSize: media.width * twelve, color: textColor),
                                                                                         )
                                                                                       : Container(),
                                                                                 ],
@@ -7370,7 +7393,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                       )
                                                                     : Text(
                                                                         (i).toString(),
-                                                                        style: GoogleFonts.roboto(
+                                                                        style: GoogleFonts.robotoCondensed(
                                                                             fontSize: media.width *
                                                                                 sixteen,
                                                                             fontWeight:
@@ -7445,7 +7468,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                       .center,
                                                               child: Text(
                                                                 "${etaDetails[0]['distance'].toString()} ${etaDetails[0]['unit_in_words'].toString()} ",
-                                                                style: GoogleFonts.roboto(
+                                                                style: GoogleFonts.robotoCondensed(
                                                                     color:
                                                                         textColor,
                                                                     fontSize: media

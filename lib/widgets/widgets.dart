@@ -52,7 +52,7 @@ class _ButtonState extends State<Button> {
           fit: BoxFit.contain,
           child: Text(
             widget.text,
-            style: GoogleFonts.roboto(
+            style: GoogleFonts.robotoCondensed(
                 fontSize: media.width * sixteen,
                 color: (widget.textcolor != null)
                     ? widget.textcolor
@@ -132,12 +132,12 @@ class _InputFieldState extends State<InputField> {
                 )
               : null,
           hintText: widget.text,
-          hintStyle: GoogleFonts.roboto(
+          hintStyle: GoogleFonts.robotoCondensed(
             fontSize: media.width * sixteen,
             color:
                 (isDarkTheme == true) ? textColor.withOpacity(0.4) : hintColor,
           )),
-      style: GoogleFonts.roboto(color: textColor),
+      style: GoogleFonts.robotoCondensed(color: textColor),
       onChanged: widget.onTap,
     );
   }

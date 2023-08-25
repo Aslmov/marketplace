@@ -1,7 +1,5 @@
 // ignore_for_file: deprecated_member_use
-
 import 'dart:convert';
-
 import 'dart:io';
 import 'dart:math';
 import 'package:audioplayers/audioplayers.dart';
@@ -29,6 +27,10 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:tagxisuperuser/styles/styles.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:tagxisuperuser/pages/NavigatorPages/walletpage.dart';
+import '../pages/mobileMoney/mobile_money.dart';
+import '../translations/translation_choose_goods.dart';
+import 'package:uuid/uuid.dart';
 
 //languages code
 dynamic phcode;
@@ -41,8 +43,16 @@ bool internet = true;
 
 //base url
 String url =
-    'http://192.168.1.66:8000/'; //add '/' at the end of the url as 'https://website.com/'
+    //'http://192.168.1.65:8000/'; //add '/' at the end of the url as 'https://website.com/'
+    'https://gochap.app/';
 String mapkey = 'AIzaSyBTDMhiBGTNTieXxW-mI60jqRfhh_UD3aU';
+
+String urlProvider = 'http://31.220.95.109:30030/';
+String xApikey =
+    '6F99E02CFA8D070A65F2350C2B319A75E62962122B6907031A3499A73F6CC05D';
+String xMerchantId = '2f7d981d-3a1f-49a4-b15a-ef6c2ada19f7';
+String xEnv = 'production';
+String merchantApp = '02';
 
 //check internet connection
 
@@ -675,7 +685,7 @@ getUserDetails() async {
       sosData = userDetails['sos']['data'];
       if (userDetails['onTripRequest'] != null) {
         if (userRequestData != userDetails['onTripRequest']['data']) {
-          // audioPlayer.play(audio);
+          audioPlayer.play(audio);
         }
         addressList.clear();
         userRequestData = userDetails['onTripRequest']['data'];
@@ -972,17 +982,36 @@ getlangid() async {
 List storedAutoAddress = [];
 List addAutoFill = [];
 
+Future<String> getCurrentCountryCode() async {
+  try {
+    // var temp = WidgetsBinding.instance.window.locale.countryCode!;
+    var response = await http.get(Uri.parse('http://ip-api.com/json'));
+
+    if (response.statusCode == 200) {
+      return jsonDecode(response.body)['countryCode'];
+    }
+  } catch (e) {}
+
+  return "";
+}
+
 getAutoAddress(input, sessionToken, lat, lng) async {
   dynamic response;
-  var countryCode = userDetails['country_code'];
+  //var countryCode = userDetails['country_code'];
+  var countryCode = await getCurrentCountryCode();
+
   try {
-    if (userDetails['country_code'] == null) {
+    // response = await http.get(Uri.parse(
+    //     'https://maps.googleapis.com/maps/api/place/autocomplete/json?input=$input&library=places&location=$lat%2C$lng&radius=2000&key=$mapkey&sessiontoken=$sessionToken'));
+
+    if (countryCode.isEmpty) {
       response = await http.get(Uri.parse(
           'https://maps.googleapis.com/maps/api/place/autocomplete/json?input=$input&library=places&key=$mapkey&sessiontoken=$sessionToken'));
     } else {
       response = await http.get(Uri.parse(
           'https://maps.googleapis.com/maps/api/place/autocomplete/json?input=$input&library=places&location=$lat%2C$lng&radius=2000&components=country:$countryCode&key=$mapkey&sessiontoken=$sessionToken'));
     }
+
     if (response.statusCode == 200) {
       addAutoFill = jsonDecode(response.body)['predictions'];
       // ignore: avoid_function_literals_in_foreach_calls
@@ -2321,7 +2350,7 @@ getCurrentMessages() async {
             jsonDecode(response.body)['data']
                 .where((element) => element['from_type'] == 2)
                 .length) {
-          // audioPlayer.play(audio);
+          audioPlayer.play(audio);
         }
         chatList = jsonDecode(response.body)['data'];
         valueNotifierBook.incrementNotifier();
@@ -2636,6 +2665,93 @@ getHistoryPages(id) async {
 
       internet = false;
       valueNotifierBook.incrementNotifier();
+    }
+  }
+  return result;
+}
+
+// get Mobile Monney
+
+List providerMM = [];
+
+getProviderMM() async {
+  providerMM.clear();
+  dynamic result;
+  try {
+    await getUserDetails();
+    if (userDetails['active'] == 1) {
+      var response = await http.get(
+          Uri.parse(
+              '${urlProvider}api/paymentMethods/bycountryIsoCode/${userDetails['country_code']}'),
+          headers: {'Authorization': 'Bearer ${bearerToken[0].token}'});
+      if (response.statusCode == 200) {
+        providerMM = jsonDecode(response.body);
+        result = 'success';
+        valueNotifierHome.incrementNotifier();
+      } else {
+        debugPrint(response.body);
+        result = 'failure';
+        valueNotifierHome.incrementNotifier();
+      }
+    }
+  } catch (e) {
+    if (e is SocketException) {
+      internet = false;
+      result = 'no internet';
+      valueNotifierHome.incrementNotifier();
+    }
+  }
+  return result;
+}
+
+Uint8List convertImageProvider(var image) {
+  Uint8List bytes = base64Decode(image);
+  return bytes;
+}
+
+mobileMoneyToWallet() async {
+  dynamic result;
+  var pays;
+  var code;
+  try {
+    await getUserDetails();
+    if (userDetails['active'] == 1) {
+      code = userDetails['country_code'];
+      await getCountryCode();
+      pays = countries.where((element) => element['code'] == code).first;
+      var response =
+          await http.post(Uri.parse('${urlProvider}api/Transactionsts/Payment'),
+              headers: {
+                'x-apikey': xApikey,
+                'x-merchantId': xMerchantId,
+                'environnment': xEnv,
+                'Content-Type': 'application/json',
+                'x-token': '${bearerToken[0].token}',
+              },
+              body: jsonEncode({
+                "amount": addMoney,
+                "msisdn": '${pays['dial_code']}${number}',
+                "otp": otp,
+                "name": nameProvider,
+                "type": 'mobile_money',
+                "reference": Uuid().v1(),
+                "countryIsoCode": pays['code'],
+                "merchantApp": merchantApp
+              }));
+      if (response.statusCode == 200 || response.statusCode == 201) {
+        result = 'success';
+        valueNotifierHome.incrementNotifier();
+      } else {
+        debugPrint(response.body);
+        result = 'failure';
+        valueNotifierHome.incrementNotifier();
+      }
+    }
+  } catch (e) {
+    if (e is SocketException) {
+      internet = false;
+      result = 'no internet';
+      valueNotifierHome.incrementNotifier();
     }
   }
   return result;

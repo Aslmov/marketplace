@@ -157,7 +157,7 @@ class _GetStartedState extends State<GetStarted> {
                             width: media.width * 1,
                             child: Text(
                               languages[choosenLanguage]['text_get_started'],
-                              style: GoogleFonts.roboto(
+                              style: GoogleFonts.robotoCondensed(
                                   fontSize: media.width * twentyeight,
                                   fontWeight: FontWeight.bold,
                                   color: textColor),
@@ -168,7 +168,7 @@ class _GetStartedState extends State<GetStarted> {
                           ),
                           Text(
                             languages[choosenLanguage]['text_fill_form'],
-                            style: GoogleFonts.roboto(
+                            style: GoogleFonts.robotoCondensed(
                                 fontSize: media.width * sixteen,
                                 color: textColor.withOpacity(0.3)),
                           ),
@@ -204,7 +204,7 @@ class _GetStartedState extends State<GetStarted> {
                                       child: Text(
                                         languages[choosenLanguage]
                                             ['text_add_photo'],
-                                        style: GoogleFonts.roboto(
+                                        style: GoogleFonts.robotoCondensed(
                                             fontSize: media.width * fourteen,
                                             color: (isDarkTheme == true)
                                                 ? Colors.black
@@ -264,7 +264,7 @@ class _GetStartedState extends State<GetStarted> {
                                       const SizedBox(width: 5),
                                       Text(
                                         email,
-                                        style: GoogleFonts.roboto(
+                                        style: GoogleFonts.robotoCondensed(
                                             fontSize: media.width * sixteen,
                                             color: textColor,
                                             letterSpacing: 2),
@@ -298,10 +298,11 @@ class _GetStartedState extends State<GetStarted> {
                                           children: [
                                             Text(
                                               countries[phcode]['dial_code'],
-                                              style: GoogleFonts.roboto(
-                                                  fontSize:
-                                                      media.width * sixteen,
-                                                  color: textColor),
+                                              style:
+                                                  GoogleFonts.robotoCondensed(
+                                                      fontSize:
+                                                          media.width * sixteen,
+                                                      color: textColor),
                                             ),
                                             const SizedBox(
                                               width: 2,
@@ -314,7 +315,7 @@ class _GetStartedState extends State<GetStarted> {
                                       const SizedBox(width: 10),
                                       Text(
                                         phnumber,
-                                        style: GoogleFonts.roboto(
+                                        style: GoogleFonts.robotoCondensed(
                                             fontSize: media.width * sixteen,
                                             color: textColor,
                                             letterSpacing: 2),
@@ -408,12 +409,12 @@ class _GetStartedState extends State<GetStarted> {
                                                                           languages[choosenLanguage]
                                                                               [
                                                                               'text_search'],
-                                                                      hintStyle: GoogleFonts.roboto(
+                                                                      hintStyle: GoogleFonts.robotoCondensed(
                                                                           color:
                                                                               textColor.withOpacity(0.4),
                                                                           fontSize: media.width * sixteen)),
                                                                   style: GoogleFonts
-                                                                      .roboto(
+                                                                      .robotoCondensed(
                                                                           color:
                                                                               textColor),
                                                                   onChanged:
@@ -463,13 +464,13 @@ class _GetStartedState extends State<GetStarted> {
                                                                                                       width: media.width * 0.4,
                                                                                                       child: Text(
                                                                                                         countries[i]['name'],
-                                                                                                        style: GoogleFonts.roboto(fontSize: media.width * sixteen, color: textColor),
+                                                                                                        style: GoogleFonts.robotoCondensed(fontSize: media.width * sixteen, color: textColor),
                                                                                                       )),
                                                                                                 ],
                                                                                               ),
                                                                                               Text(
                                                                                                 countries[i]['dial_code'],
-                                                                                                style: GoogleFonts.roboto(fontSize: media.width * sixteen, color: textColor),
+                                                                                                style: GoogleFonts.robotoCondensed(fontSize: media.width * sixteen, color: textColor),
                                                                                               )
                                                                                             ],
                                                                                           ),
@@ -498,13 +499,13 @@ class _GetStartedState extends State<GetStarted> {
                                                                                                           width: media.width * 0.4,
                                                                                                           child: Text(
                                                                                                             countries[i]['name'],
-                                                                                                            style: GoogleFonts.roboto(fontSize: media.width * sixteen, color: textColor),
+                                                                                                            style: GoogleFonts.robotoCondensed(fontSize: media.width * sixteen, color: textColor),
                                                                                                           )),
                                                                                                     ],
                                                                                                   ),
                                                                                                   Text(
                                                                                                     countries[i]['dial_code'],
-                                                                                                    style: GoogleFonts.roboto(fontSize: media.width * sixteen, color: textColor),
+                                                                                                    style: GoogleFonts.robotoCondensed(fontSize: media.width * sixteen, color: textColor),
                                                                                                   )
                                                                                                 ],
                                                                                               ),
@@ -545,10 +546,11 @@ class _GetStartedState extends State<GetStarted> {
                                               Text(
                                                 countries[phcode]['dial_code']
                                                     .toString(),
-                                                style: GoogleFonts.roboto(
-                                                    fontSize:
-                                                        media.width * sixteen,
-                                                    color: textColor),
+                                                style:
+                                                    GoogleFonts.robotoCondensed(
+                                                        fontSize: media.width *
+                                                            sixteen,
+                                                        color: textColor),
                                               ),
                                               const SizedBox(
                                                 width: 2,
@@ -585,7 +587,7 @@ class _GetStartedState extends State<GetStarted> {
                                           },
                                           maxLength: countries[phcode]
                                               ['dial_max_length'],
-                                          style: GoogleFonts.roboto(
+                                          style: GoogleFonts.robotoCondensed(
                                               fontSize: media.width * sixteen,
                                               color: textColor,
                                               letterSpacing: 1),
@@ -594,10 +596,12 @@ class _GetStartedState extends State<GetStarted> {
                                             hintText: languages[choosenLanguage]
                                                 ['text_phone_number'],
                                             counterText: '',
-                                            hintStyle: GoogleFonts.roboto(
-                                                fontSize: media.width * sixteen,
-                                                color:
-                                                    textColor.withOpacity(0.7)),
+                                            hintStyle:
+                                                GoogleFonts.robotoCondensed(
+                                                    fontSize:
+                                                        media.width * sixteen,
+                                                    color: textColor
+                                                        .withOpacity(0.7)),
                                             border: InputBorder.none,
                                             enabledBorder: InputBorder.none,
                                           ),
@@ -616,7 +620,7 @@ class _GetStartedState extends State<GetStarted> {
                                   alignment: Alignment.center,
                                   child: Text(
                                     _error,
-                                    style: GoogleFonts.roboto(
+                                    style: GoogleFonts.robotoCondensed(
                                         fontSize: media.width * sixteen,
                                         color: Colors.red),
                                   ),
@@ -688,6 +692,7 @@ class _GetStartedState extends State<GetStarted> {
                                               });
                                             }
                                           },
+                                          textcolor: textColor,
                                           text: languages[choosenLanguage]
                                               ['text_next']))
                                   : Container()
@@ -807,10 +812,12 @@ class _GetStartedState extends State<GetStarted> {
                                             Text(
                                               languages[choosenLanguage]
                                                   ['text_camera'],
-                                              style: GoogleFonts.roboto(
-                                                  fontSize: media.width * ten,
-                                                  color:
-                                                      const Color(0xff666666)),
+                                              style:
+                                                  GoogleFonts.robotoCondensed(
+                                                      fontSize:
+                                                          media.width * ten,
+                                                      color: const Color(
+                                                          0xff666666)),
                                             )
                                           ],
                                         ),
@@ -842,10 +849,12 @@ class _GetStartedState extends State<GetStarted> {
                                             Text(
                                               languages[choosenLanguage]
                                                   ['text_gallery'],
-                                              style: GoogleFonts.roboto(
-                                                  fontSize: media.width * ten,
-                                                  color:
-                                                      const Color(0xff666666)),
+                                              style:
+                                                  GoogleFonts.robotoCondensed(
+                                                      fontSize:
+                                                          media.width * ten,
+                                                      color: const Color(
+                                                          0xff666666)),
                                             )
                                           ],
                                         ),
@@ -918,7 +927,7 @@ class _GetStartedState extends State<GetStarted> {
                                               ['text_open_photos_setting']
                                           : languages[choosenLanguage]
                                               ['text_open_camera_setting'],
-                                      style: GoogleFonts.roboto(
+                                      style: GoogleFonts.robotoCondensed(
                                           fontSize: media.width * sixteen,
                                           color: textColor,
                                           fontWeight: FontWeight.w600),
@@ -935,7 +944,7 @@ class _GetStartedState extends State<GetStarted> {
                                         child: Text(
                                           languages[choosenLanguage]
                                               ['text_open_settings'],
-                                          style: GoogleFonts.roboto(
+                                          style: GoogleFonts.robotoCondensed(
                                               fontSize: media.width * sixteen,
                                               color: buttonColor,
                                               fontWeight: FontWeight.w600),
@@ -952,7 +961,7 @@ class _GetStartedState extends State<GetStarted> {
                                         child: Text(
                                           languages[choosenLanguage]
                                               ['text_done'],
-                                          style: GoogleFonts.roboto(
+                                          style: GoogleFonts.robotoCondensed(
                                               fontSize: media.width * sixteen,
                                               color: buttonColor,
                                               fontWeight: FontWeight.w600),

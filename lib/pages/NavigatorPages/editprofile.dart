@@ -130,7 +130,7 @@ class _EditProfileState extends State<EditProfile> {
                               alignment: Alignment.center,
                               child: Text(
                                 languages[choosenLanguage]['text_editprofile'],
-                                style: GoogleFonts.roboto(
+                                style: GoogleFonts.robotoCondensed(
                                     fontSize: media.width * twenty,
                                     fontWeight: FontWeight.w600,
                                     color: textColor),
@@ -173,7 +173,7 @@ class _EditProfileState extends State<EditProfile> {
                           },
                           child: Text(
                               languages[choosenLanguage]['text_editimage'],
-                              style: GoogleFonts.roboto(
+                              style: GoogleFonts.robotoCondensed(
                                   fontSize: media.width * sixteen,
                                   color: buttonColor)),
                         ),
@@ -204,7 +204,7 @@ class _EditProfileState extends State<EditProfile> {
                                     borderRadius: BorderRadius.circular(12),
                                     gapPadding: 1),
                                 isDense: true),
-                            style: GoogleFonts.roboto(
+                            style: GoogleFonts.robotoCondensed(
                               color: textColor,
                             ),
                           ),
@@ -236,7 +236,7 @@ class _EditProfileState extends State<EditProfile> {
                                     borderRadius: BorderRadius.circular(12),
                                     gapPadding: 1),
                                 isDense: true),
-                            style: GoogleFonts.roboto(
+                            style: GoogleFonts.robotoCondensed(
                               color: textColor,
                             ),
                           ),
@@ -365,7 +365,7 @@ class _EditProfileState extends State<EditProfile> {
                                           Text(
                                             languages[choosenLanguage]
                                                 ['text_camera'],
-                                            style: GoogleFonts.roboto(
+                                            style: GoogleFonts.robotoCondensed(
                                                 fontSize: media.width * ten,
                                                 color: const Color(0xff666666)),
                                           )
@@ -399,7 +399,7 @@ class _EditProfileState extends State<EditProfile> {
                                           Text(
                                             languages[choosenLanguage]
                                                 ['text_gallery'],
-                                            style: GoogleFonts.roboto(
+                                            style: GoogleFonts.robotoCondensed(
                                                 fontSize: media.width * ten,
                                                 color: const Color(0xff666666)),
                                           )
@@ -474,7 +474,7 @@ class _EditProfileState extends State<EditProfile> {
                                             ['text_open_photos_setting']
                                         : languages[choosenLanguage]
                                             ['text_open_camera_setting'],
-                                    style: GoogleFonts.roboto(
+                                    style: GoogleFonts.robotoCondensed(
                                         fontSize: media.width * sixteen,
                                         color: textColor,
                                         fontWeight: FontWeight.w600),
@@ -491,7 +491,7 @@ class _EditProfileState extends State<EditProfile> {
                                       child: Text(
                                         languages[choosenLanguage]
                                             ['text_open_settings'],
-                                        style: GoogleFonts.roboto(
+                                        style: GoogleFonts.robotoCondensed(
                                             fontSize: media.width * sixteen,
                                             color: buttonColor,
                                             fontWeight: FontWeight.w600),
@@ -507,7 +507,7 @@ class _EditProfileState extends State<EditProfile> {
                                       },
                                       child: Text(
                                         languages[choosenLanguage]['text_done'],
-                                        style: GoogleFonts.roboto(
+                                        style: GoogleFonts.robotoCondensed(
                                             fontSize: media.width * sixteen,
                                             color: buttonColor,
                                             fontWeight: FontWeight.w600),
@@ -559,7 +559,7 @@ class _EditProfileState extends State<EditProfile> {
                               Text(
                                 _error.toString(),
                                 textAlign: TextAlign.center,
-                                style: GoogleFonts.roboto(
+                                style: GoogleFonts.robotoCondensed(
                                     fontSize: media.width * sixteen,
                                     color: textColor,
                                     fontWeight: FontWeight.w600),

@@ -86,7 +86,7 @@ class _ChatPageState extends State<ChatPage> {
                                   child: Text(
                                     languages[choosenLanguage]
                                         ['text_chatwithdriver'],
-                                    style: GoogleFonts.roboto(
+                                    style: GoogleFonts.robotoCondensed(
                                         fontSize: media.width * twenty,
                                         color: textColor,
                                         fontWeight: FontWeight.w600),
@@ -177,17 +177,21 @@ class _ChatPageState extends State<ChatPage> {
                                                               : const Color(0xff222222)),
                                                   child: Text(
                                                     chatList[i]['message'],
-                                                    style: GoogleFonts.roboto(
-                                                        fontSize: media.width *
-                                                            fourteen,
-                                                        color: (chatList[i][
-                                                                    'from_type'] ==
-                                                                1)
-                                                            ? (isDarkTheme ==
-                                                                    true)
-                                                                ? Colors.black
-                                                                : Colors.white
-                                                            : Colors.white),
+                                                    style: GoogleFonts
+                                                        .robotoCondensed(
+                                                            fontSize:
+                                                                media.width *
+                                                                    fourteen,
+                                                            color: (chatList[i][
+                                                                        'from_type'] ==
+                                                                    1)
+                                                                ? (isDarkTheme ==
+                                                                        true)
+                                                                    ? Colors
+                                                                        .black
+                                                                    : Colors
+                                                                        .white
+                                                                : Colors.white),
                                                   ),
                                                 ),
                                                 SizedBox(
@@ -234,13 +238,16 @@ class _ChatPageState extends State<ChatPage> {
                                           border: InputBorder.none,
                                           hintText: languages[choosenLanguage]
                                               ['text_entermessage'],
-                                          hintStyle: GoogleFonts.roboto(
-                                              fontSize: media.width * twelve,
-                                              color: (isDarkTheme == true)
-                                                  ? textColor.withOpacity(0.5)
-                                                  : hintColor)),
-                                      style:
-                                          GoogleFonts.roboto(color: textColor),
+                                          hintStyle:
+                                              GoogleFonts.robotoCondensed(
+                                                  fontSize:
+                                                      media.width * twelve,
+                                                  color: (isDarkTheme == true)
+                                                      ? textColor
+                                                          .withOpacity(0.5)
+                                                      : hintColor)),
+                                      style: GoogleFonts.robotoCondensed(
+                                          color: textColor),
                                       minLines: 1,
                                       maxLines: 4,
                                       onChanged: (val) {},

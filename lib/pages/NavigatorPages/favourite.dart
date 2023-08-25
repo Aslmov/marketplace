@@ -57,7 +57,7 @@ class _FavoriteState extends State<Favorite> {
                               alignment: Alignment.center,
                               child: Text(
                                 languages[choosenLanguage]['text_favourites'],
-                                style: GoogleFonts.roboto(
+                                style: GoogleFonts.robotoCondensed(
                                     fontSize: media.width * twenty,
                                     fontWeight: FontWeight.w600,
                                     color: textColor),
@@ -108,12 +108,15 @@ class _FavoriteState extends State<Favorite> {
                                                   Text(
                                                     favAddress[i]
                                                         ['address_name'],
-                                                    style: GoogleFonts.roboto(
-                                                        fontSize: media.width *
-                                                            sixteen,
-                                                        color: textColor,
-                                                        fontWeight:
-                                                            FontWeight.w600),
+                                                    style: GoogleFonts
+                                                        .robotoCondensed(
+                                                            fontSize:
+                                                                media.width *
+                                                                    sixteen,
+                                                            color: textColor,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .w600),
                                                   ),
                                                   SizedBox(
                                                     height: media.width * 0.03,
@@ -162,7 +165,7 @@ class _FavoriteState extends State<Favorite> {
                                                           favAddress[i]
                                                               ['pick_address'],
                                                           style: GoogleFonts
-                                                              .roboto(
+                                                              .robotoCondensed(
                                                             fontSize:
                                                                 media.width *
                                                                     twelve,
@@ -209,7 +212,7 @@ class _FavoriteState extends State<Favorite> {
                               )
                             : Text(
                                 languages[choosenLanguage]['text_noDataFound'],
-                                style: GoogleFonts.roboto(
+                                style: GoogleFonts.robotoCondensed(
                                     fontSize: media.width * eighteen,
                                     fontWeight: FontWeight.w600,
                                     color: textColor),
@@ -264,7 +267,7 @@ class _FavoriteState extends State<Favorite> {
                                       languages[choosenLanguage]
                                           ['text_removeFav'],
                                       textAlign: TextAlign.center,
-                                      style: GoogleFonts.roboto(
+                                      style: GoogleFonts.robotoCondensed(
                                           fontSize: media.width * sixteen,
                                           color: textColor,
                                           fontWeight: FontWeight.w600),

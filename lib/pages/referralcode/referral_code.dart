@@ -73,7 +73,7 @@ class _ReferralState extends State<Referral> {
                       width: media.width * 1,
                       child: Text(
                         languages[choosenLanguage]['text_apply_referral'],
-                        style: GoogleFonts.roboto(
+                        style: GoogleFonts.robotoCondensed(
                             fontSize: media.width * twenty,
                             color: textColor,
                             fontWeight: FontWeight.bold),
@@ -94,7 +94,7 @@ class _ReferralState extends State<Referral> {
                           margin: EdgeInsets.only(top: media.height * 0.02),
                           child: Text(
                             _error,
-                            style: GoogleFonts.roboto(
+                            style: GoogleFonts.robotoCondensed(
                                 fontSize: media.width * sixteen,
                                 color: Colors.red),
                           ),

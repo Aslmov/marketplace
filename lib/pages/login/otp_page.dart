@@ -207,7 +207,7 @@ class _OtpState extends State<Otp> {
                                       child: Text(
                                         languages[choosenLanguage]
                                             ['text_phone_verify'],
-                                        style: GoogleFonts.roboto(
+                                        style: GoogleFonts.robotoCondensed(
                                             fontSize: media.width * twentyeight,
                                             fontWeight: FontWeight.bold,
                                             color: textColor),
@@ -218,7 +218,7 @@ class _OtpState extends State<Otp> {
                                       child: Text(
                                         languages[choosenLanguage]
                                             ['text_email_verify'],
-                                        style: GoogleFonts.roboto(
+                                        style: GoogleFonts.robotoCondensed(
                                             fontSize: media.width * twentyeight,
                                             fontWeight: FontWeight.bold,
                                             color: textColor),
@@ -230,7 +230,7 @@ class _OtpState extends State<Otp> {
                               ),
                               Text(
                                 languages[choosenLanguage]['text_enter_otp'],
-                                style: GoogleFonts.roboto(
+                                style: GoogleFonts.robotoCondensed(
                                     fontSize: media.width * sixteen,
                                     color: textColor.withOpacity(0.3)),
                               ),
@@ -238,7 +238,7 @@ class _OtpState extends State<Otp> {
                               (widget.from == '1')
                                   ? Text(
                                       countries[phcode]['dial_code'] + phnumber,
-                                      style: GoogleFonts.roboto(
+                                      style: GoogleFonts.robotoCondensed(
                                           fontSize: media.width * sixteen,
                                           color: textColor,
                                           fontWeight: FontWeight.bold,
@@ -246,7 +246,7 @@ class _OtpState extends State<Otp> {
                                     )
                                   : Text(
                                       email,
-                                      style: GoogleFonts.roboto(
+                                      style: GoogleFonts.robotoCondensed(
                                           fontSize: media.width * sixteen,
                                           color: textColor,
                                           fontWeight: FontWeight.bold,
@@ -282,11 +282,11 @@ class _OtpState extends State<Otp> {
                                       counterText: '',
                                       hintText: languages[choosenLanguage]
                                           ['text_enter_otp_login'],
-                                      hintStyle: GoogleFonts.roboto(
+                                      hintStyle: GoogleFonts.robotoCondensed(
                                         color: textColor.withOpacity(0.4),
                                       )),
                                   textAlign: TextAlign.center,
-                                  style: GoogleFonts.roboto(
+                                  style: GoogleFonts.robotoCondensed(
                                     fontSize: media.width * twenty,
                                     color: textColor,
                                     fontWeight: FontWeight.w600,
@@ -304,7 +304,7 @@ class _OtpState extends State<Otp> {
                                           top: media.height * 0.02),
                                       child: Text(
                                         _error,
-                                        style: GoogleFonts.roboto(
+                                        style: GoogleFonts.robotoCondensed(
                                             fontSize: media.width * sixteen,
                                             color: Colors.red),
                                       ),

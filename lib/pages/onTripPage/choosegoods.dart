@@ -66,7 +66,7 @@ class _ChooseGoodsState extends State<ChooseGoods> {
                           alignment: Alignment.center,
                           child: Text(
                             languages[choosenLanguage]['text_choose_goods'],
-                            style: GoogleFonts.roboto(
+                            style: GoogleFonts.robotoCondensed(
                                 fontSize: media.width * twenty,
                                 fontWeight: FontWeight.w600,
                                 color: textColor),
@@ -120,11 +120,12 @@ class _ChooseGoodsState extends State<ChooseGoods> {
                                                     child: Text(
                                                       goodsTypeList[i]
                                                           ['goods_type_name'],
-                                                      style: GoogleFonts.roboto(
-                                                          color: textColor,
-                                                          fontSize:
-                                                              media.width *
-                                                                  sixteen),
+                                                      style: GoogleFonts
+                                                          .robotoCondensed(
+                                                              color: textColor,
+                                                              fontSize:
+                                                                  media.width *
+                                                                      sixteen),
                                                       maxLines: 1,
                                                       overflow:
                                                           TextOverflow.ellipsis,
@@ -145,12 +146,13 @@ class _ChooseGoodsState extends State<ChooseGoods> {
                                                               media.width * 0.6,
                                                           child: Text(
                                                             goodsSize,
-                                                            style: GoogleFonts.roboto(
-                                                                color:
-                                                                    textColor,
-                                                                fontSize: media
-                                                                        .width *
-                                                                    twelve),
+                                                            style: GoogleFonts
+                                                                .robotoCondensed(
+                                                                    color:
+                                                                        textColor,
+                                                                    fontSize: media
+                                                                            .width *
+                                                                        twelve),
                                                             maxLines: 1,
                                                             overflow:
                                                                 TextOverflow
@@ -244,7 +246,7 @@ class _ChooseGoodsState extends State<ChooseGoods> {
                                         child: Text(
                                           languages[choosenLanguage]
                                               ['text_loose'],
-                                          style: GoogleFonts.roboto(
+                                          style: GoogleFonts.robotoCondensed(
                                               fontSize: media.width * sixteen,
                                               color: textColor),
                                           maxLines: 1,
@@ -318,8 +320,8 @@ class _ChooseGoodsState extends State<ChooseGoods> {
                                                     hintText: languages[
                                                             choosenLanguage][
                                                         'text_quantitywithunit'],
-                                                    hintStyle:
-                                                        GoogleFonts.roboto(
+                                                    hintStyle: GoogleFonts
+                                                        .robotoCondensed(
                                                             color: textColor
                                                                 .withOpacity(
                                                                     0.5),
@@ -333,21 +335,25 @@ class _ChooseGoodsState extends State<ChooseGoods> {
                                                 },
                                                 textAlignVertical:
                                                     TextAlignVertical.center,
-                                                style: GoogleFonts.roboto(
-                                                    color: textColor,
-                                                    fontSize:
-                                                        media.width * twelve),
+                                                style:
+                                                    GoogleFonts.robotoCondensed(
+                                                        color: textColor,
+                                                        fontSize: media.width *
+                                                            twelve),
                                               )
                                             : Text(
                                                 languages[choosenLanguage]
                                                     ['text_quantitywithunit'],
-                                                style: GoogleFonts.roboto(
-                                                    fontSize:
-                                                        media.width * twelve,
-                                                    color: (isDarkTheme == true)
-                                                        ? textColor
-                                                            .withOpacity(0.5)
-                                                        : hintColor)))
+                                                style:
+                                                    GoogleFonts.robotoCondensed(
+                                                        fontSize: media.width *
+                                                            twelve,
+                                                        color: (isDarkTheme ==
+                                                                true)
+                                                            ? textColor
+                                                                .withOpacity(
+                                                                    0.5)
+                                                            : hintColor)))
                                   ],
                                 ),
                               ],

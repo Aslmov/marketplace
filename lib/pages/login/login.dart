@@ -71,16 +71,24 @@ class _LoginState extends State<Login> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        SizedBox(height: media.height * 0.195),
+                        SizedBox(
+                          width: media.width,
+                          height: media.height * 0.20,
+                          child: Image.asset(
+                            'assets/images/logo.png',
+                            fit: BoxFit.contain,
+                          ),
+                        ),
+                        SizedBox(height: media.height * 0.1),
                         Text(
                           languages[choosenLanguage]['text_login'],
-                          style: GoogleFonts.roboto(
+                          style: GoogleFonts.robotoCondensed(
                               fontSize: media.width * twentysix,
                               fontWeight: FontWeight.bold,
                               color: textColor),
                         ),
                         SizedBox(
-                          height: media.height * 0.159,
+                          height: media.height * 0.1,
                         ),
                         Container(
                           padding: const EdgeInsets.only(bottom: 5),
@@ -153,14 +161,14 @@ class _LoginState extends State<Login> {
                                                                   .none,
                                                               hintText: languages[choosenLanguage][
                                                                   'text_search'],
-                                                              hintStyle: GoogleFonts.roboto(
+                                                              hintStyle: GoogleFonts.robotoCondensed(
                                                                   color: textColor
                                                                       .withOpacity(
                                                                           0.4),
                                                                   fontSize: media.width *
                                                                       sixteen)),
                                                           style: GoogleFonts
-                                                              .roboto(
+                                                              .robotoCondensed(
                                                                   color:
                                                                       textColor),
                                                           onChanged: (val) {
@@ -210,13 +218,13 @@ class _LoginState extends State<Login> {
                                                                                               width: media.width * 0.4,
                                                                                               child: Text(
                                                                                                 countries[i]['name'],
-                                                                                                style: GoogleFonts.roboto(fontSize: media.width * sixteen, color: textColor),
+                                                                                                style: GoogleFonts.robotoCondensed(fontSize: media.width * sixteen, color: textColor),
                                                                                               )),
                                                                                         ],
                                                                                       ),
                                                                                       Text(
                                                                                         countries[i]['dial_code'],
-                                                                                        style: GoogleFonts.roboto(fontSize: media.width * sixteen, color: textColor),
+                                                                                        style: GoogleFonts.robotoCondensed(fontSize: media.width * sixteen, color: textColor),
                                                                                       )
                                                                                     ],
                                                                                   ),
@@ -245,13 +253,13 @@ class _LoginState extends State<Login> {
                                                                                                   width: media.width * 0.4,
                                                                                                   child: Text(
                                                                                                     countries[i]['name'],
-                                                                                                    style: GoogleFonts.roboto(fontSize: media.width * sixteen, color: textColor),
+                                                                                                    style: GoogleFonts.robotoCondensed(fontSize: media.width * sixteen, color: textColor),
                                                                                                   )),
                                                                                             ],
                                                                                           ),
                                                                                           Text(
                                                                                             countries[i]['dial_code'],
-                                                                                            style: GoogleFonts.roboto(fontSize: media.width * sixteen, color: textColor),
+                                                                                            style: GoogleFonts.robotoCondensed(fontSize: media.width * sixteen, color: textColor),
                                                                                           )
                                                                                         ],
                                                                                       ),
@@ -291,7 +299,7 @@ class _LoginState extends State<Login> {
                                       Text(
                                         countries[phcode]['dial_code']
                                             .toString(),
-                                        style: GoogleFonts.roboto(
+                                        style: GoogleFonts.robotoCondensed(
                                             fontSize: media.width * sixteen,
                                             color: textColor),
                                       ),
@@ -329,7 +337,7 @@ class _LoginState extends State<Login> {
                                   },
                                   maxLength: countries[phcode]
                                       ['dial_max_length'],
-                                  style: GoogleFonts.roboto(
+                                  style: GoogleFonts.robotoCondensed(
                                       fontSize: media.width * sixteen,
                                       color: textColor,
                                       letterSpacing: 1),
@@ -338,7 +346,7 @@ class _LoginState extends State<Login> {
                                     hintText: languages[choosenLanguage]
                                         ['text_phone_number'],
                                     counterText: '',
-                                    hintStyle: GoogleFonts.roboto(
+                                    hintStyle: GoogleFonts.robotoCondensed(
                                         fontSize: media.width * sixteen,
                                         color: textColor.withOpacity(0.7)),
                                     border: InputBorder.none,
@@ -389,36 +397,37 @@ class _LoginState extends State<Login> {
                                   Text(
                                     languages[choosenLanguage]['text_agree'] +
                                         ' ',
-                                    style: GoogleFonts.roboto(
+                                    style: GoogleFonts.robotoCondensed(
                                         fontSize: media.width * sixteen,
                                         color: textColor.withOpacity(0.7)),
                                   ),
                                   InkWell(
                                     onTap: () {
-                                      openBrowser('terms and conditions url');
+                                      openBrowser(
+                                          'https://gochap.solutions/index.php/conditions-utilisation');
                                     },
                                     child: Text(
                                       languages[choosenLanguage]['text_terms'],
-                                      style: GoogleFonts.roboto(
+                                      style: GoogleFonts.robotoCondensed(
                                           fontSize: media.width * sixteen,
                                           color: buttonColor),
                                     ),
                                   ),
                                   Text(
                                     ' ${languages[choosenLanguage]['text_and']} ',
-                                    style: GoogleFonts.roboto(
+                                    style: GoogleFonts.robotoCondensed(
                                         fontSize: media.width * sixteen,
                                         color: textColor.withOpacity(0.7)),
                                   ),
                                   InkWell(
                                     onTap: () {
-                                      openBrowser('privacy policy url');
+                                      openBrowser(
+                                          'https://gochap.solutions/index.php/politique-confidentialite');
                                     },
                                     child: Text(
                                       languages[choosenLanguage]
                                           ['text_privacy'],
-                                      style: GoogleFonts.roboto(
-                                          fontSize: media.width * sixteen,
+                                      style: GoogleFonts.robotoCondensed(
                                           color: buttonColor),
                                     ),
                                   )
@@ -439,7 +448,7 @@ class _LoginState extends State<Login> {
                             SizedBox(width: media.width * 0.02),
                             Text(
                               languages[choosenLanguage]['text_continue_with'],
-                              style: GoogleFonts.roboto(
+                              style: GoogleFonts.robotoCondensed(
                                 color: textColor.withOpacity(0.7),
                                 fontSize: media.width * sixteen,
                                 fontWeight: FontWeight.w400,
@@ -459,7 +468,7 @@ class _LoginState extends State<Login> {
                               },
                               child: Text(
                                 languages[choosenLanguage]['text_email'],
-                                style: GoogleFonts.roboto(
+                                style: GoogleFonts.robotoCondensed(
                                     fontSize: media.width * sixteen,
                                     fontWeight: FontWeight.w400,
                                     color: buttonColor),

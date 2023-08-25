@@ -136,7 +136,7 @@ class _CashFreePageState extends State<CashFreePage> {
                                 alignment: Alignment.center,
                                 child: Text(
                                   languages[choosenLanguage]['text_addmoney'],
-                                  style: GoogleFonts.roboto(
+                                  style: GoogleFonts.robotoCondensed(
                                       color: textColor,
                                       fontSize: media.width * sixteen,
                                       fontWeight: FontWeight.bold),
@@ -180,7 +180,7 @@ class _CashFreePageState extends State<CashFreePage> {
                                           languages[choosenLanguage]
                                               ['text_somethingwentwrong'],
                                           textAlign: TextAlign.center,
-                                          style: GoogleFonts.roboto(
+                                          style: GoogleFonts.robotoCondensed(
                                               fontSize: media.width * sixteen,
                                               color: textColor,
                                               fontWeight: FontWeight.w600),
@@ -228,7 +228,7 @@ class _CashFreePageState extends State<CashFreePage> {
                                           languages[choosenLanguage]
                                               ['text_paymentsuccess'],
                                           textAlign: TextAlign.center,
-                                          style: GoogleFonts.roboto(
+                                          style: GoogleFonts.robotoCondensed(
                                               fontSize: media.width * sixteen,
                                               color: textColor,
                                               fontWeight: FontWeight.w600),

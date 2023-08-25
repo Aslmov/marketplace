@@ -130,7 +130,7 @@ class _FlutterWavePageState extends State<FlutterWavePage> {
                                 alignment: Alignment.center,
                                 child: Text(
                                   languages[choosenLanguage]['text_addmoney'],
-                                  style: GoogleFonts.roboto(
+                                  style: GoogleFonts.robotoCondensed(
                                       color: textColor,
                                       fontSize: media.width * sixteen,
                                       fontWeight: FontWeight.bold),
@@ -152,7 +152,7 @@ class _FlutterWavePageState extends State<FlutterWavePage> {
                             walletBalance['currency_symbol'] +
                                 ' ' +
                                 addMoney.toString(),
-                            style: GoogleFonts.roboto(
+                            style: GoogleFonts.robotoCondensed(
                                 color: textColor,
                                 fontSize: media.width * twenty,
                                 fontWeight: FontWeight.w600),
@@ -225,7 +225,7 @@ class _FlutterWavePageState extends State<FlutterWavePage> {
                                           languages[choosenLanguage]
                                               ['text_somethingwentwrong'],
                                           textAlign: TextAlign.center,
-                                          style: GoogleFonts.roboto(
+                                          style: GoogleFonts.robotoCondensed(
                                               fontSize: media.width * sixteen,
                                               color: textColor,
                                               fontWeight: FontWeight.w600),
@@ -270,7 +270,7 @@ class _FlutterWavePageState extends State<FlutterWavePage> {
                                           languages[choosenLanguage]
                                               ['text_paymentsuccess'],
                                           textAlign: TextAlign.center,
-                                          style: GoogleFonts.roboto(
+                                          style: GoogleFonts.robotoCondensed(
                                               fontSize: media.width * sixteen,
                                               color: textColor,
                                               fontWeight: FontWeight.w600),

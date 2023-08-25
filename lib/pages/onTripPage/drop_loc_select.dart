@@ -270,7 +270,7 @@ class _DropLocationState extends State<DropLocation>
                                           Text(
                                             languages[choosenLanguage]
                                                 ['text_loc_permission'],
-                                            style: GoogleFonts.roboto(
+                                            style: GoogleFonts.robotoCondensed(
                                                 fontSize: media.width * sixteen,
                                                 color: textColor,
                                                 fontWeight: FontWeight.bold),
@@ -289,11 +289,13 @@ class _DropLocationState extends State<DropLocation>
                                               child: Text(
                                                 languages[choosenLanguage]
                                                     ['text_ok'],
-                                                style: GoogleFonts.roboto(
-                                                    fontWeight: FontWeight.bold,
-                                                    fontSize:
-                                                        media.width * twenty,
-                                                    color: buttonColor),
+                                                style:
+                                                    GoogleFonts.robotoCondensed(
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        fontSize: media.width *
+                                                            twenty,
+                                                        color: buttonColor),
                                               ),
                                             ),
                                           )
@@ -450,7 +452,7 @@ class _DropLocationState extends State<DropLocation>
                                                                         choosenLanguage]
                                                                     [
                                                                     'text_pickdroplocation'],
-                                                                style: GoogleFonts.roboto(
+                                                                style: GoogleFonts.robotoCondensed(
                                                                     fontSize: media
                                                                             .width *
                                                                         twelve,
@@ -469,7 +471,7 @@ class _DropLocationState extends State<DropLocation>
                                                                     child: Text(
                                                                       dropAddressConfirmation,
                                                                       style: GoogleFonts
-                                                                          .roboto(
+                                                                          .robotoCondensed(
                                                                         fontSize:
                                                                             media.width *
                                                                                 twelve,
@@ -681,12 +683,15 @@ class _DropLocationState extends State<DropLocation>
                                                                 choosenLanguage]
                                                             [
                                                             'text_give_userdata'],
-                                                    style: GoogleFonts.roboto(
-                                                        color: textColor,
-                                                        fontSize: media.width *
-                                                            sixteen,
-                                                        fontWeight:
-                                                            FontWeight.w600),
+                                                    style: GoogleFonts
+                                                        .robotoCondensed(
+                                                            color: textColor,
+                                                            fontSize:
+                                                                media.width *
+                                                                    sixteen,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .w600),
                                                   ),
                                                   InkWell(
                                                       onTap: () async {
@@ -746,18 +751,21 @@ class _DropLocationState extends State<DropLocation>
                                                   hintText:
                                                       languages[choosenLanguage]
                                                           ['text_name'],
-                                                  hintStyle: GoogleFonts.roboto(
-                                                      color: textColor
-                                                          .withOpacity(0.4),
-                                                      fontSize:
-                                                          media.width * twelve),
+                                                  hintStyle: GoogleFonts
+                                                      .robotoCondensed(
+                                                          color: textColor
+                                                              .withOpacity(0.4),
+                                                          fontSize:
+                                                              media.width *
+                                                                  twelve),
                                                 ),
                                                 textAlignVertical:
                                                     TextAlignVertical.center,
-                                                style: GoogleFonts.roboto(
-                                                    color: textColor,
-                                                    fontSize:
-                                                        media.width * twelve),
+                                                style:
+                                                    GoogleFonts.robotoCondensed(
+                                                        color: textColor,
+                                                        fontSize: media.width *
+                                                            twelve),
                                               ),
                                             ),
                                             SizedBox(
@@ -796,18 +804,21 @@ class _DropLocationState extends State<DropLocation>
                                                   hintText:
                                                       languages[choosenLanguage]
                                                           ['text_givenumber'],
-                                                  hintStyle: GoogleFonts.roboto(
-                                                      color: textColor
-                                                          .withOpacity(0.4),
-                                                      fontSize:
-                                                          media.width * twelve),
+                                                  hintStyle: GoogleFonts
+                                                      .robotoCondensed(
+                                                          color: textColor
+                                                              .withOpacity(0.4),
+                                                          fontSize:
+                                                              media.width *
+                                                                  twelve),
                                                 ),
                                                 textAlignVertical:
                                                     TextAlignVertical.center,
-                                                style: GoogleFonts.roboto(
-                                                    color: textColor,
-                                                    fontSize:
-                                                        media.width * twelve),
+                                                style:
+                                                    GoogleFonts.robotoCondensed(
+                                                        color: textColor,
+                                                        fontSize: media.width *
+                                                            twelve),
                                                 maxLength: 20,
                                               ),
                                             ),
@@ -842,18 +853,21 @@ class _DropLocationState extends State<DropLocation>
                                                   hintText:
                                                       languages[choosenLanguage]
                                                           ['text_instructions'],
-                                                  hintStyle: GoogleFonts.roboto(
-                                                      color: textColor
-                                                          .withOpacity(0.4),
-                                                      fontSize:
-                                                          media.width * twelve),
+                                                  hintStyle: GoogleFonts
+                                                      .robotoCondensed(
+                                                          color: textColor
+                                                              .withOpacity(0.4),
+                                                          fontSize:
+                                                              media.width *
+                                                                  twelve),
                                                 ),
                                                 textAlignVertical:
                                                     TextAlignVertical.center,
-                                                style: GoogleFonts.roboto(
-                                                    color: textColor,
-                                                    fontSize:
-                                                        media.width * twelve),
+                                                style:
+                                                    GoogleFonts.robotoCondensed(
+                                                        color: textColor,
+                                                        fontSize: media.width *
+                                                            twelve),
                                                 maxLines: 4,
                                                 minLines: 2,
                                               ),
@@ -1088,26 +1102,27 @@ class _DropLocationState extends State<DropLocation>
                                       child: TextField(
                                           controller: search,
                                           decoration: InputDecoration(
-                                              contentPadding:
-                                                  (languageDirection == 'rtl')
-                                                      ? EdgeInsets.only(
-                                                          bottom: media.width *
-                                                              0.03)
-                                                      : EdgeInsets.only(
-                                                          bottom: media.width *
-                                                              0.042),
+                                              contentPadding: (languageDirection ==
+                                                      'rtl')
+                                                  ? EdgeInsets.only(
+                                                      bottom:
+                                                          media.width * 0.03)
+                                                  : EdgeInsets.only(
+                                                      bottom:
+                                                          media.width * 0.042),
                                               border: InputBorder.none,
-                                              hintText: languages[
-                                                      choosenLanguage]
+                                              hintText: languages[choosenLanguage]
                                                   ['text_4lettersforautofill'],
-                                              hintStyle: GoogleFonts.roboto(
-                                                  fontSize:
-                                                      media.width * twelve,
-                                                  color: (isDarkTheme == true)
-                                                      ? textColor
-                                                          .withOpacity(0.5)
-                                                      : hintColor)),
-                                          style: GoogleFonts.roboto(
+                                              hintStyle:
+                                                  GoogleFonts.robotoCondensed(
+                                                      fontSize:
+                                                          media.width * twelve,
+                                                      color: (isDarkTheme ==
+                                                              true)
+                                                          ? textColor
+                                                              .withOpacity(0.5)
+                                                          : hintColor)),
+                                          style: GoogleFonts.robotoCondensed(
                                               color: textColor),
                                           maxLines: 1,
                                           onChanged: (val) {
@@ -1254,7 +1269,7 @@ class _DropLocationState extends State<DropLocation>
                                                                               [
                                                                               'description'],
                                                                           style: GoogleFonts
-                                                                              .roboto(
+                                                                              .robotoCondensed(
                                                                             fontSize:
                                                                                 media.width * twelve,
                                                                             color:
@@ -1332,7 +1347,7 @@ class _DropLocationState extends State<DropLocation>
                                           Text(
                                             languages[choosenLanguage]
                                                 ['text_saveaddressas'],
-                                            style: GoogleFonts.roboto(
+                                            style: GoogleFonts.robotoCondensed(
                                                 fontSize: media.width * sixteen,
                                                 color: textColor,
                                                 fontWeight: FontWeight.w600),
@@ -1342,7 +1357,7 @@ class _DropLocationState extends State<DropLocation>
                                           ),
                                           Text(
                                             favSelectedAddress,
-                                            style: GoogleFonts.roboto(
+                                            style: GoogleFonts.robotoCondensed(
                                                 fontSize: media.width * twelve,
                                                 color: textColor),
                                           ),
@@ -1542,14 +1557,14 @@ class _DropLocationState extends State<DropLocation>
                                                           width: 1.2)),
                                                   child: TextField(
                                                     decoration: InputDecoration(
-                                                        border:
-                                                            InputBorder.none,
+                                                        border: InputBorder
+                                                            .none,
                                                         hintText: languages[
                                                                 choosenLanguage]
                                                             [
                                                             'text_enterfavname'],
                                                         hintStyle: GoogleFonts
-                                                            .roboto(
+                                                            .robotoCondensed(
                                                                 fontSize: media
                                                                         .width *
                                                                     twelve,
@@ -1686,11 +1701,13 @@ class _DropLocationState extends State<DropLocation>
                                             child: Text(
                                               languages[choosenLanguage]
                                                   ['text_open_loc_settings'],
-                                              style: GoogleFonts.roboto(
-                                                  fontSize:
-                                                      media.width * sixteen,
-                                                  color: textColor,
-                                                  fontWeight: FontWeight.w600),
+                                              style:
+                                                  GoogleFonts.robotoCondensed(
+                                                      fontSize:
+                                                          media.width * sixteen,
+                                                      color: textColor,
+                                                      fontWeight:
+                                                          FontWeight.w600),
                                             )),
                                         SizedBox(height: media.width * 0.05),
                                         Row(
@@ -1704,12 +1721,14 @@ class _DropLocationState extends State<DropLocation>
                                                 child: Text(
                                                   languages[choosenLanguage]
                                                       ['text_open_settings'],
-                                                  style: GoogleFonts.roboto(
-                                                      fontSize:
-                                                          media.width * sixteen,
-                                                      color: buttonColor,
-                                                      fontWeight:
-                                                          FontWeight.w600),
+                                                  style: GoogleFonts
+                                                      .robotoCondensed(
+                                                          fontSize:
+                                                              media.width *
+                                                                  sixteen,
+                                                          color: buttonColor,
+                                                          fontWeight:
+                                                              FontWeight.w600),
                                                 )),
                                             InkWell(
                                                 onTap: () async {
@@ -1723,12 +1742,14 @@ class _DropLocationState extends State<DropLocation>
                                                 child: Text(
                                                   languages[choosenLanguage]
                                                       ['text_done'],
-                                                  style: GoogleFonts.roboto(
-                                                      fontSize:
-                                                          media.width * sixteen,
-                                                      color: buttonColor,
-                                                      fontWeight:
-                                                          FontWeight.w600),
+                                                  style: GoogleFonts
+                                                      .robotoCondensed(
+                                                          fontSize:
+                                                              media.width *
+                                                                  sixteen,
+                                                          color: buttonColor,
+                                                          fontWeight:
+                                                              FontWeight.w600),
                                                 ))
                                           ],
                                         )
