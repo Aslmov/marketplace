@@ -5,6 +5,7 @@ import 'package:tagxisuperuser/styles/styles.dart';
 import 'package:tagxisuperuser/translations/translation.dart';
 import '../../functions/functions.dart';
 import '../../widgets/widgets.dart';
+import '../noInternet/noInternet.dart';
 
 class Languages extends StatefulWidget {
   const Languages({Key? key}) : super(key: key);
@@ -57,7 +58,7 @@ class _LanguagesState extends State<Languages> {
                       (choosenLanguage.isEmpty)
                           ? 'Choose Language'
                           : languages[choosenLanguage]['text_choose_language'],
-                      style: GoogleFonts.roboto(
+                      style: GoogleFonts.robotoCondensed(
                           color: textColor,
                           fontSize: media.width * sixteen,
                           fontWeight: FontWeight.bold),
@@ -73,8 +74,8 @@ class _LanguagesState extends State<Languages> {
               width: media.width * 0.9,
               height: media.height * 0.16,
               child: Image.asset(
-                'assets/images/selectLanguage.png',
-                fit: BoxFit.contain,
+                'assets/images/language.jpg',
+                fit: BoxFit.fitHeight,
               ),
             ),
             SizedBox(
@@ -112,7 +113,7 @@ class _LanguagesState extends State<Languages> {
                                         .firstWhere(
                                             (e) => e['code'] == i)['name']
                                         .toString(),
-                                    style: GoogleFonts.roboto(
+                                    style: GoogleFonts.robotoCondensed(
                                         fontSize: media.width * sixteen,
                                         color: textColor),
                                   ),
@@ -158,7 +159,18 @@ class _LanguagesState extends State<Languages> {
                       pref.setString('choosenLanguage', choosenLanguage);
                       navigate();
                     },
+                    textcolor: buttonText,
                     text: languages[choosenLanguage]['text_confirm'])
+                : Container(),
+            //no internet
+            (internet == false)
+                ? Positioned(
+                    top: 0,
+                    child: NoInternet(onTap: () {
+                      setState(() {
+                        internetTrue();
+                      });
+                    }))
                 : Container(),
           ],
         ),

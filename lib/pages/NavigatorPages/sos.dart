@@ -65,7 +65,7 @@ class _SosState extends State<Sos> {
                                 alignment: Alignment.center,
                                 child: Text(
                                   languages[choosenLanguage]['text_sos'],
-                                  style: GoogleFonts.roboto(
+                                  style: GoogleFonts.robotoCondensed(
                                       fontSize: media.width * twenty,
                                       fontWeight: FontWeight.w600,
                                       color: textColor),
@@ -95,14 +95,14 @@ class _SosState extends State<Sos> {
                           ),
                           Text(
                             languages[choosenLanguage]['text_trust_contact_3'],
-                            style: GoogleFonts.roboto(
+                            style: GoogleFonts.robotoCondensed(
                                 fontSize: media.width * fourteen,
                                 fontWeight: FontWeight.w600,
                                 color: textColor),
                           ),
                           Text(
                             languages[choosenLanguage]['text_trust_contact_4'],
-                            style: GoogleFonts.roboto(
+                            style: GoogleFonts.robotoCondensed(
                                 fontSize: media.width * twelve,
                                 color: textColor),
                             textAlign: TextAlign.center,
@@ -113,7 +113,7 @@ class _SosState extends State<Sos> {
                           Text(
                             languages[choosenLanguage]
                                 ['text_yourTrustedContacts'],
-                            style: GoogleFonts.roboto(
+                            style: GoogleFonts.robotoCondensed(
                                 fontSize: media.width * fourteen,
                                 fontWeight: FontWeight.w600,
                                 color: buttonColor),
@@ -165,7 +165,7 @@ class _SosState extends State<Sos> {
                                                                         sosData[i]
                                                                             [
                                                                             'name'],
-                                                                        style: GoogleFonts.roboto(
+                                                                        style: GoogleFonts.robotoCondensed(
                                                                             fontSize: media.width *
                                                                                 sixteen,
                                                                             fontWeight:
@@ -182,7 +182,7 @@ class _SosState extends State<Sos> {
                                                                       sosData[i]
                                                                           [
                                                                           'number'],
-                                                                      style: GoogleFonts.roboto(
+                                                                      style: GoogleFonts.robotoCondensed(
                                                                           fontSize: media.width *
                                                                               twelve,
                                                                           color:
@@ -217,7 +217,7 @@ class _SosState extends State<Sos> {
                                       : Text(
                                           languages[choosenLanguage]
                                               ['text_noDataFound'],
-                                          style: GoogleFonts.roboto(
+                                          style: GoogleFonts.robotoCondensed(
                                               fontSize: media.width * eighteen,
                                               fontWeight: FontWeight.w600,
                                               color: textColor),
@@ -306,7 +306,7 @@ class _SosState extends State<Sos> {
                                           languages[choosenLanguage]
                                               ['text_removeSos'],
                                           textAlign: TextAlign.center,
-                                          style: GoogleFonts.roboto(
+                                          style: GoogleFonts.robotoCondensed(
                                               fontSize: media.width * sixteen,
                                               color: textColor,
                                               fontWeight: FontWeight.w600),

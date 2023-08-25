@@ -4,6 +4,8 @@ import 'package:tagxisuperuser/functions/functions.dart';
 import 'package:tagxisuperuser/styles/styles.dart';
 import 'package:tagxisuperuser/translations/translation.dart';
 
+import '../noInternet/noInternet.dart';
+
 class About extends StatefulWidget {
   const About({Key? key}) : super(key: key);
 
@@ -40,7 +42,7 @@ class _AboutState extends State<About> {
                           alignment: Alignment.center,
                           child: Text(
                             languages[choosenLanguage]['text_about'],
-                            style: GoogleFonts.roboto(
+                            style: GoogleFonts.robotoCondensed(
                                 fontSize: media.width * twenty,
                                 fontWeight: FontWeight.w600,
                                 color: textColor),
@@ -76,7 +78,7 @@ class _AboutState extends State<About> {
                       },
                       child: Text(
                         languages[choosenLanguage]['text_termsandconditions'],
-                        style: GoogleFonts.roboto(
+                        style: GoogleFonts.robotoCondensed(
                             fontSize: media.width * sixteen,
                             fontWeight: FontWeight.w600,
                             color: textColor),
@@ -92,7 +94,7 @@ class _AboutState extends State<About> {
                       },
                       child: Text(
                         languages[choosenLanguage]['text_privacy'],
-                        style: GoogleFonts.roboto(
+                        style: GoogleFonts.robotoCondensed(
                             fontSize: media.width * sixteen,
                             fontWeight: FontWeight.w600,
                             color: textColor),
@@ -108,7 +110,7 @@ class _AboutState extends State<About> {
                       },
                       child: Text(
                         languages[choosenLanguage]['text_about'],
-                        style: GoogleFonts.roboto(
+                        style: GoogleFonts.robotoCondensed(
                             fontSize: media.width * sixteen,
                             fontWeight: FontWeight.w600,
                             color: textColor),
@@ -117,6 +119,18 @@ class _AboutState extends State<About> {
                   ],
                 ),
               ),
+              //no internet
+              (internet == false)
+                  ? Positioned(
+                      top: 0,
+                      child: NoInternet(
+                        onTap: () {
+                          setState(() {
+                            internetTrue();
+                          });
+                        },
+                      ))
+                  : Container(),
             ],
           ),
         ),

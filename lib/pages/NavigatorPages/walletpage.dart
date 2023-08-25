@@ -54,13 +54,16 @@ class _WalletPageState extends State<WalletPage> {
     List<DropdownMenuItem<String>> menuItems = [
       DropdownMenuItem(
           value: "user",
-          child: Text("User", style: TextStyle(color: textColor))),
+          child: Text(languages[choosenLanguage]['text_transfer_to_user'],
+              style: TextStyle(color: textColor))),
       DropdownMenuItem(
           value: "driver",
-          child: Text("Driver", style: TextStyle(color: textColor))),
+          child: Text(languages[choosenLanguage]['text_transfer_to_driver'],
+              style: TextStyle(color: textColor))),
       DropdownMenuItem(
           value: "owner",
-          child: Text("Owner", style: TextStyle(color: textColor))),
+          child: Text(languages[choosenLanguage]['text_transfer_to_owner'],
+              style: TextStyle(color: textColor))),
     ];
     return menuItems;
   }
@@ -122,7 +125,7 @@ class _WalletPageState extends State<WalletPage> {
                                 child: Text(
                                   languages[choosenLanguage]
                                       ['text_enable_wallet'],
-                                  style: GoogleFonts.roboto(
+                                  style: GoogleFonts.robotoCondensed(
                                       fontSize: media.width * twenty,
                                       fontWeight: FontWeight.w600,
                                       color: textColor),
@@ -146,7 +149,7 @@ class _WalletPageState extends State<WalletPage> {
                                     Text(
                                       languages[choosenLanguage]
                                           ['text_availablebalance'],
-                                      style: GoogleFonts.roboto(
+                                      style: GoogleFonts.robotoCondensed(
                                           fontSize: media.width * twelve,
                                           color: textColor),
                                     ),
@@ -157,7 +160,7 @@ class _WalletPageState extends State<WalletPage> {
                                       walletBalance['currency_symbol'] +
                                           walletBalance['wallet_balance']
                                               .toString(),
-                                      style: GoogleFonts.roboto(
+                                      style: GoogleFonts.robotoCondensed(
                                           color: textColor,
                                           fontSize: media.width * fourty,
                                           fontWeight: FontWeight.w600),
@@ -183,7 +186,7 @@ class _WalletPageState extends State<WalletPage> {
                                       child: Text(
                                         languages[choosenLanguage]
                                             ['text_recenttransactions'],
-                                        style: GoogleFonts.roboto(
+                                        style: GoogleFonts.robotoCondensed(
                                             fontSize: media.width * fourteen,
                                             color: textColor,
                                             fontWeight: FontWeight.w600),
@@ -249,12 +252,13 @@ class _WalletPageState extends State<WalletPage> {
                                                                     1)
                                                                 ? '+'
                                                                 : '-',
-                                                            style: GoogleFonts.roboto(
-                                                                fontSize: media
-                                                                        .width *
-                                                                    twentyfour,
-                                                                color:
-                                                                    textColor),
+                                                            style: GoogleFonts
+                                                                .robotoCondensed(
+                                                                    fontSize: media
+                                                                            .width *
+                                                                        twentyfour,
+                                                                    color:
+                                                                        textColor),
                                                           ),
                                                         ),
                                                         SizedBox(
@@ -269,7 +273,7 @@ class _WalletPageState extends State<WalletPage> {
                                                             Text(
                                                               walletHistory[i]
                                                                   ['remarks'],
-                                                              style: GoogleFonts.roboto(
+                                                              style: GoogleFonts.robotoCondensed(
                                                                   fontSize: media
                                                                           .width *
                                                                       fourteen,
@@ -288,7 +292,7 @@ class _WalletPageState extends State<WalletPage> {
                                                               walletHistory[i][
                                                                   'created_at'],
                                                               style: GoogleFonts
-                                                                  .roboto(
+                                                                  .robotoCondensed(
                                                                 fontSize: media
                                                                         .width *
                                                                     ten,
@@ -318,7 +322,7 @@ class _WalletPageState extends State<WalletPage> {
                                                                           'amount']
                                                                       .toString(),
                                                               style: GoogleFonts
-                                                                  .roboto(
+                                                                  .robotoCondensed(
                                                                 fontSize: media
                                                                         .width *
                                                                     twelve,
@@ -360,12 +364,14 @@ class _WalletPageState extends State<WalletPage> {
                                                 child: Text(
                                                   languages[choosenLanguage]
                                                       ['text_noDataFound'],
-                                                  style: GoogleFonts.roboto(
-                                                      fontSize:
-                                                          media.width * sixteen,
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                      color: textColor),
+                                                  style: GoogleFonts
+                                                      .robotoCondensed(
+                                                          fontSize:
+                                                              media.width *
+                                                                  sixteen,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          color: textColor),
                                                   textAlign: TextAlign.center,
                                                 ),
                                               )
@@ -410,10 +416,11 @@ class _WalletPageState extends State<WalletPage> {
                                               child: Text(
                                                 languages[choosenLanguage]
                                                     ['text_loadmore'],
-                                                style: GoogleFonts.roboto(
-                                                    fontSize:
-                                                        media.width * sixteen,
-                                                    color: textColor),
+                                                style:
+                                                    GoogleFonts.robotoCondensed(
+                                                        fontSize: media.width *
+                                                            sixteen,
+                                                        color: textColor),
                                               ),
                                             ),
                                           )
@@ -494,15 +501,17 @@ class _WalletPageState extends State<WalletPage> {
                                                 child: Text(
                                                   walletBalance[
                                                       'currency_symbol'],
-                                                  style: GoogleFonts.roboto(
-                                                      fontSize:
-                                                          media.width * fifteen,
-                                                      color:
-                                                          (isDarkTheme == true)
+                                                  style: GoogleFonts
+                                                      .robotoCondensed(
+                                                          fontSize:
+                                                              media.width *
+                                                                  fifteen,
+                                                          color: (isDarkTheme ==
+                                                                  true)
                                                               ? Colors.black
                                                               : textColor,
-                                                      fontWeight:
-                                                          FontWeight.w600),
+                                                          fontWeight:
+                                                              FontWeight.w600),
                                                 )),
                                             SizedBox(
                                               width: media.width * 0.05,
@@ -525,21 +534,25 @@ class _WalletPageState extends State<WalletPage> {
                                                   hintText:
                                                       languages[choosenLanguage]
                                                           ['text_enteramount'],
-                                                  hintStyle: GoogleFonts.roboto(
-                                                      fontSize:
-                                                          media.width * twelve,
-                                                      color: (isDarkTheme ==
-                                                              true)
-                                                          ? textColor
-                                                              .withOpacity(0.4)
-                                                          : hintColor),
+                                                  hintStyle: GoogleFonts
+                                                      .robotoCondensed(
+                                                          fontSize:
+                                                              media.width *
+                                                                  twelve,
+                                                          color: (isDarkTheme ==
+                                                                  true)
+                                                              ? textColor
+                                                                  .withOpacity(
+                                                                      0.4)
+                                                              : hintColor),
                                                 ),
-                                                style: GoogleFonts.roboto(
-                                                    fontSize:
-                                                        media.width * fourteen,
-                                                    fontWeight:
-                                                        FontWeight.normal,
-                                                    color: textColor),
+                                                style:
+                                                    GoogleFonts.robotoCondensed(
+                                                        fontSize: media.width *
+                                                            fourteen,
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                        color: textColor),
                                                 maxLines: 1,
                                               ),
                                             )
@@ -575,12 +588,13 @@ class _WalletPageState extends State<WalletPage> {
                                                 walletBalance[
                                                         'currency_symbol'] +
                                                     '100',
-                                                style: GoogleFonts.roboto(
-                                                    fontSize:
-                                                        media.width * twelve,
-                                                    color: textColor,
-                                                    fontWeight:
-                                                        FontWeight.w600),
+                                                style:
+                                                    GoogleFonts.robotoCondensed(
+                                                        fontSize: media.width *
+                                                            twelve,
+                                                        color: textColor,
+                                                        fontWeight:
+                                                            FontWeight.w600),
                                               ),
                                             ),
                                           ),
@@ -609,12 +623,13 @@ class _WalletPageState extends State<WalletPage> {
                                                 walletBalance[
                                                         'currency_symbol'] +
                                                     '500',
-                                                style: GoogleFonts.roboto(
-                                                    fontSize:
-                                                        media.width * twelve,
-                                                    color: textColor,
-                                                    fontWeight:
-                                                        FontWeight.w600),
+                                                style:
+                                                    GoogleFonts.robotoCondensed(
+                                                        fontSize: media.width *
+                                                            twelve,
+                                                        color: textColor,
+                                                        fontWeight:
+                                                            FontWeight.w600),
                                               ),
                                             ),
                                           ),
@@ -644,12 +659,13 @@ class _WalletPageState extends State<WalletPage> {
                                                 walletBalance[
                                                         'currency_symbol'] +
                                                     '1000',
-                                                style: GoogleFonts.roboto(
-                                                    fontSize:
-                                                        media.width * twelve,
-                                                    color: textColor,
-                                                    fontWeight:
-                                                        FontWeight.w600),
+                                                style:
+                                                    GoogleFonts.robotoCondensed(
+                                                        fontSize: media.width *
+                                                            twelve,
+                                                        color: textColor,
+                                                        fontWeight:
+                                                            FontWeight.w600),
                                               ),
                                             ),
                                           )
@@ -763,7 +779,7 @@ class _WalletPageState extends State<WalletPage> {
                                           child: Text(
                                             languages[choosenLanguage]
                                                 ['text_choose_payment'],
-                                            style: GoogleFonts.roboto(
+                                            style: GoogleFonts.robotoCondensed(
                                                 fontSize:
                                                     media.width * eighteen,
                                                 fontWeight: FontWeight.w600),
@@ -829,38 +845,56 @@ class _WalletPageState extends State<WalletPage> {
                                                               0.025),
                                                       width: media.width * 0.7,
                                                       child: InkWell(
-                                                        onTap: () async {
-                                                          var val = await Navigator.push(
-                                                              context,
-                                                              MaterialPageRoute(
-                                                                  builder:
-                                                                      (context) =>
-                                                                          PayStackPage()));
-                                                          if (val) {
-                                                            setState(() {
-                                                              _choosePayment =
-                                                                  false;
-                                                              _addPayment =
-                                                                  false;
-                                                              addMoney = null;
-                                                              addMoneyController
-                                                                  .clear();
-                                                            });
-                                                          }
-                                                        },
-                                                        child: Container(
-                                                          width: media.width *
-                                                              0.25,
-                                                          height: media.width *
-                                                              0.125,
-                                                          decoration: const BoxDecoration(
-                                                              image: DecorationImage(
-                                                                  image: AssetImage(
-                                                                      'assets/images/paystack-icon.png'),
-                                                                  fit: BoxFit
-                                                                      .contain)),
-                                                        ),
-                                                      ))
+                                                          onTap: () async {
+                                                            var val = await Navigator.push(
+                                                                context,
+                                                                MaterialPageRoute(
+                                                                    builder:
+                                                                        (context) =>
+                                                                            PayStackPage()));
+                                                            if (val) {
+                                                              setState(() {
+                                                                _choosePayment =
+                                                                    false;
+                                                                _addPayment =
+                                                                    false;
+                                                                addMoney = null;
+                                                                addMoneyController
+                                                                    .clear();
+                                                              });
+                                                            }
+                                                          },
+                                                          child: Row(
+                                                            children: [
+                                                              Container(
+                                                                width: media
+                                                                        .width *
+                                                                    0.25,
+                                                                height: media
+                                                                        .width *
+                                                                    0.125,
+                                                                decoration: const BoxDecoration(
+                                                                    image: DecorationImage(
+                                                                        image: AssetImage(
+                                                                            'assets/images/operators.png'),
+                                                                        fit: BoxFit
+                                                                            .contain)),
+                                                              ),
+                                                              Text(
+                                                                languages[
+                                                                        choosenLanguage]
+                                                                    [
+                                                                    'text_operator'],
+                                                                style: GoogleFonts.robotoCondensed(
+                                                                    fontSize: media
+                                                                            .width *
+                                                                        twenty,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w100),
+                                                              )
+                                                            ],
+                                                          )))
                                                   : Container(),
                                               (walletBalance['flutter_wave'] ==
                                                       true)
@@ -1068,7 +1102,7 @@ class _WalletPageState extends State<WalletPage> {
                                           //     inputType: TextInputType.number),
                                           TextFormField(
                                             controller: amount,
-                                            style: GoogleFonts.roboto(
+                                            style: GoogleFonts.robotoCondensed(
                                               fontSize: media.width * sixteen,
                                               color: textColor,
                                             ),
@@ -1078,7 +1112,8 @@ class _WalletPageState extends State<WalletPage> {
                                                   languages[choosenLanguage]
                                                       ['text_enteramount'],
                                               counterText: '',
-                                              hintStyle: GoogleFonts.roboto(
+                                              hintStyle:
+                                                  GoogleFonts.robotoCondensed(
                                                 fontSize: media.width * sixteen,
                                                 color:
                                                     textColor.withOpacity(0.5),
@@ -1116,7 +1151,7 @@ class _WalletPageState extends State<WalletPage> {
                                             },
                                             // maxLength: countries[phcode]
                                             //     ['dial_max_length'],
-                                            style: GoogleFonts.roboto(
+                                            style: GoogleFonts.robotoCondensed(
                                                 fontSize: media.width * sixteen,
                                                 color: textColor,
                                                 letterSpacing: 1),
@@ -1126,11 +1161,12 @@ class _WalletPageState extends State<WalletPage> {
                                                   languages[choosenLanguage]
                                                       ['text_phone_number'],
                                               counterText: '',
-                                              hintStyle: GoogleFonts.roboto(
-                                                  fontSize:
-                                                      media.width * sixteen,
-                                                  color: textColor
-                                                      .withOpacity(0.5)),
+                                              hintStyle:
+                                                  GoogleFonts.robotoCondensed(
+                                                      fontSize:
+                                                          media.width * sixteen,
+                                                      color: textColor
+                                                          .withOpacity(0.5)),
                                               focusedBorder:
                                                   UnderlineInputBorder(
                                                       borderSide: BorderSide(

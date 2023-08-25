@@ -58,7 +58,7 @@ class _SelectLanguageState extends State<SelectLanguage> {
                       alignment: Alignment.center,
                       child: Text(
                         languages[choosenLanguage]['text_change_language'],
-                        style: GoogleFonts.roboto(
+                        style: GoogleFonts.robotoCondensed(
                             fontSize: media.width * twenty,
                             fontWeight: FontWeight.w600,
                             color: textColor),
@@ -79,7 +79,7 @@ class _SelectLanguageState extends State<SelectLanguage> {
                   width: media.width * 0.9,
                   height: media.height * 0.16,
                   child: Image.asset(
-                    'assets/images/selectLanguage.png',
+                    'assets/images/language.png',
                     fit: BoxFit.contain,
                   ),
                 ),
@@ -113,7 +113,7 @@ class _SelectLanguageState extends State<SelectLanguage> {
                                                 .firstWhere((e) =>
                                                     e['code'] == i)['name']
                                                 .toString(),
-                                            style: GoogleFonts.roboto(
+                                            style: GoogleFonts.robotoCondensed(
                                                 fontSize: media.width * sixteen,
                                                 color: textColor),
                                           ),
@@ -173,6 +173,7 @@ class _SelectLanguageState extends State<SelectLanguage> {
                       valueNotifierHome.incrementNotifier();
                       pop();
                     },
+                    textcolor: buttonText,
                     text: languages[choosenLanguage]['text_confirm'])
               ],
             ),

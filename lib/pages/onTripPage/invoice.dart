@@ -74,7 +74,7 @@ class _InvoiceState extends State<Invoice> {
                         children: [
                           Text(
                             languages[choosenLanguage]['text_tripsummary'],
-                            style: GoogleFonts.roboto(
+                            style: GoogleFonts.robotoCondensed(
                                 fontSize: media.width * sixteen,
                                 fontWeight: FontWeight.bold,
                                 color: textColor),
@@ -101,7 +101,7 @@ class _InvoiceState extends State<Invoice> {
                               ),
                               Text(
                                 userRequestData['driverDetail']['data']['name'],
-                                style: GoogleFonts.roboto(
+                                style: GoogleFonts.robotoCondensed(
                                     fontSize: media.width * eighteen,
                                     color: textColor),
                               )
@@ -123,7 +123,7 @@ class _InvoiceState extends State<Invoice> {
                                         Text(
                                           languages[choosenLanguage]
                                               ['text_reference'],
-                                          style: GoogleFonts.roboto(
+                                          style: GoogleFonts.robotoCondensed(
                                               fontSize: media.width * twelve,
                                               color: const Color(0xff898989)),
                                         ),
@@ -132,7 +132,7 @@ class _InvoiceState extends State<Invoice> {
                                         ),
                                         Text(
                                           userRequestData['request_number'],
-                                          style: GoogleFonts.roboto(
+                                          style: GoogleFonts.robotoCondensed(
                                               fontSize: media.width * fourteen,
                                               color: textColor),
                                         )
@@ -143,7 +143,7 @@ class _InvoiceState extends State<Invoice> {
                                         Text(
                                           languages[choosenLanguage]
                                               ['text_rideType'],
-                                          style: GoogleFonts.roboto(
+                                          style: GoogleFonts.robotoCondensed(
                                               fontSize: media.width * twelve,
                                               color: const Color(0xff898989)),
                                         ),
@@ -157,7 +157,7 @@ class _InvoiceState extends State<Invoice> {
                                                   ['text_regular']
                                               : languages[choosenLanguage]
                                                   ['text_rental'],
-                                          style: GoogleFonts.roboto(
+                                          style: GoogleFonts.robotoCondensed(
                                               fontSize: media.width * fourteen,
                                               color: textColor),
                                         )
@@ -184,7 +184,7 @@ class _InvoiceState extends State<Invoice> {
                                         Text(
                                           languages[choosenLanguage]
                                               ['text_distance'],
-                                          style: GoogleFonts.roboto(
+                                          style: GoogleFonts.robotoCondensed(
                                               fontSize: media.width * twelve,
                                               color: const Color(0xff898989)),
                                         ),
@@ -195,7 +195,7 @@ class _InvoiceState extends State<Invoice> {
                                           userRequestData['total_distance'] +
                                               ' ' +
                                               userRequestData['unit'],
-                                          style: GoogleFonts.roboto(
+                                          style: GoogleFonts.robotoCondensed(
                                               fontSize: media.width * fourteen,
                                               color: textColor),
                                         )
@@ -206,7 +206,7 @@ class _InvoiceState extends State<Invoice> {
                                         Text(
                                           languages[choosenLanguage]
                                               ['text_duration'],
-                                          style: GoogleFonts.roboto(
+                                          style: GoogleFonts.robotoCondensed(
                                               fontSize: media.width * twelve,
                                               color: const Color(0xff898989)),
                                         ),
@@ -215,7 +215,7 @@ class _InvoiceState extends State<Invoice> {
                                         ),
                                         Text(
                                           '${userRequestData['total_time']} mins',
-                                          style: GoogleFonts.roboto(
+                                          style: GoogleFonts.robotoCondensed(
                                               fontSize: media.width * fourteen,
                                               color: textColor),
                                         )
@@ -238,13 +238,12 @@ class _InvoiceState extends State<Invoice> {
                               ),
                               Text(
                                 languages[choosenLanguage]['text_tripfare'],
-                                style: GoogleFonts.roboto(
+                                style: GoogleFonts.robotoCondensed(
                                     fontSize: media.width * fourteen,
                                     color: textColor),
                               )
                             ],
                           ),
-
                           SizedBox(
                             height: media.height * 0.05,
                           ),
@@ -259,13 +258,13 @@ class _InvoiceState extends State<Invoice> {
                                       Text(
                                         languages[choosenLanguage]
                                             ['text_ride_type'],
-                                        style: GoogleFonts.roboto(
+                                        style: GoogleFonts.robotoCondensed(
                                             fontSize: media.width * fourteen,
                                             color: textColor),
                                       ),
                                       Text(
                                         userRequestData['rental_package_name'],
-                                        style: GoogleFonts.roboto(
+                                        style: GoogleFonts.robotoCondensed(
                                             fontSize: media.width * fourteen,
                                             color: textColor),
                                       ),
@@ -273,12 +272,12 @@ class _InvoiceState extends State<Invoice> {
                                   ),
                                 )
                               : Container(),
-                          Row(
+                          /* Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
                                 languages[choosenLanguage]['text_baseprice'],
-                                style: GoogleFonts.roboto(
+                                style: GoogleFonts.robotoCondensed(
                                     fontSize: media.width * twelve,
                                     color: textColor),
                               ),
@@ -289,22 +288,22 @@ class _InvoiceState extends State<Invoice> {
                                     userRequestData['requestBill']['data']
                                             ['base_price']
                                         .toString(),
-                                style: GoogleFonts.roboto(
+                                style: GoogleFonts.robotoCondensed(
                                     fontSize: media.width * twelve,
                                     color: textColor),
                               ),
                             ],
-                          ),
+                          ), */
 
                           SizedBox(
                             height: media.height * 0.02,
                           ),
-                          Row(
+                          /*  Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
                                 languages[choosenLanguage]['text_distprice'],
-                                style: GoogleFonts.roboto(
+                                style: GoogleFonts.robotoCondensed(
                                     fontSize: media.width * twelve,
                                     color: textColor),
                               ),
@@ -315,7 +314,7 @@ class _InvoiceState extends State<Invoice> {
                                     userRequestData['requestBill']['data']
                                             ['distance_price']
                                         .toString(),
-                                style: GoogleFonts.roboto(
+                                style: GoogleFonts.robotoCondensed(
                                     fontSize: media.width * twelve,
                                     color: textColor),
                               ),
@@ -329,7 +328,7 @@ class _InvoiceState extends State<Invoice> {
                             children: [
                               Text(
                                 languages[choosenLanguage]['text_timeprice'],
-                                style: GoogleFonts.roboto(
+                                style: GoogleFonts.robotoCondensed(
                                     fontSize: media.width * twelve,
                                     color: textColor),
                               ),
@@ -340,12 +339,12 @@ class _InvoiceState extends State<Invoice> {
                                     userRequestData['requestBill']['data']
                                             ['time_price']
                                         .toString(),
-                                style: GoogleFonts.roboto(
+                                style: GoogleFonts.robotoCondensed(
                                     fontSize: media.width * twelve,
                                     color: textColor),
                               ),
                             ],
-                          ),
+                          ), */
                           (userRequestData['requestBill']['data']
                                       ['cancellation_fee'] !=
                                   0)
@@ -363,7 +362,7 @@ class _InvoiceState extends State<Invoice> {
                                     Text(
                                       languages[choosenLanguage]
                                           ['text_cancelfee'],
-                                      style: GoogleFonts.roboto(
+                                      style: GoogleFonts.robotoCondensed(
                                           fontSize: media.width * twelve,
                                           color: textColor),
                                     ),
@@ -374,7 +373,7 @@ class _InvoiceState extends State<Invoice> {
                                           userRequestData['requestBill']['data']
                                                   ['cancellation_fee']
                                               .toString(),
-                                      style: GoogleFonts.roboto(
+                                      style: GoogleFonts.robotoCondensed(
                                           fontSize: media.width * twelve,
                                           color: textColor),
                                     ),
@@ -398,7 +397,7 @@ class _InvoiceState extends State<Invoice> {
                                     Text(
                                       languages[choosenLanguage]
                                           ['text_surge_fee'],
-                                      style: GoogleFonts.roboto(
+                                      style: GoogleFonts.robotoCondensed(
                                           fontSize: media.width * twelve,
                                           color: textColor),
                                     ),
@@ -409,7 +408,7 @@ class _InvoiceState extends State<Invoice> {
                                           userRequestData['requestBill']['data']
                                                   ['airport_surge_fee']
                                               .toString(),
-                                      style: GoogleFonts.roboto(
+                                      style: GoogleFonts.robotoCondensed(
                                           fontSize: media.width * twelve,
                                           color: textColor),
                                     ),
@@ -419,6 +418,7 @@ class _InvoiceState extends State<Invoice> {
                           SizedBox(
                             height: media.height * 0.02,
                           ),
+                          /*  
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
@@ -438,7 +438,7 @@ class _InvoiceState extends State<Invoice> {
                                         .toString() +
                                     ' mins' +
                                     ')',
-                                style: GoogleFonts.roboto(
+                                style: GoogleFonts.robotoCondensed(
                                     fontSize: media.width * twelve,
                                     color: textColor),
                               ),
@@ -449,21 +449,23 @@ class _InvoiceState extends State<Invoice> {
                                     userRequestData['requestBill']['data']
                                             ['waiting_charge']
                                         .toString(),
-                                style: GoogleFonts.roboto(
+                                style: GoogleFonts.robotoCondensed(
                                     fontSize: media.width * twelve,
                                     color: textColor),
                               ),
                             ],
                           ),
+                           */
                           SizedBox(
                             height: media.height * 0.02,
                           ),
+/* 
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
                                 languages[choosenLanguage]['text_convfee'],
-                                style: GoogleFonts.roboto(
+                                style: GoogleFonts.robotoCondensed(
                                     fontSize: media.width * twelve,
                                     color: textColor),
                               ),
@@ -474,13 +476,14 @@ class _InvoiceState extends State<Invoice> {
                                     userRequestData['requestBill']['data']
                                             ['admin_commision']
                                         .toString(),
-                                style: GoogleFonts.roboto(
+                                style: GoogleFonts.robotoCondensed(
                                     fontSize: media.width * twelve,
                                     color: textColor),
                               ),
                             ],
                           ),
-                          (userRequestData['requestBill']['data']
+                           */
+                          /*  (userRequestData['requestBill']['data']
                                       ['promo_discount'] !=
                                   null)
                               ? SizedBox(
@@ -497,7 +500,7 @@ class _InvoiceState extends State<Invoice> {
                                     Text(
                                       languages[choosenLanguage]
                                           ['text_discount'],
-                                      style: GoogleFonts.roboto(
+                                      style: GoogleFonts.robotoCondensed(
                                           fontSize: media.width * twelve,
                                           color: Colors.red),
                                     ),
@@ -508,7 +511,7 @@ class _InvoiceState extends State<Invoice> {
                                           userRequestData['requestBill']['data']
                                                   ['promo_discount']
                                               .toString(),
-                                      style: GoogleFonts.roboto(
+                                      style: GoogleFonts.robotoCondensed(
                                           fontSize: media.width * twelve,
                                           color: Colors.red),
                                     ),
@@ -523,7 +526,7 @@ class _InvoiceState extends State<Invoice> {
                             children: [
                               Text(
                                 languages[choosenLanguage]['text_taxes'],
-                                style: GoogleFonts.roboto(
+                                style: GoogleFonts.robotoCondensed(
                                     fontSize: media.width * twelve,
                                     color: textColor),
                               ),
@@ -534,12 +537,12 @@ class _InvoiceState extends State<Invoice> {
                                     userRequestData['requestBill']['data']
                                             ['service_tax']
                                         .toString(),
-                                style: GoogleFonts.roboto(
+                                style: GoogleFonts.robotoCondensed(
                                     fontSize: media.width * twelve,
                                     color: textColor),
                               ),
                             ],
-                          ),
+                          ), */
                           SizedBox(
                             height: media.height * 0.02,
                           ),
@@ -550,12 +553,12 @@ class _InvoiceState extends State<Invoice> {
                           SizedBox(
                             height: media.height * 0.02,
                           ),
-                          Row(
+                          /* Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
                                 languages[choosenLanguage]['text_totalfare'],
-                                style: GoogleFonts.roboto(
+                                style: GoogleFonts.robotoCondensed(
                                     fontSize: media.width * twelve,
                                     color: textColor),
                               ),
@@ -566,7 +569,7 @@ class _InvoiceState extends State<Invoice> {
                                     userRequestData['requestBill']['data']
                                             ['total_amount']
                                         .toString(),
-                                style: GoogleFonts.roboto(
+                                style: GoogleFonts.robotoCondensed(
                                     fontSize: media.width * twelve,
                                     color: textColor),
                               ),
@@ -582,7 +585,7 @@ class _InvoiceState extends State<Invoice> {
                           // SizedBox(height: media.height*0.02,),
                           SizedBox(
                             height: media.height * 0.05,
-                          ),
+                          ), */
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
@@ -594,7 +597,7 @@ class _InvoiceState extends State<Invoice> {
                                             ['text_wallet']
                                         : languages[choosenLanguage]
                                             ['text_card'],
-                                style: GoogleFonts.roboto(
+                                style: GoogleFonts.robotoCondensed(
                                     fontSize: media.width * sixteen,
                                     color: buttonColor),
                               ),
@@ -605,7 +608,7 @@ class _InvoiceState extends State<Invoice> {
                                     userRequestData['requestBill']['data']
                                             ['total_amount']
                                         .toString(),
-                                style: GoogleFonts.roboto(
+                                style: GoogleFonts.robotoCondensed(
                                     fontSize: media.width * twentysix,
                                     color: textColor,
                                     fontWeight: FontWeight.bold),
@@ -694,7 +697,7 @@ class _InvoiceState extends State<Invoice> {
                                   child: Text(
                                     languages[choosenLanguage]
                                         ['text_choose_payment'],
-                                    style: GoogleFonts.roboto(
+                                    style: GoogleFonts.robotoCondensed(
                                         fontSize: media.width * eighteen,
                                         fontWeight: FontWeight.w600),
                                   )),
@@ -718,7 +721,7 @@ class _InvoiceState extends State<Invoice> {
                                                       userRequestData['requestBill']
                                                                   ['data']
                                                               ['total_amount']
-                                                          .toStringAsFixed(2));
+                                                          .toStringAsFixed(0));
                                                   var val =
                                                       await Navigator.push(
                                                           context,
@@ -816,7 +819,7 @@ class _InvoiceState extends State<Invoice> {
                                                       userRequestData['requestBill']
                                                                   ['data']
                                                               ['total_amount']
-                                                          .toStringAsFixed(2));
+                                                          .toStringAsFixed(0));
                                                   var val =
                                                       await Navigator.push(
                                                           context,
@@ -914,7 +917,7 @@ class _InvoiceState extends State<Invoice> {
                                                       userRequestData['requestBill']
                                                                   ['data']
                                                               ['total_amount']
-                                                          .toStringAsFixed(2));
+                                                          .toStringAsFixed(0));
                                                   var val =
                                                       await Navigator.push(
                                                           context,

@@ -75,7 +75,7 @@ class _ReviewState extends State<Review> {
                   ),
                   Text(
                     userRequestData['driverDetail']['data']['name'],
-                    style: GoogleFonts.roboto(
+                    style: GoogleFonts.robotoCondensed(
                         fontSize: media.width * twenty, color: textColor),
                   ),
                   SizedBox(
@@ -173,10 +173,10 @@ class _ReviewState extends State<Review> {
                       },
                       decoration: InputDecoration(
                           hintText: languages[choosenLanguage]['text_feedback'],
-                          hintStyle: GoogleFonts.roboto(
+                          hintStyle: GoogleFonts.robotoCondensed(
                               color: textColor.withOpacity(0.6)),
                           border: InputBorder.none),
-                      style: GoogleFonts.roboto(color: textColor),
+                      style: GoogleFonts.robotoCondensed(color: textColor),
                     ),
                   ),
                   SizedBox(

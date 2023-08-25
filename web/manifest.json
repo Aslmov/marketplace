@@ -1,6 +1,11 @@
 {
+<<<<<<< HEAD
     "name": "tagxisuperuser",
     "short_name": "tagxisuperuser",
+=======
+    "name": "tagxi_super_user",
+    "short_name": "tagxi_super_user",
+>>>>>>> 1e8db651fdc2aa2bc4c5dc5fc8f10284992582f5
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

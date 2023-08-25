@@ -49,7 +49,7 @@ class _NoInternetState extends State<NoInternet> {
                   (languages.isNotEmpty && choosenLanguage != '')
                       ? languages[choosenLanguage]['text_nointernet']
                       : 'No Internet Connection',
-                  style: GoogleFonts.roboto(
+                  style: GoogleFonts.robotoCondensed(
                       fontSize: media.width * eighteen,
                       fontWeight: FontWeight.w600,
                       color: textColor),
@@ -61,7 +61,7 @@ class _NoInternetState extends State<NoInternet> {
                   (languages.isNotEmpty && choosenLanguage != '')
                       ? languages[choosenLanguage]['text_nointernetdesc']
                       : 'Please check your Internet connection, try enabling wifi or tey again later',
-                  style: GoogleFonts.roboto(
+                  style: GoogleFonts.robotoCondensed(
                       fontSize: media.width * fourteen,
                       color: (isDarkTheme == true)
                           ? textColor.withOpacity(0.4)

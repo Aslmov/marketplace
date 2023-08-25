@@ -71,7 +71,7 @@ class _SignInwithEmailState extends State<SignInwithEmail> {
                   SizedBox(height: media.height * 0.195),
                   Text(
                     languages[choosenLanguage]['text_sign_up_email'],
-                    style: GoogleFonts.roboto(
+                    style: GoogleFonts.robotoCondensed(
                         fontSize: media.width * twentysix,
                         fontWeight: FontWeight.bold,
                         color: textColor),
@@ -100,7 +100,7 @@ class _SignInwithEmailState extends State<SignInwithEmail> {
                           alignment: Alignment.center,
                           child: Text(
                             _error,
-                            style: GoogleFonts.roboto(
+                            style: GoogleFonts.robotoCondensed(
                                 fontSize: media.width * sixteen,
                                 color: Colors.red),
                           ),
@@ -144,7 +144,7 @@ class _SignInwithEmailState extends State<SignInwithEmail> {
                           children: [
                             Text(
                               languages[choosenLanguage]['text_agree'] + ' ',
-                              style: GoogleFonts.roboto(
+                              style: GoogleFonts.robotoCondensed(
                                   fontSize: media.width * sixteen,
                                   color: textColor.withOpacity(0.7)),
                             ),
@@ -154,14 +154,14 @@ class _SignInwithEmailState extends State<SignInwithEmail> {
                               },
                               child: Text(
                                 languages[choosenLanguage]['text_terms'],
-                                style: GoogleFonts.roboto(
+                                style: GoogleFonts.robotoCondensed(
                                     fontSize: media.width * sixteen,
                                     color: buttonColor),
                               ),
                             ),
                             Text(
                               ' ${languages[choosenLanguage]['text_and']} ',
-                              style: GoogleFonts.roboto(
+                              style: GoogleFonts.robotoCondensed(
                                   fontSize: media.width * sixteen,
                                   color: textColor.withOpacity(0.7)),
                             ),
@@ -171,7 +171,7 @@ class _SignInwithEmailState extends State<SignInwithEmail> {
                               },
                               child: Text(
                                 languages[choosenLanguage]['text_privacy'],
-                                style: GoogleFonts.roboto(
+                                style: GoogleFonts.robotoCondensed(
                                     fontSize: media.width * sixteen,
                                     color: buttonColor),
                               ),
@@ -193,7 +193,7 @@ class _SignInwithEmailState extends State<SignInwithEmail> {
                       SizedBox(width: media.width * 0.02),
                       Text(
                         languages[choosenLanguage]['text_continue_with'],
-                        style: GoogleFonts.roboto(
+                        style: GoogleFonts.robotoCondensed(
                           color: textColor.withOpacity(0.7),
                           fontSize: media.width * sixteen,
                           fontWeight: FontWeight.w400,
@@ -212,7 +212,7 @@ class _SignInwithEmailState extends State<SignInwithEmail> {
                         },
                         child: Text(
                           languages[choosenLanguage]['text_phone_number'],
-                          style: GoogleFonts.roboto(
+                          style: GoogleFonts.robotoCondensed(
                               fontSize: media.width * sixteen,
                               fontWeight: FontWeight.w400,
                               color: buttonColor),

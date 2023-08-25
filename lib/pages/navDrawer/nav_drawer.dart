@@ -79,12 +79,13 @@ class _NavDrawerState extends State<NavDrawer> {
                                               width: media.width * 0.3,
                                               child: Text(
                                                 userDetails['name'],
-                                                style: GoogleFonts.roboto(
-                                                    fontSize:
-                                                        media.width * eighteen,
-                                                    color: textColor,
-                                                    fontWeight:
-                                                        FontWeight.w600),
+                                                style:
+                                                    GoogleFonts.robotoCondensed(
+                                                        fontSize: media.width *
+                                                            eighteen,
+                                                        color: textColor,
+                                                        fontWeight:
+                                                            FontWeight.w600),
                                                 maxLines: 1,
                                               ),
                                             ),
@@ -112,8 +113,8 @@ class _NavDrawerState extends State<NavDrawer> {
                                       SizedBox(
                                         width: media.width * 0.45,
                                         child: Text(
-                                          userDetails['email'],
-                                          style: GoogleFonts.roboto(
+                                          userDetails['mobile'],
+                                          style: GoogleFonts.robotoCondensed(
                                               fontSize: media.width * fourteen,
                                               color: textColor),
                                           maxLines: 1,
@@ -154,10 +155,11 @@ class _NavDrawerState extends State<NavDrawer> {
                                                 languages[choosenLanguage]
                                                     ['text_select_theme'],
                                                 overflow: TextOverflow.ellipsis,
-                                                style: GoogleFonts.roboto(
-                                                    fontSize:
-                                                        media.width * sixteen,
-                                                    color: textColor),
+                                                style:
+                                                    GoogleFonts.robotoCondensed(
+                                                        fontSize: media.width *
+                                                            sixteen,
+                                                        color: textColor),
                                               ),
                                             )
                                           ],
@@ -237,7 +239,7 @@ class _NavDrawerState extends State<NavDrawer> {
                                                         overflow: TextOverflow
                                                             .ellipsis,
                                                         style: GoogleFonts
-                                                            .roboto(
+                                                            .robotoCondensed(
                                                                 fontSize: media
                                                                         .width *
                                                                     sixteen,
@@ -265,8 +267,8 @@ class _NavDrawerState extends State<NavDrawer> {
                                                         userDetails[
                                                                 'notifications_count']
                                                             .toString(),
-                                                        style:
-                                                            GoogleFonts.roboto(
+                                                        style: GoogleFonts
+                                                            .robotoCondensed(
                                                                 fontSize: media
                                                                         .width *
                                                                     fourteen,
@@ -306,10 +308,11 @@ class _NavDrawerState extends State<NavDrawer> {
                                               languages[choosenLanguage]
                                                   ['text_enable_history'],
                                               overflow: TextOverflow.ellipsis,
-                                              style: GoogleFonts.roboto(
-                                                  fontSize:
-                                                      media.width * sixteen,
-                                                  color: textColor),
+                                              style:
+                                                  GoogleFonts.robotoCondensed(
+                                                      fontSize:
+                                                          media.width * sixteen,
+                                                      color: textColor),
                                             ),
                                           )
                                         ],
@@ -346,10 +349,11 @@ class _NavDrawerState extends State<NavDrawer> {
                                               languages[choosenLanguage]
                                                   ['text_enable_wallet'],
                                               overflow: TextOverflow.ellipsis,
-                                              style: GoogleFonts.roboto(
-                                                  fontSize:
-                                                      media.width * sixteen,
-                                                  color: textColor),
+                                              style:
+                                                  GoogleFonts.robotoCondensed(
+                                                      fontSize:
+                                                          media.width * sixteen,
+                                                      color: textColor),
                                             ),
                                           )
                                         ],
@@ -386,10 +390,11 @@ class _NavDrawerState extends State<NavDrawer> {
                                               languages[choosenLanguage]
                                                   ['text_enable_referal'],
                                               overflow: TextOverflow.ellipsis,
-                                              style: GoogleFonts.roboto(
-                                                  fontSize:
-                                                      media.width * sixteen,
-                                                  color: textColor),
+                                              style:
+                                                  GoogleFonts.robotoCondensed(
+                                                      fontSize:
+                                                          media.width * sixteen,
+                                                      color: textColor),
                                             ),
                                           )
                                         ],
@@ -425,10 +430,11 @@ class _NavDrawerState extends State<NavDrawer> {
                                               languages[choosenLanguage]
                                                   ['text_favourites'],
                                               overflow: TextOverflow.ellipsis,
-                                              style: GoogleFonts.roboto(
-                                                  fontSize:
-                                                      media.width * sixteen,
-                                                  color: textColor),
+                                              style:
+                                                  GoogleFonts.robotoCondensed(
+                                                      fontSize:
+                                                          media.width * sixteen,
+                                                      color: textColor),
                                             ),
                                           )
                                         ],
@@ -465,10 +471,11 @@ class _NavDrawerState extends State<NavDrawer> {
                                               languages[choosenLanguage]
                                                   ['text_faq'],
                                               overflow: TextOverflow.ellipsis,
-                                              style: GoogleFonts.roboto(
-                                                  fontSize:
-                                                      media.width * sixteen,
-                                                  color: textColor),
+                                              style:
+                                                  GoogleFonts.robotoCondensed(
+                                                      fontSize:
+                                                          media.width * sixteen,
+                                                      color: textColor),
                                             ),
                                           )
                                         ],
@@ -508,10 +515,11 @@ class _NavDrawerState extends State<NavDrawer> {
                                               languages[choosenLanguage]
                                                   ['text_sos'],
                                               overflow: TextOverflow.ellipsis,
-                                              style: GoogleFonts.roboto(
-                                                  fontSize:
-                                                      media.width * sixteen,
-                                                  color: textColor),
+                                              style:
+                                                  GoogleFonts.robotoCondensed(
+                                                      fontSize:
+                                                          media.width * sixteen,
+                                                      color: textColor),
                                             ),
                                           )
                                         ],
@@ -550,10 +558,11 @@ class _NavDrawerState extends State<NavDrawer> {
                                               languages[choosenLanguage]
                                                   ['text_change_language'],
                                               overflow: TextOverflow.ellipsis,
-                                              style: GoogleFonts.roboto(
-                                                  fontSize:
-                                                      media.width * sixteen,
-                                                  color: textColor),
+                                              style:
+                                                  GoogleFonts.robotoCondensed(
+                                                      fontSize:
+                                                          media.width * sixteen,
+                                                      color: textColor),
                                             ),
                                           )
                                         ],
@@ -594,10 +603,11 @@ class _NavDrawerState extends State<NavDrawer> {
                                               languages[choosenLanguage]
                                                   ['text_make_complaints'],
                                               overflow: TextOverflow.ellipsis,
-                                              style: GoogleFonts.roboto(
-                                                  fontSize:
-                                                      media.width * sixteen,
-                                                  color: textColor),
+                                              style:
+                                                  GoogleFonts.robotoCondensed(
+                                                      fontSize:
+                                                          media.width * sixteen,
+                                                      color: textColor),
                                             ),
                                           )
                                         ],
@@ -632,10 +642,11 @@ class _NavDrawerState extends State<NavDrawer> {
                                               languages[choosenLanguage]
                                                   ['text_about'],
                                               overflow: TextOverflow.ellipsis,
-                                              style: GoogleFonts.roboto(
-                                                  fontSize:
-                                                      media.width * sixteen,
-                                                  color: textColor),
+                                              style:
+                                                  GoogleFonts.robotoCondensed(
+                                                      fontSize:
+                                                          media.width * sixteen,
+                                                      color: textColor),
                                             ),
                                           )
                                         ],
@@ -671,10 +682,11 @@ class _NavDrawerState extends State<NavDrawer> {
                                               languages[choosenLanguage]
                                                   ['text_delete_account'],
                                               overflow: TextOverflow.ellipsis,
-                                              style: GoogleFonts.roboto(
-                                                  fontSize:
-                                                      media.width * sixteen,
-                                                  color: textColor),
+                                              style:
+                                                  GoogleFonts.robotoCondensed(
+                                                      fontSize:
+                                                          media.width * sixteen,
+                                                      color: textColor),
                                             ),
                                           )
                                         ],
@@ -711,10 +723,11 @@ class _NavDrawerState extends State<NavDrawer> {
                                               languages[choosenLanguage]
                                                   ['text_logout'],
                                               overflow: TextOverflow.ellipsis,
-                                              style: GoogleFonts.roboto(
-                                                  fontSize:
-                                                      media.width * sixteen,
-                                                  color: textColor),
+                                              style:
+                                                  GoogleFonts.robotoCondensed(
+                                                      fontSize:
+                                                          media.width * sixteen,
+                                                      color: textColor),
                                             ),
                                           )
                                         ],

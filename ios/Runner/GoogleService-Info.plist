@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>210255862837-qk4elo1tlmfs12i37hrj594obk3f6rc9.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.210255862837-qk4elo1tlmfs12i37hrj594obk3f6rc9</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>210255862837-2235nkqq9kfvp1tmt6istsm1n098p6jp.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDWCVYl9nzfV3_Td6pkIrQgyxMRYWHVrq8</string>
+	<key>GCM_SENDER_ID</key>
+	<string>210255862837</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>solutions.digiplay.gochapuser</string>
+	<key>PROJECT_ID</key>
+	<string>gochap-577b0</string>
+	<key>STORAGE_BUCKET</key>
+	<string>gochap-577b0.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:210255862837:ios:ba122a7d18a25c5870257c</string>
+	<key>DATABASE_URL</key>
+	<string>https://gochap-577b0-default-rtdb.europe-west1.firebasedatabase.app</string>
+</dict>
+</plist>

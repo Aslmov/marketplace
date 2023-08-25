@@ -86,7 +86,7 @@ class _FaqState extends State<Faq> {
                               alignment: Alignment.center,
                               child: Text(
                                 languages[choosenLanguage]['text_faq'],
-                                style: GoogleFonts.roboto(
+                                style: GoogleFonts.robotoCondensed(
                                     fontSize: media.width * twenty,
                                     fontWeight: FontWeight.w600,
                                     color: textColor),
@@ -164,7 +164,7 @@ class _FaqState extends State<Faq> {
                                                               child: Text(
                                                                 faqData[i][
                                                                     'question'],
-                                                                style: GoogleFonts.roboto(
+                                                                style: GoogleFonts.robotoCondensed(
                                                                     fontSize: media
                                                                             .width *
                                                                         fourteen,
@@ -204,7 +204,7 @@ class _FaqState extends State<Faq> {
                                                                 child: Text(
                                                                   faqData[i][
                                                                       'answer'],
-                                                                  style: GoogleFonts.roboto(
+                                                                  style: GoogleFonts.robotoCondensed(
                                                                       fontSize:
                                                                           media.width *
                                                                               twelve,
@@ -225,7 +225,7 @@ class _FaqState extends State<Faq> {
                                     ? Text(
                                         languages[choosenLanguage]
                                             ['text_noDataFound'],
-                                        style: GoogleFonts.roboto(
+                                        style: GoogleFonts.robotoCondensed(
                                             fontSize: media.width * eighteen,
                                             fontWeight: FontWeight.w600,
                                             color: textColor),
