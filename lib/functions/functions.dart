@@ -982,21 +982,35 @@ getlangid() async {
 List storedAutoAddress = [];
 List addAutoFill = [];
 
+Future<String> getCurrentCountryCode() async {
+  try {
+    // var temp = WidgetsBinding.instance.window.locale.countryCode!;
+    var response = await http.get(Uri.parse('http://ip-api.com/json'));
+
+    if (response.statusCode == 200) {
+      return jsonDecode(response.body)['countryCode'];
+    }
+  } catch (e) {}
+
+  return "";
+}
+
 getAutoAddress(input, sessionToken, lat, lng) async {
   dynamic response;
-  var countryCode = userDetails['country_code'];
+  //var countryCode = userDetails['country_code'];
+  var countryCode = await getCurrentCountryCode();
 
   try {
-    response = await http.get(Uri.parse(
-        'https://maps.googleapis.com/maps/api/place/autocomplete/json?input=$input&library=places&location=$lat%2C$lng&radius=2000&key=$mapkey&sessiontoken=$sessionToken'));
+    // response = await http.get(Uri.parse(
+    //     'https://maps.googleapis.com/maps/api/place/autocomplete/json?input=$input&library=places&location=$lat%2C$lng&radius=2000&key=$mapkey&sessiontoken=$sessionToken'));
 
-    /* if (userDetails['country_code'] == null) {
+    if (countryCode.isEmpty) {
       response = await http.get(Uri.parse(
           'https://maps.googleapis.com/maps/api/place/autocomplete/json?input=$input&library=places&key=$mapkey&sessiontoken=$sessionToken'));
     } else {
       response = await http.get(Uri.parse(
           'https://maps.googleapis.com/maps/api/place/autocomplete/json?input=$input&library=places&location=$lat%2C$lng&radius=2000&components=country:$countryCode&key=$mapkey&sessiontoken=$sessionToken'));
-    } */
+    }
 
     if (response.statusCode == 200) {
       addAutoFill = jsonDecode(response.body)['predictions'];

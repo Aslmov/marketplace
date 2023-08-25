@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:math';
+import 'package:tagxisuperuser/data/data.dart';
 import 'package:tagxisuperuser/functions/notifications.dart';
 import 'package:tagxisuperuser/pages/NavigatorPages/notification.dart';
 import 'package:tagxisuperuser/pages/onTripPage/booking_confirmation.dart';
@@ -1889,6 +1890,8 @@ class _MapsState extends State<Maps>
                                                                                                                     addressList.firstWhere((element) => element.type == 'drop').latlng = val;
                                                                                                                   }
                                                                                                                 });
+                                                                                                                //
+
                                                                                                                 if (addressList.length == 2) {
                                                                                                                   navigate();
                                                                                                                 }

@@ -64,6 +64,8 @@ dependencies:
   flutter_inappwebview: ^5.5.0+1
   path_provider: ^2.0.11
   firebase_crashlytics: ^3.3.3
+  go_router: ^10.1.0
+  receive_intent: ^0.2.4
 
 dev_dependencies:
   flutter_test:
