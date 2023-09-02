@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:tagxisuperuser/functions/functions.dart';
 import 'package:tagxisuperuser/styles/styles.dart';
+import 'package:tagxisuperuser/functions/functions.dart';
 import 'package:tagxisuperuser/translations/translation.dart';
 
 import '../noInternet/noInternet.dart';
