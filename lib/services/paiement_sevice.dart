@@ -9,60 +9,72 @@ import '../models/recharge.dart';
 
 class PaiementService {
   String paiemenApitUrl =
-      "http://31.220.95.109:30030/api/Transactionsts/Payment";
+      "https://5fb9-2c0f-f0f8-70b-1b05-c8be-3acb-b5db-3ef9.ngrok-free.app/api/Transactionsts/Payment";
   String goChapApiUrl = "";
   static String userNumberKey = "userNumber";
 
   static Map<String, String> header = {
     "x-apikey":
-        "4B7564CDB63A44B5C4C171996A1F4B7B9E1B56B262D1C0C4BDB7E2DED15EB0B5",
-    "x-merchantId": "4db952ba-1405-4456-b68b-3837f361fb04",
+        "6F99E02CFA8D070A65F2350C2B319A75E62962122B6907031A3499A73F6CC05D",
+    "x-merchantId": "2f7d981d-3a1f-49a4-b15a-ef6c2ada19f7",
     "Content-Type": "application/json",
     "environnment": "production",
+    'x-token': '${bearerToken[0].token}',
   };
 
   Future<bool> addRecharge(Recharge recharge) async {
-    sendToPaiementApi(recharge).then((value) {
-      if (value.success!) {
-        sendToGoChapApi(recharge).then((secondeValue) {
-          if (secondeValue) {
-            storeUserNumber(recharge.number);
-            return true;
-          }
-        });
-      }
-    });
+    var rep = await sendToPaiementApi(recharge);
+    if(rep.success!){
+      storeUserNumber(recharge.number);
+      return true;
+    }
     return false;
   }
 
   Future<PaiementApiResponse> sendToPaiementApi(Recharge recharge) async {
-    var code = userDetails['country_code'];
+    var code = userDetails['country_code'].toString();
     await getCountryCode();
     var pays = countries.where((element) => element['code'] == code).first;
-    var number = recharge.number;
-    recharge.number = pays["code"] + number;
+    var paiement = PaiementApiModel.fromRecharge(recharge);
+    var countryResponse = await http.get(
+        Uri.parse("https://api.worldbank.org/v2/country/#?format=json".replaceAll("#",code.toLowerCase())));
+    var temp = jsonDecode(countryResponse.body)[1];
+    var isocode = temp[0]["id"];
+    paiement.countryIsoCode = isocode;
+    paiement.msisdn = pays['dial_code'] + recharge.number;
+    var data = jsonEncode(paiement.toJson());
     var httpResponse = await http.post(Uri.parse(paiemenApitUrl),
-        body: {PaiementApiModel.fromRecharge(recharge)}, headers: header);
-    if (httpResponse.statusCode == 200) {
+        body: data, headers: header);
+    if (httpResponse.statusCode == 201) {
       var data = jsonDecode(httpResponse.body);
       return PaiementApiResponse.fromJson(data);
     }
     return PaiementApiResponse(success: false);
   }
 
-  Future<bool> sendToGoChapApi(Recharge recharge) async {
-    var httpResponse =
-        await http.post(Uri.parse(goChapApiUrl), body: {recharge.toJson()});
-    return httpResponse.statusCode == 200;
-  }
 
   storeUserNumber(String number) async {
     var pref = await SharedPreferences.getInstance();
     String userNumbers = "";
     if (pref.containsKey(userNumberKey)) {
       userNumbers = pref.getString(userNumbers) as String;
+      if(!userNumbers.contains(number)){
+        userNumbers = userNumbers + ", $number";
+      }
+    }else{
+      userNumbers = number;
     }
-    userNumbers = userNumbers + ", $number";
-    pref.setString(userNumberKey, number);
+    pref.setString(userNumberKey, userNumbers);
+  }
+  getUserNumber() async {
+    var pref = await SharedPreferences.getInstance();
+    String userNumbers = "";
+    if (pref.containsKey(userNumberKey)) {
+      userNumbers = pref.getString(userNumberKey) as String;
+      if(userNumbers.contains(", "))
+        return userNumbers.split(", ").toList();
+      return [userNumbers];
+    }
+    return [];
   }
 }

@@ -1,3 +1,5 @@
+import 'package:uuid/uuid.dart';
+
 import 'recharge.dart';
 
 class PaiementApiModel {
@@ -27,12 +29,18 @@ class PaiementApiModel {
 
 
   PaiementApiModel.fromRecharge(Recharge recharge) {
-    amount = int.parse(recharge.price);
+    String prix = recharge.price;
+    if(prix.contains(' Fcfa')){
+      var index =  prix.indexOf(' Fcfa');
+      prix = prix.substring(0, index);
+    }
+    amount = int.parse(prix);
     msisdn = recharge.number;
     otp = "";
-    name = recharge.method;
+    name = recharge.method.toLowerCase();
     type = "mobile_money";
     countryIsoCode = "";
+    reference = Uuid().v1();
   }
 
   Map<String, dynamic> toJson() {
