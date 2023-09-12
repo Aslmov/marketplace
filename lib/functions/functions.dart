@@ -43,8 +43,8 @@ bool internet = true;
 
 //base url
 String url =
-    'http://192.168.1.67:8000/'; //add '/' at the end of the url as 'https://website.com/'
-// 'https://gochap.app/';
+    // 'http://192.168.1.67:8000/'; //add '/' at the end of the url as 'https://website.com/'
+    'https://gochap.app/';
 String mapkey = 'AIzaSyBTDMhiBGTNTieXxW-mI60jqRfhh_UD3aU';
 
 String urlProvider = 'http://31.220.95.109:30030/';

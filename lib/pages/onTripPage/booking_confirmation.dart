@@ -6,6 +6,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tagxisuperuser/functions/functions.dart';
 import 'package:tagxisuperuser/functions/geohash.dart';
@@ -119,7 +120,6 @@ class _BookingConfirmationState extends State<BookingConfirmation>
     noDriverFound = false;
     etaDetails.clear();
     getLocs();
-
     super.initState();
   }
 
@@ -4299,7 +4299,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                         height: media.width *
                                                                             0.03),
                                                                     Text(
-                                                                       "${userRequestData['driverDetail']['data']['car_color']} "
+                                                                      "${userRequestData['driverDetail']['data']['car_color']} "
                                                                       "${userRequestData['driverDetail']['data']['car_make_name']} "
                                                                       "${userRequestData['driverDetail']['data']['car_model_name']}",
                                                                       style: GoogleFonts.robotoCondensed(
@@ -5173,23 +5173,37 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                               12),
                                                       color: topBar),
                                                   child: CupertinoDatePicker(
-                                                      minimumDate: DateTime.now()
-                                                          .add(Duration(
-                                                              minutes: int.parse(
-                                                                  userDetails[
-                                                                      'user_can_make_a_ride_after_x_miniutes']))),
-                                                      initialDateTime: DateTime.now()
-                                                          .add(Duration(
-                                                              minutes: int.parse(
-                                                                  userDetails[
-                                                                      'user_can_make_a_ride_after_x_miniutes']))),
-                                                      maximumDate:
-                                                          DateTime.now().add(
-                                                              const Duration(
-                                                                  days: 4)),
-                                                      onDateTimeChanged: (val) {
-                                                        choosenDateTime = val;
-                                                      }),
+                                                    use24hFormat: true,
+                                                    minimumDate: DateTime.now()
+                                                        .add(Duration(
+                                                            minutes: int.parse(
+                                                                userDetails[
+                                                                    'user_can_make_a_ride_after_x_miniutes']))),
+                                                    initialDateTime: DateTime
+                                                            .now()
+                                                        .add(Duration(
+                                                            minutes: int.parse(
+                                                                userDetails[
+                                                                    'user_can_make_a_ride_after_x_miniutes']))),
+                                                    maximumDate: DateTime.now()
+                                                        .add(const Duration(
+                                                            days: 4)),
+                                                    onDateTimeChanged: (val) {
+                                                      String formattedDate =
+                                                          DateFormat('d MMMM y',
+                                                                  'fr_FR')
+                                                              .format(val);
+
+                                                      String dayOfWeek =
+                                                          DateFormat('EEEE',
+                                                                  'fr_FR')
+                                                              .format(val);
+
+                                                      print(
+                                                          '| $formattedDate | $dayOfWeek |');
+                                                      choosenDateTime = val;
+                                                    },
+                                                  ),
                                                 ),
                                                 Container(
                                                     padding: EdgeInsets.all(
@@ -5286,7 +5300,9 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                             media.width * 0.05,
                                                       ),
                                                       Text(
-                                                        DateFormat()
+                                                        DateFormat(
+                                                                'EEEE, d MMMM y HH:mm',
+                                                                'fr_FR')
                                                             .format(
                                                                 choosenDateTime)
                                                             .toString(),

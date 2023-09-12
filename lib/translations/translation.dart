@@ -198,9 +198,9 @@ Map<String, dynamic> languages = {
     "text_invitation_1":
         "Rejoignez-moi sur GoChap! en utilisant mon code d'invitation",
     "text_invitation_2": "Pour faciliter vos courses",
-    "text_upcoming": "A venir",
-    "text_completed": "Accomplis",
-    "text_cancelled": "Annuler",
+    "text_upcoming": "A venir ",
+    "text_completed": "Terminée ",
+    "text_cancelled": "Annulée ",
     "text_card": "Carte",
     "text_loadmore": "Recharger",
     "text_location": "Détails de la localisation",

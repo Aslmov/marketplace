@@ -14,6 +14,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/services.dart';
 import 'package:receive_intent/receive_intent.dart';
 import '../../data/data.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -67,6 +68,14 @@ class _MyAppState extends State<MyApp> {
             valueListenable: valueNotifierHome.value,
             builder: (context, value, child) {
               return MaterialApp(
+                  localizationsDelegates: [
+                    GlobalMaterialLocalizations.delegate,
+                    GlobalWidgetsLocalizations.delegate,
+                    GlobalCupertinoLocalizations.delegate,
+                  ],
+                  supportedLocales: [
+                    const Locale('fr', 'FR'),
+                  ],
                   debugShowCheckedModeBanner: false,
                   title: 'product.name',
                   theme: ThemeData(),
