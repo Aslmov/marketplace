@@ -12,7 +12,7 @@ import 'package:tagxisuperuser/pages/login/login.dart';
 import 'package:tagxisuperuser/pages/onTripPage/map_page.dart';
 import 'package:tagxisuperuser/pages/noInternet/nointernet.dart';
 import 'package:tagxisuperuser/widgets/widgets.dart';
-
+import 'package:geolocator/geolocator.dart' as geolocs;
 import '../../data/data.dart';
 import '../../services/googleApiService.dart';
 import '../../styles/styles.dart';
@@ -63,12 +63,18 @@ class _LoadingPageState extends State<LoadingPage> {
               double.parse(Repository.receiveLocationLinkData!.latitude),
               double.parse(Repository.receiveLocationLinkData!.longitude));
           if (addressList.length == 0) {
+            var locs = await geolocs.Geolocator.getLastKnownPosition();
+            if (locs != null) {
+              currentLocation = LatLng(double.parse(locs.latitude.toString()),
+                  double.parse(locs.longitude.toString()));
+            }
             var address = await GoogleApiService.getAdressFromLocation(latLng);
+
             addressList.add(AddressList(
                 id: "1",
                 type: "pickup",
                 address: address,
-                latlng: latLng,
+                latlng: currentLocation,
                 number: userDetails['mobile'],
                 name: userDetails['name']));
             addressList.add(AddressList(

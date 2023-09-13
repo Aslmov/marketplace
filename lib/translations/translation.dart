@@ -476,6 +476,14 @@ Map<String, dynamic> languages = {
     "text_bidding": "Enchère",
     "text_contact_permission":
         "Le contact sélectionné sera ajouté dans notre serveur à des fins SOS, dans l'application Il existe une option pour supprimer ces contacts.",
+    "text_paiement_title": "Paiement",
+    "text_paiement_min": "Minimum",
+    "text_paiement_max": "Maximum",
+    "text_paiement_from": "Payer via",
+    "text_paiement_number": "Numéro",
+    "text_paiement_number_choice": "Sélectionnez",
+    "text_paiement_price": "Prix",
+    "text_paiement_btn": "Payer",
   },
   "en": {
     "text_enter_social": "or Enter Social Media",
@@ -937,7 +945,15 @@ Map<String, dynamic> languages = {
     "text_operator": "Opertors",
     "text_mobile_money_successfully": "Transaction in progress please wait",
     "text_market": "MarketPlace",
-    "text_in_progress": "Coming soon"
+    "text_in_progress": "Coming soon",
+    "text_paiement_title": "Payment",
+    "text_paiement_min": "Minimum",
+    "text_paiement_max": "Maximum",
+    "text_paiement_from": "Pay with",
+    "text_paiement_number": "Number",
+    "text_paiement_number_choice": "Select",
+    "text_paiement_price": "Price",
+    "text_paiement_btn": "Pay",
   },
 
   /*  "hi": {
@@ -1864,7 +1880,15 @@ Map<String, dynamic> languages = {
     "text_more_vehicles": "Puede elegir más de 1 tipos de vehículos",
     "text_bidding": "Ofertas",
     "text_contact_permission":
-        "El contacto seleccionado se agregará en nuestro servidor para el propósito SOS, en la aplicación hay una opción para eliminar estos contactos."
+        "El contacto seleccionado se agregará en nuestro servidor para el propósito SOS, en la aplicación hay una opción para eliminar estos contactos.",
+    "text_paiement_title": "Pago",
+    "text_paiement_min": "Mínimo",
+    "text_paiement_max": "Máximo",
+    "text_paiement_from": "Pagar con",
+    "text_paiement_number": "Número",
+    "text_paiement_number_choice": "Seleccione",
+    "text_paiement_price": "Precio",
+    "text_paiement_btn": "Pagar",
   },
   "de": {
     "text_enter_social": "oder soziale Medien eingeben",
@@ -2335,7 +2359,15 @@ Map<String, dynamic> languages = {
     "text_more_vehicles": "Sie können mehr als 1 Fahrzeugtypen auswählen",
     "text_bidding": "Bieten",
     "text_contact_permission":
-        "Der ausgewählte Kontakt wird auf unserem Server für SOS -Zweck hinzugefügt. In App besteht die Möglichkeit, diese Kontakte zu entfernen."
+        "Der ausgewählte Kontakt wird auf unserem Server für SOS -Zweck hinzugefügt. In App besteht die Möglichkeit, diese Kontakte zu entfernen.",
+    "text_paiement_title": "Zahlung",
+    "text_paiement_min": "Minimum",
+    "text_paiement_max": "Maximum",
+    "text_paiement_from": "Bezahlen über",
+    "text_paiement_number": "Nummer",
+    "text_paiement_number_choice": "Wählen Sie",
+    "text_paiement_price": "Preis",
+    "text_paiement_btn": "Bezahlen",
   },
   "zh": {
     "text_enter_social": "或进入社交媒体",
@@ -2764,7 +2796,15 @@ Map<String, dynamic> languages = {
     "text_update_available": "该应用程序的新版本可在商店中获得，请更新该应用程序以继续使用",
     "text_more_vehicles": "您可以选择超过1辆汽车类型",
     "text_bidding": "投标",
-    "text_contact_permission": "为了SOS目的，将在我们的服务器中添加选定的联系人，在应用程序中，可以选择删除此联系人。"
+    "text_contact_permission": "为了SOS目的，将在我们的服务器中添加选定的联系人，在应用程序中，可以选择删除此联系人。",
+    "text_paiement_title": "薪酬",
+    "text_paiement_min": "最低",
+    "text_paiement_max": "最大",
+    "text_paiement_from": "支付方式",
+    "text_paiement_number": "数量",
+    "text_paiement_number_choice": "选择",
+    "text_paiement_price": "价格",
+    "text_paiement_btn": "薪酬",
   },
   "ar": {
     "text_enter_social": "أو أدخل وسائل التواصل الاجتماعي",
@@ -3213,7 +3253,15 @@ Map<String, dynamic> languages = {
     "text_more_vehicles": "يمكنك اختيار أكثر من نوع مركبة",
     "text_bidding": "مزايدة",
     "text_contact_permission":
-        "سيتم إضافة جهة الاتصال المحددة في خادمنا لغرض SOS ، في التطبيق هناك خيار لإزالة جهات الاتصال هذه."
+        "سيتم إضافة جهة الاتصال المحددة في خادمنا لغرض SOS ، في التطبيق هناك خيار لإزالة جهات الاتصال هذه.",
+    "text_paiement_title": "قسط",
+    "text_paiement_min": "الحد الأدنى",
+    "text_paiement_max": "أقصى",
+    "text_paiement_from": "الدفع من خلال",
+    "text_paiement_number": "رقم",
+    "text_paiement_number_choice": "يختار",
+    "text_paiement_price": "سعر",
+    "text_paiement_btn": "يدفع",
   },
 
   /* "tr": {
@@ -4591,7 +4639,15 @@ Map<String, dynamic> languages = {
     "text_more_vehicles": "Puoi scegliere più di 1 tipi di veicoli",
     "text_bidding": "Offerta",
     "text_contact_permission":
-        "Il contatto selezionato verrà aggiunto nel nostro server a scopo SOS, nell'app esiste un'opzione per rimuovere questi contatti."
+        "Il contatto selezionato verrà aggiunto nel nostro server a scopo SOS, nell'app esiste un'opzione per rimuovere questi contatti.",
+    "text_paiement_title": "Pagamento",
+    "text_paiement_min": "Minimo",
+    "text_paiement_max": "Massimo",
+    "text_paiement_from": "Paga",
+    "text_paiement_number": "Numero",
+    "text_paiement_number_choice": "Selezionare",
+    "text_paiement_price": "Prezzo",
+    "text_paiement_btn": "Paga",
   },
 
   /* "ko": {

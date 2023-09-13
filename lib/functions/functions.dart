@@ -29,6 +29,7 @@ import 'package:tagxisuperuser/styles/styles.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:tagxisuperuser/pages/NavigatorPages/walletpage.dart';
 import '../pages/mobileMoney/mobile_money.dart';
+import '../services/paiement_sevice.dart';
 import '../translations/translation_choose_goods.dart';
 import 'package:uuid/uuid.dart';
 
@@ -332,6 +333,7 @@ emailVerify(String email, otpNumber) async {
   }
 }
 
+List<String> userNumbers = [];
 //get local bearer token
 
 String lastNotification = '';
@@ -400,6 +402,10 @@ getLocalData() async {
       } else {
         mapStyle = await rootBundle.loadString('assets/map_style_black.json');
       }
+    }
+    if (pref.containsKey(PaiementService.userNumberKey)) {
+      userNumbers =
+          (pref.getString(PaiementService.userNumberKey) as String).split(", ");
     }
   } catch (e) {
     if (e is SocketException) {

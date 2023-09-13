@@ -5,6 +5,7 @@ import 'package:tagxisuperuser/pages/NavigatorPages/selectwallet.dart';
 import 'package:tagxisuperuser/pages/loadingPage/loading.dart';
 import 'package:tagxisuperuser/pages/login/login.dart';
 import 'package:tagxisuperuser/pages/noInternet/nointernet.dart';
+import 'package:tagxisuperuser/pages/wallePage/add_money_page.dart';
 import 'package:tagxisuperuser/styles/styles.dart';
 import 'package:tagxisuperuser/translations/translation.dart';
 import 'package:tagxisuperuser/widgets/widgets.dart';
@@ -438,11 +439,16 @@ class _WalletPageState extends State<WalletPage> {
                                       bottom: media.width * 0.05),
                                   child: Button(
                                       onTap: () {
-                                        if (_addPayment == false) {
-                                          setState(() {
-                                            _addPayment = true;
-                                          });
-                                        }
+                                        // if (_addPayment == false) {
+                                        //   setState(() {
+                                        //     _addPayment = true;
+                                        //   });
+                                        // }
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    const AddMoneyPage()));
                                       },
                                       text: languages[choosenLanguage]
                                           ['text_addmoney']),
