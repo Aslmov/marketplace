@@ -68,452 +68,461 @@ class _LoginState extends State<Login> {
                         right: media.width * 0.08),
                     height: media.height * 1,
                     width: media.width * 1,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        SizedBox(
-                          width: media.width,
-                          height: media.height * 0.20,
-                          child: Image.asset(
-                            'assets/images/logo.png',
-                            fit: BoxFit.contain,
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 30.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SizedBox(
+                            width: media.width,
+                            height: media.height * 0.20,
+                            child: Image.asset(
+                              'assets/images/logo.png',
+                              fit: BoxFit.contain,
+                            ),
                           ),
-                        ),
-                        SizedBox(height: media.height * 0.1),
-                        Text(
-                          languages[choosenLanguage]['text_login'],
-                          style: GoogleFonts.robotoCondensed(
-                              fontSize: media.width * twentysix,
-                              fontWeight: FontWeight.bold,
-                              color: textColor),
-                        ),
-                        SizedBox(
-                          height: media.height * 0.1,
-                        ),
-                        Container(
-                          padding: const EdgeInsets.only(bottom: 5),
-                          height: 55,
-                          width: media.width * 1 - (media.width * 0.08 * 2),
-                          decoration: BoxDecoration(
-                              border: Border(
-                                  bottom: BorderSide(
-                                      color: (isDarkTheme == true)
-                                          ? textColor.withOpacity(0.6)
-                                          : underline))),
-                          child: Row(
-                            children: [
-                              InkWell(
-                                onTap: () async {
-                                  if (countries.isNotEmpty) {
-                                    //dialod box for select country for dial code
-                                    await showDialog(
-                                        context: context,
-                                        barrierColor: (isDarkTheme == true)
-                                            ? textColor.withOpacity(0.3)
-                                            : Colors.black.withOpacity(0.5),
-                                        builder: (context) {
-                                          var searchVal = '';
-                                          return AlertDialog(
-                                            backgroundColor: page,
-                                            insetPadding:
-                                                const EdgeInsets.all(10),
-                                            content: StatefulBuilder(
-                                                builder: (context, setState) {
-                                              return Container(
-                                                width: media.width * 0.9,
-                                                color: page,
-                                                child: Directionality(
-                                                  textDirection:
-                                                      (languageDirection ==
-                                                              'rtl')
-                                                          ? TextDirection.rtl
-                                                          : TextDirection.ltr,
-                                                  child: Column(
-                                                    children: [
-                                                      Container(
-                                                        padding:
-                                                            const EdgeInsets
-                                                                    .only(
-                                                                left: 20,
-                                                                right: 20),
-                                                        height: 40,
-                                                        width:
-                                                            media.width * 0.9,
-                                                        decoration: BoxDecoration(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        20),
-                                                            border: Border.all(
-                                                                color:
-                                                                    Colors.grey,
-                                                                width: 1.5)),
-                                                        child: TextField(
-                                                          decoration: InputDecoration(
-                                                              contentPadding: (languageDirection == 'rtl')
-                                                                  ? EdgeInsets.only(
-                                                                      bottom: media.width *
-                                                                          0.035)
-                                                                  : EdgeInsets.only(
-                                                                      bottom: media.width *
-                                                                          0.04),
-                                                              border: InputBorder
-                                                                  .none,
-                                                              hintText: languages[choosenLanguage][
-                                                                  'text_search'],
-                                                              hintStyle: GoogleFonts.robotoCondensed(
-                                                                  color: textColor
-                                                                      .withOpacity(
-                                                                          0.4),
-                                                                  fontSize: media.width *
-                                                                      sixteen)),
-                                                          style: GoogleFonts
-                                                              .robotoCondensed(
-                                                                  color:
-                                                                      textColor),
-                                                          onChanged: (val) {
-                                                            setState(() {
-                                                              searchVal = val;
-                                                            });
-                                                          },
-                                                        ),
-                                                      ),
-                                                      const SizedBox(
-                                                          height: 20),
-                                                      Expanded(
-                                                        child:
-                                                            SingleChildScrollView(
-                                                          child: Column(
-                                                            children: countries
-                                                                .asMap()
-                                                                .map(
-                                                                    (i, value) {
-                                                                  return MapEntry(
-                                                                      i,
-                                                                      SizedBox(
-                                                                        width: media.width *
-                                                                            0.9,
-                                                                        child: (searchVal == '' &&
-                                                                                countries[i]['flag'] != null)
-                                                                            ? InkWell(
-                                                                                onTap: () {
-                                                                                  setState(() {
-                                                                                    phcode = i;
-                                                                                  });
-                                                                                  Navigator.pop(context);
-                                                                                },
-                                                                                child: Container(
-                                                                                  padding: const EdgeInsets.only(top: 10, bottom: 10),
-                                                                                  color: page,
-                                                                                  child: Row(
-                                                                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                                    children: [
-                                                                                      Row(
-                                                                                        children: [
-                                                                                          Image.network(countries[i]['flag']),
-                                                                                          SizedBox(
-                                                                                            width: media.width * 0.02,
-                                                                                          ),
-                                                                                          SizedBox(
-                                                                                              width: media.width * 0.4,
-                                                                                              child: Text(
-                                                                                                countries[i]['name'],
-                                                                                                style: GoogleFonts.robotoCondensed(fontSize: media.width * sixteen, color: textColor),
-                                                                                              )),
-                                                                                        ],
-                                                                                      ),
-                                                                                      Text(
-                                                                                        countries[i]['dial_code'],
-                                                                                        style: GoogleFonts.robotoCondensed(fontSize: media.width * sixteen, color: textColor),
-                                                                                      )
-                                                                                    ],
-                                                                                  ),
-                                                                                ))
-                                                                            : (countries[i]['flag'] != null && countries[i]['name'].toLowerCase().contains(searchVal.toLowerCase()))
-                                                                                ? InkWell(
-                                                                                    onTap: () {
-                                                                                      setState(() {
-                                                                                        phcode = i;
-                                                                                      });
-                                                                                      Navigator.pop(context);
-                                                                                    },
-                                                                                    child: Container(
-                                                                                      padding: const EdgeInsets.only(top: 10, bottom: 10),
-                                                                                      color: page,
-                                                                                      child: Row(
-                                                                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                                        children: [
-                                                                                          Row(
-                                                                                            children: [
-                                                                                              Image.network(countries[i]['flag']),
-                                                                                              SizedBox(
-                                                                                                width: media.width * 0.02,
-                                                                                              ),
-                                                                                              SizedBox(
-                                                                                                  width: media.width * 0.4,
-                                                                                                  child: Text(
-                                                                                                    countries[i]['name'],
-                                                                                                    style: GoogleFonts.robotoCondensed(fontSize: media.width * sixteen, color: textColor),
-                                                                                                  )),
-                                                                                            ],
-                                                                                          ),
-                                                                                          Text(
-                                                                                            countries[i]['dial_code'],
-                                                                                            style: GoogleFonts.robotoCondensed(fontSize: media.width * sixteen, color: textColor),
-                                                                                          )
-                                                                                        ],
-                                                                                      ),
-                                                                                    ))
-                                                                                : Container(),
-                                                                      ));
-                                                                })
-                                                                .values
-                                                                .toList(),
+                          SizedBox(height: media.height * 0.1),
+                          Text(
+                            languages[choosenLanguage]['text_login'],
+                            style: GoogleFonts.robotoCondensed(
+                                fontSize: media.width * twentysix,
+                                fontWeight: FontWeight.bold,
+                                color: textColor),
+                          ),
+                          SizedBox(
+                            height: media.height * 0.1,
+                          ),
+                          Container(
+                            padding: const EdgeInsets.only(bottom: 5),
+                            height: 55,
+                            width: media.width * 1 - (media.width * 0.08 * 2),
+                            decoration: BoxDecoration(
+                                border: Border(
+                                    bottom: BorderSide(
+                                        color: (isDarkTheme == true)
+                                            ? textColor.withOpacity(0.6)
+                                            : underline))),
+                            child: Row(
+                              children: [
+                                InkWell(
+                                  onTap: () async {
+                                    if (countries.isNotEmpty) {
+                                      //dialod box for select country for dial code
+                                      await showDialog(
+                                          context: context,
+                                          barrierColor: (isDarkTheme == true)
+                                              ? textColor.withOpacity(0.3)
+                                              : Colors.black.withOpacity(0.5),
+                                          builder: (context) {
+                                            var searchVal = '';
+                                            return AlertDialog(
+                                              backgroundColor: page,
+                                              insetPadding:
+                                                  const EdgeInsets.all(10),
+                                              content: StatefulBuilder(
+                                                  builder: (context, setState) {
+                                                return Container(
+                                                  width: media.width * 0.9,
+                                                  color: page,
+                                                  child: Directionality(
+                                                    textDirection:
+                                                        (languageDirection ==
+                                                                'rtl')
+                                                            ? TextDirection.rtl
+                                                            : TextDirection.ltr,
+                                                    child: Column(
+                                                      children: [
+                                                        Container(
+                                                          padding:
+                                                              const EdgeInsets
+                                                                  .only(
+                                                                  left: 20,
+                                                                  right: 20),
+                                                          height: 40,
+                                                          width:
+                                                              media.width * 0.9,
+                                                          decoration: BoxDecoration(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          20),
+                                                              border: Border.all(
+                                                                  color: Colors
+                                                                      .grey,
+                                                                  width: 1.5)),
+                                                          child: TextField(
+                                                            decoration: InputDecoration(
+                                                                contentPadding: (languageDirection ==
+                                                                        'rtl')
+                                                                    ? EdgeInsets.only(
+                                                                        bottom: media.width *
+                                                                            0.035)
+                                                                    : EdgeInsets.only(
+                                                                        bottom: media.width *
+                                                                            0.04),
+                                                                border:
+                                                                    InputBorder
+                                                                        .none,
+                                                                hintText:
+                                                                    languages[choosenLanguage]
+                                                                        [
+                                                                        'text_search'],
+                                                                hintStyle: GoogleFonts.robotoCondensed(
+                                                                    color: textColor
+                                                                        .withOpacity(0.4),
+                                                                    fontSize: media.width * sixteen)),
+                                                            style: GoogleFonts
+                                                                .robotoCondensed(
+                                                                    color:
+                                                                        textColor),
+                                                            onChanged: (val) {
+                                                              setState(() {
+                                                                searchVal = val;
+                                                              });
+                                                            },
                                                           ),
                                                         ),
-                                                      ),
-                                                    ],
+                                                        const SizedBox(
+                                                            height: 20),
+                                                        Expanded(
+                                                          child:
+                                                              SingleChildScrollView(
+                                                            child: Column(
+                                                              children:
+                                                                  countries
+                                                                      .asMap()
+                                                                      .map((i,
+                                                                          value) {
+                                                                        return MapEntry(
+                                                                            i,
+                                                                            SizedBox(
+                                                                              width: media.width * 0.9,
+                                                                              child: (searchVal == '' && countries[i]['flag'] != null)
+                                                                                  ? InkWell(
+                                                                                      onTap: () {
+                                                                                        setState(() {
+                                                                                          phcode = i;
+                                                                                        });
+                                                                                        Navigator.pop(context);
+                                                                                      },
+                                                                                      child: Container(
+                                                                                        padding: const EdgeInsets.only(top: 10, bottom: 10),
+                                                                                        color: page,
+                                                                                        child: Row(
+                                                                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                          children: [
+                                                                                            Row(
+                                                                                              children: [
+                                                                                                Image.network(countries[i]['flag']),
+                                                                                                SizedBox(
+                                                                                                  width: media.width * 0.02,
+                                                                                                ),
+                                                                                                SizedBox(
+                                                                                                    width: media.width * 0.4,
+                                                                                                    child: Text(
+                                                                                                      countries[i]['name'],
+                                                                                                      style: GoogleFonts.robotoCondensed(fontSize: media.width * sixteen, color: textColor),
+                                                                                                    )),
+                                                                                              ],
+                                                                                            ),
+                                                                                            Text(
+                                                                                              countries[i]['dial_code'],
+                                                                                              style: GoogleFonts.robotoCondensed(fontSize: media.width * sixteen, color: textColor),
+                                                                                            )
+                                                                                          ],
+                                                                                        ),
+                                                                                      ))
+                                                                                  : (countries[i]['flag'] != null && countries[i]['name'].toLowerCase().contains(searchVal.toLowerCase()))
+                                                                                      ? InkWell(
+                                                                                          onTap: () {
+                                                                                            setState(() {
+                                                                                              phcode = i;
+                                                                                            });
+                                                                                            Navigator.pop(context);
+                                                                                          },
+                                                                                          child: Container(
+                                                                                            padding: const EdgeInsets.only(top: 10, bottom: 10),
+                                                                                            color: page,
+                                                                                            child: Row(
+                                                                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                              children: [
+                                                                                                Row(
+                                                                                                  children: [
+                                                                                                    Image.network(countries[i]['flag']),
+                                                                                                    SizedBox(
+                                                                                                      width: media.width * 0.02,
+                                                                                                    ),
+                                                                                                    SizedBox(
+                                                                                                        width: media.width * 0.4,
+                                                                                                        child: Text(
+                                                                                                          countries[i]['name'],
+                                                                                                          style: GoogleFonts.robotoCondensed(fontSize: media.width * sixteen, color: textColor),
+                                                                                                        )),
+                                                                                                  ],
+                                                                                                ),
+                                                                                                Text(
+                                                                                                  countries[i]['dial_code'],
+                                                                                                  style: GoogleFonts.robotoCondensed(fontSize: media.width * sixteen, color: textColor),
+                                                                                                )
+                                                                                              ],
+                                                                                            ),
+                                                                                          ))
+                                                                                      : Container(),
+                                                                            ));
+                                                                      })
+                                                                      .values
+                                                                      .toList(),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
                                                   ),
-                                                ),
-                                              );
-                                            }),
-                                          );
-                                        });
-                                  } else {
-                                    getCountryCode();
-                                  }
-                                  setState(() {});
-                                },
-                                //input field
-                                child: Container(
-                                  height: 50,
-                                  alignment: Alignment.center,
-                                  child: Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      Image.network(countries[phcode]['flag']),
-                                      SizedBox(
-                                        width: media.width * 0.02,
-                                      ),
-                                      Text(
-                                        countries[phcode]['dial_code']
-                                            .toString(),
-                                        style: GoogleFonts.robotoCondensed(
-                                            fontSize: media.width * sixteen,
-                                            color: textColor),
-                                      ),
-                                      const SizedBox(
-                                        width: 2,
-                                      ),
-                                      Icon(Icons.keyboard_arrow_down,
-                                          color: textColor)
-                                    ],
+                                                );
+                                              }),
+                                            );
+                                          });
+                                    } else {
+                                      getCountryCode();
+                                    }
+                                    setState(() {});
+                                  },
+                                  //input field
+                                  child: Container(
+                                    height: 50,
+                                    alignment: Alignment.center,
+                                    child: Row(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        Image.network(
+                                            countries[phcode]['flag']),
+                                        SizedBox(
+                                          width: media.width * 0.02,
+                                        ),
+                                        Text(
+                                          countries[phcode]['dial_code']
+                                              .toString(),
+                                          style: GoogleFonts.robotoCondensed(
+                                              fontSize: media.width * sixteen,
+                                              color: textColor),
+                                        ),
+                                        const SizedBox(
+                                          width: 2,
+                                        ),
+                                        Icon(Icons.keyboard_arrow_down,
+                                            color: textColor)
+                                      ],
+                                    ),
                                   ),
                                 ),
-                              ),
-                              const SizedBox(width: 4),
-                              Container(
-                                width: 1,
-                                height: media.width * 0.0693,
-                                color: buttonColor,
-                              ),
-                              const SizedBox(width: 10),
-                              Container(
-                                height: 50,
-                                alignment: Alignment.center,
-                                width: media.width * 0.5,
-                                child: TextFormField(
-                                  controller: controller,
-                                  onChanged: (val) {
-                                    setState(() {
-                                      phnumber = controller.text;
-                                    });
-                                    if (controller.text.length ==
-                                        countries[phcode]['dial_max_length']) {
-                                      FocusManager.instance.primaryFocus
-                                          ?.unfocus();
-                                    }
-                                  },
-                                  maxLength: countries[phcode]
-                                      ['dial_max_length'],
-                                  style: GoogleFonts.robotoCondensed(
-                                      fontSize: media.width * sixteen,
-                                      color: textColor,
-                                      letterSpacing: 1),
-                                  keyboardType: TextInputType.number,
-                                  decoration: InputDecoration(
-                                    hintText: languages[choosenLanguage]
-                                        ['text_phone_number'],
-                                    counterText: '',
-                                    hintStyle: GoogleFonts.robotoCondensed(
+                                const SizedBox(width: 4),
+                                Container(
+                                  width: 1,
+                                  height: media.width * 0.0693,
+                                  color: buttonColor,
+                                ),
+                                const SizedBox(width: 10),
+                                Container(
+                                  height: 50,
+                                  alignment: Alignment.center,
+                                  width: media.width * 0.5,
+                                  child: TextFormField(
+                                    controller: controller,
+                                    onChanged: (val) {
+                                      setState(() {
+                                        phnumber = controller.text;
+                                      });
+                                      if (controller.text.length ==
+                                          countries[phcode]
+                                              ['dial_max_length']) {
+                                        FocusManager.instance.primaryFocus
+                                            ?.unfocus();
+                                      }
+                                    },
+                                    maxLength: countries[phcode]
+                                        ['dial_max_length'],
+                                    style: GoogleFonts.robotoCondensed(
                                         fontSize: media.width * sixteen,
-                                        color: textColor.withOpacity(0.7)),
-                                    border: InputBorder.none,
-                                    enabledBorder: InputBorder.none,
+                                        color: textColor,
+                                        letterSpacing: 1),
+                                    keyboardType: TextInputType.number,
+                                    decoration: InputDecoration(
+                                      hintText: languages[choosenLanguage]
+                                          ['text_phone_number'],
+                                      counterText: '',
+                                      hintStyle: GoogleFonts.robotoCondensed(
+                                          fontSize: media.width * sixteen,
+                                          color: textColor.withOpacity(0.7)),
+                                      border: InputBorder.none,
+                                      enabledBorder: InputBorder.none,
+                                    ),
                                   ),
+                                )
+                              ],
+                            ),
+                          ),
+                          SizedBox(height: media.height * 0.05),
+                          Row(
+                            children: [
+                              InkWell(
+                                onTap: () {
+                                  setState(() {
+                                    if (terms == true) {
+                                      terms = false;
+                                    } else {
+                                      terms = true;
+                                    }
+                                  });
+                                },
+                                child: Container(
+                                    height: media.width * 0.08,
+                                    width: media.width * 0.08,
+                                    decoration: BoxDecoration(
+                                        border: Border.all(
+                                            color: buttonColor, width: 2),
+                                        shape: BoxShape.circle,
+                                        color: (terms == true)
+                                            ? buttonColor
+                                            : page),
+                                    child: Icon(Icons.done,
+                                        color: (isDarkTheme == true)
+                                            ? Colors.black
+                                            : Colors.white)),
+                              ),
+                              SizedBox(
+                                width: media.width * 0.02,
+                              ),
+
+                              //terms and condition and privacy policy url
+                              SizedBox(
+                                width: media.width * 0.7,
+                                child: Wrap(
+                                  direction: Axis.horizontal,
+                                  children: [
+                                    Text(
+                                      languages[choosenLanguage]['text_agree'] +
+                                          ' ',
+                                      style: GoogleFonts.robotoCondensed(
+                                          fontSize: media.width * sixteen,
+                                          color: textColor.withOpacity(0.7)),
+                                    ),
+                                    InkWell(
+                                      onTap: () {
+                                        openBrowser(
+                                            'https://gochap.solutions/index.php/conditions-utilisation');
+                                      },
+                                      child: Text(
+                                        languages[choosenLanguage]
+                                            ['text_terms'],
+                                        style: GoogleFonts.robotoCondensed(
+                                            fontSize: media.width * sixteen,
+                                            color: buttonColor),
+                                      ),
+                                    ),
+                                    Text(
+                                      ' ${languages[choosenLanguage]['text_and']} ',
+                                      style: GoogleFonts.robotoCondensed(
+                                          fontSize: media.width * sixteen,
+                                          color: textColor.withOpacity(0.7)),
+                                    ),
+                                    InkWell(
+                                      onTap: () {
+                                        openBrowser(
+                                            'https://gochap.solutions/index.php/politique-confidentialite');
+                                      },
+                                      child: Text(
+                                        languages[choosenLanguage]
+                                            ['text_privacy'],
+                                        style: GoogleFonts.robotoCondensed(
+                                            color: buttonColor),
+                                      ),
+                                    )
+                                  ],
                                 ),
                               )
                             ],
                           ),
-                        ),
-                        SizedBox(height: media.height * 0.05),
-                        Row(
-                          children: [
-                            InkWell(
-                              onTap: () {
-                                setState(() {
-                                  if (terms == true) {
-                                    terms = false;
-                                  } else {
-                                    terms = true;
-                                  }
-                                });
-                              },
-                              child: Container(
-                                  height: media.width * 0.08,
-                                  width: media.width * 0.08,
-                                  decoration: BoxDecoration(
-                                      border: Border.all(
-                                          color: buttonColor, width: 2),
-                                      shape: BoxShape.circle,
-                                      color:
-                                          (terms == true) ? buttonColor : page),
-                                  child: Icon(Icons.done,
-                                      color: (isDarkTheme == true)
-                                          ? Colors.black
-                                          : Colors.white)),
-                            ),
-                            SizedBox(
-                              width: media.width * 0.02,
-                            ),
-
-                            //terms and condition and privacy policy url
-                            SizedBox(
-                              width: media.width * 0.7,
-                              child: Wrap(
-                                direction: Axis.horizontal,
-                                children: [
-                                  Text(
-                                    languages[choosenLanguage]['text_agree'] +
-                                        ' ',
-                                    style: GoogleFonts.robotoCondensed(
-                                        fontSize: media.width * sixteen,
-                                        color: textColor.withOpacity(0.7)),
-                                  ),
-                                  InkWell(
-                                    onTap: () {
-                                      openBrowser(
-                                          'https://gochap.solutions/index.php/conditions-utilisation');
-                                    },
-                                    child: Text(
-                                      languages[choosenLanguage]['text_terms'],
-                                      style: GoogleFonts.robotoCondensed(
-                                          fontSize: media.width * sixteen,
-                                          color: buttonColor),
-                                    ),
-                                  ),
-                                  Text(
-                                    ' ${languages[choosenLanguage]['text_and']} ',
-                                    style: GoogleFonts.robotoCondensed(
-                                        fontSize: media.width * sixteen,
-                                        color: textColor.withOpacity(0.7)),
-                                  ),
-                                  InkWell(
-                                    onTap: () {
-                                      openBrowser(
-                                          'https://gochap.solutions/index.php/politique-confidentialite');
-                                    },
-                                    child: Text(
-                                      languages[choosenLanguage]
-                                          ['text_privacy'],
-                                      style: GoogleFonts.robotoCondensed(
-                                          color: buttonColor),
-                                    ),
-                                  )
-                                ],
-                              ),
-                            )
-                          ],
-                        ),
-                        SizedBox(
-                          height: media.height * 0.03,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(Icons.email,
-                                size: media.width * eighteen,
-                                color: textColor.withOpacity(0.7)),
-                            SizedBox(width: media.width * 0.02),
-                            Text(
-                              languages[choosenLanguage]['text_continue_with'],
-                              style: GoogleFonts.robotoCondensed(
-                                color: textColor.withOpacity(0.7),
-                                fontSize: media.width * sixteen,
-                                fontWeight: FontWeight.w400,
-                              ),
-                            ),
-                            SizedBox(
-                              width: media.width * 0.01,
-                            ),
-                            InkWell(
-                              onTap: () {
-                                controller.clear();
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            const SignInwithEmail()));
-                              },
-                              child: Text(
-                                languages[choosenLanguage]['text_email'],
+                          SizedBox(
+                            height: media.height * 0.03,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(Icons.email,
+                                  size: media.width * eighteen,
+                                  color: textColor.withOpacity(0.7)),
+                              SizedBox(width: media.width * 0.02),
+                              Text(
+                                languages[choosenLanguage]
+                                    ['text_continue_with'],
                                 style: GoogleFonts.robotoCondensed(
-                                    fontSize: media.width * sixteen,
-                                    fontWeight: FontWeight.w400,
-                                    color: buttonColor),
+                                  color: textColor.withOpacity(0.7),
+                                  fontSize: media.width * sixteen,
+                                  fontWeight: FontWeight.w400,
+                                ),
                               ),
-                            )
-                          ],
-                        ),
-                        SizedBox(
-                          height: media.height * 0.1,
-                        ),
-                        (controller.text.length >=
-                                    countries[phcode]['dial_min_length'] &&
-                                terms == true)
-                            ? Container(
-                                width: media.width * 1 - media.width * 0.08,
-                                alignment: Alignment.center,
-                                child: Button(
-                                  onTap: () async {
-                                    FocusManager.instance.primaryFocus
-                                        ?.unfocus();
-                                    setState(() {
-                                      _isLoading = true;
-                                    });
-                                    var val = await otpCall();
-                                    if (val.value == true) {
-                                      phoneAuthCheck = true;
-                                      await phoneAuth(countries[phcode]
-                                              ['dial_code'] +
-                                          phnumber);
-                                      value = 0;
-                                      navigate();
-                                    } else {
-                                      phoneAuthCheck = false;
-                                      navigate();
-                                    }
-                                    setState(() {
-                                      _isLoading = false;
-                                    });
-                                  },
-                                  text: languages[choosenLanguage]
-                                      ['text_login'],
+                              SizedBox(
+                                width: media.width * 0.01,
+                              ),
+                              InkWell(
+                                onTap: () {
+                                  controller.clear();
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              const SignInwithEmail()));
+                                },
+                                child: Text(
+                                  languages[choosenLanguage]['text_email'],
+                                  style: GoogleFonts.robotoCondensed(
+                                      fontSize: media.width * sixteen,
+                                      fontWeight: FontWeight.w400,
+                                      color: buttonColor),
                                 ),
                               )
-                            : Container(),
-                      ],
+                            ],
+                          ),
+                          SizedBox(
+                            height: media.height * 0.1,
+                          ),
+                          (controller.text.length >=
+                                      countries[phcode]['dial_min_length'] &&
+                                  terms == true)
+                              ? Container(
+                                  width: media.width * 1 - media.width * 0.08,
+                                  alignment: Alignment.center,
+                                  child: Button(
+                                    onTap: () async {
+                                      FocusManager.instance.primaryFocus
+                                          ?.unfocus();
+                                      setState(() {
+                                        _isLoading = true;
+                                      });
+                                      var val = await otpCall();
+                                      if (val.value == true) {
+                                        phoneAuthCheck = true;
+                                        await phoneAuth(countries[phcode]
+                                                ['dial_code'] +
+                                            phnumber);
+                                        value = 0;
+                                        navigate();
+                                      } else {
+                                        phoneAuthCheck = false;
+                                        navigate();
+                                      }
+                                      setState(() {
+                                        _isLoading = false;
+                                      });
+                                    },
+                                    text: languages[choosenLanguage]
+                                        ['text_login'],
+                                  ),
+                                )
+                              : Container(),
+                        ],
+                      ),
                     ),
                   )
                 : Container(

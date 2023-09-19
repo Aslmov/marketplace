@@ -32,15 +32,6 @@ class _AddMoneyPageState extends State<AddMoneyPage> {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
           Card(
-            clipBehavior: Clip.hardEdge,
-            shape: RoundedRectangleBorder(
-              side: BorderSide(
-                color:
-                    selecteMethod == "TMONEY" ? starColor : Colors.transparent,
-                width: 1.5,
-              ),
-              borderRadius: const BorderRadius.all(Radius.circular(10)),
-            ),
             child: InkWell(
               splashColor: starColor,
               onTap: () {
@@ -62,15 +53,6 @@ class _AddMoneyPageState extends State<AddMoneyPage> {
             width: 20,
           ),
           Card(
-            clipBehavior: Clip.hardEdge,
-            shape: RoundedRectangleBorder(
-              side: BorderSide(
-                width: 1.5,
-                color:
-                    selecteMethod == "Flooz" ? starColor : Colors.transparent,
-              ),
-              borderRadius: const BorderRadius.all(Radius.circular(10)),
-            ),
             child: InkWell(
               splashColor: starColor,
               onTap: () {
@@ -92,26 +74,67 @@ class _AddMoneyPageState extends State<AddMoneyPage> {
       ),
     );
   }
-  PaiementService paiement = new PaiementService();
+
   sendRequest() async {
     setState(() {
       _isLoading = true;
     });
-   var rep = await paiement.addRecharge(new Recharge(
-          number: selectedNumber, method: selecteMethod, price: selectePrice));
-     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-       content: Text(rep ? "Confirmez le rechargement avec votre code secret." : "Erreur lors du rechargement.") ,
-     ));
+
+    var rep = await paiement.addRecharge(new Recharge(
+        number: selectedNumber, method: "Moov", price: selectePrice));
+
+    setState(() {
+      _isLoading = false;
+    });
+
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text(rep
+              ? languages[choosenLanguage]
+                  ["text_wallet_loading_confirmation_title"]
+              : languages[choosenLanguage]["text_wallet_loading_error_title"]),
+          content: Text(rep
+              ? languages[choosenLanguage]["text_wallet_loading_confirmation"]
+              : languages[choosenLanguage]),
+          actions: <Widget>[
+            TextButton(
+              child: Text("OK"),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  PaiementService paiement = new PaiementService();
+
+  /* sendRequest() async {
+    setState(() {
+      _isLoading = true;
+    });
+    var rep = await paiement.addRecharge(new Recharge(
+        number: selectedNumber, method: "Moov", price: selectePrice));
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      content: Text(rep
+          ? "Confirmez le rechargement avec votre code secret."
+          : "Erreur lors du rechargement."),
+    ));
     setState(() {
       _isLoading = false;
     });
   }
-
+*/
   Map<int, List<String>> Prices = {};
   String selectedNumber = "";
   String selectePrice = "";
   String selecteMethod = "TMONEY";
 
+//Selectionner un numero enregistrer
   Future<void> _dialogBuilder(BuildContext context) async {
     var media = MediaQuery.of(context).size;
     var data = await paiement.getUserNumber();
@@ -152,7 +175,7 @@ class _AddMoneyPageState extends State<AddMoneyPage> {
           ),
           actions: <Widget>[
             TextButton(
-              child: const Text('Annuler'),
+              child: Text(languages[choosenLanguage]["text_cancel"]),
               onPressed: () {
                 Navigator.of(context).pop();
               },
@@ -189,15 +212,18 @@ class _AddMoneyPageState extends State<AddMoneyPage> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            SizedBox(height: MediaQuery.of(context).padding.top),
+                            SizedBox(
+                                height: MediaQuery.of(context).padding.top),
                             Stack(
                               children: [
                                 Container(
-                                  padding: EdgeInsets.only(bottom: media.width * 0.05),
+                                  padding: EdgeInsets.only(
+                                      bottom: media.width * 0.05),
                                   width: media.width * 1,
                                   alignment: Alignment.center,
                                   child: Text(
-                                    languages[choosenLanguage]["text_paiement_title"],
+                                    languages[choosenLanguage]
+                                        ["text_paiement_title"],
                                     style: GoogleFonts.robotoCondensed(
                                         fontSize: media.width * twenty,
                                         fontWeight: FontWeight.w600,
@@ -209,8 +235,8 @@ class _AddMoneyPageState extends State<AddMoneyPage> {
                                         onTap: () {
                                           Navigator.pop(context);
                                         },
-                                        child:
-                                            Icon(Icons.arrow_back, color: textColor)))
+                                        child: Icon(Icons.arrow_back,
+                                            color: textColor)))
                               ],
                             ),
                             SizedBox(
@@ -225,116 +251,281 @@ class _AddMoneyPageState extends State<AddMoneyPage> {
                                       //color: Colors.red,
                                       child: Column(
                                         children: [
+                                          SizedBox(
+                                            height: 10,
+                                          ),
+                                          Center(
+                                            child: Card(
+                                              child: SizedBox(
+                                                width: 300,
+                                                height: 180,
+                                                child: Column(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .center,
+                                                    children: [
+                                                      Text(
+                                                          languages[
+                                                                  choosenLanguage]
+                                                              [
+                                                              "text_paiement_from"],
+                                                          style: GoogleFonts
+                                                              .robotoCondensed(
+                                                                  fontSize: media
+                                                                          .width *
+                                                                      eighteen,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
+                                                                  color:
+                                                                      textColor)),
+                                                      addPayementMethodView(),
+                                                    ]),
+                                              ),
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding:
+                                                const EdgeInsets.only(top: 3.0),
+                                            child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                Text(
+                                                  languages[choosenLanguage]
+                                                      ["text_paiement_number"],
+                                                  textAlign: TextAlign.center,
+                                                ),
+                                                InkWell(
+                                                  onTap: () async {
+                                                    if (countries.isNotEmpty) {
+                                                      //dialod box for select country for dial code
+                                                      await showDialog(
+                                                          context: context,
+                                                          barrierColor:
+                                                              (isDarkTheme ==
+                                                                      true)
+                                                                  ? textColor
+                                                                      .withOpacity(
+                                                                          0.3)
+                                                                  : Colors
+                                                                      .black
+                                                                      .withOpacity(
+                                                                          0.5),
+                                                          builder: (context) {
+                                                            var searchVal = '';
+                                                            return AlertDialog(
+                                                              backgroundColor:
+                                                                  page,
+                                                              insetPadding:
+                                                                  const EdgeInsets
+                                                                      .all(10),
+                                                              content: StatefulBuilder(
+                                                                  builder: (context,
+                                                                      setState) {
+                                                                return Container(
+                                                                  width: media
+                                                                          .width *
+                                                                      0.9,
+                                                                  color: page,
+                                                                  child:
+                                                                      Directionality(
+                                                                    textDirection: (languageDirection ==
+                                                                            'rtl')
+                                                                        ? TextDirection
+                                                                            .rtl
+                                                                        : TextDirection
+                                                                            .ltr,
+                                                                    child:
+                                                                        Column(
+                                                                      children: [
+                                                                        Container(
+                                                                          padding: const EdgeInsets
+                                                                              .only(
+                                                                              left: 20,
+                                                                              right: 20),
+                                                                          height:
+                                                                              40,
+                                                                          width:
+                                                                              media.width * 0.9,
+                                                                          decoration: BoxDecoration(
+                                                                              borderRadius: BorderRadius.circular(20),
+                                                                              border: Border.all(color: Colors.grey, width: 1.5)),
+                                                                          child:
+                                                                              TextField(
+                                                                            decoration: InputDecoration(
+                                                                                contentPadding: (languageDirection == 'rtl') ? EdgeInsets.only(bottom: media.width * 0.035) : EdgeInsets.only(bottom: media.width * 0.04),
+                                                                                border: InputBorder.none,
+                                                                                hintText: languages[choosenLanguage]['text_search'],
+                                                                                hintStyle: GoogleFonts.robotoCondensed(color: textColor.withOpacity(0.4), fontSize: media.width * sixteen)),
+                                                                            style:
+                                                                                GoogleFonts.robotoCondensed(color: textColor),
+                                                                            onChanged:
+                                                                                (val) {
+                                                                              setState(() {
+                                                                                searchVal = val;
+                                                                              });
+                                                                            },
+                                                                          ),
+                                                                        ),
+                                                                        const SizedBox(
+                                                                            height:
+                                                                                20),
+                                                                        Expanded(
+                                                                          child:
+                                                                              SingleChildScrollView(
+                                                                            child:
+                                                                                Column(
+                                                                              children: countries
+                                                                                  .asMap()
+                                                                                  .map((i, value) {
+                                                                                    return MapEntry(
+                                                                                        i,
+                                                                                        SizedBox(
+                                                                                          width: media.width * 0.9,
+                                                                                          child: (searchVal == '' && countries[i]['flag'] != null)
+                                                                                              ? InkWell(
+                                                                                                  onTap: () {
+                                                                                                    setState(() {
+                                                                                                      phcode = i;
+                                                                                                    });
+                                                                                                    Navigator.pop(context);
+                                                                                                  },
+                                                                                                  child: Container(
+                                                                                                    padding: const EdgeInsets.only(top: 10, bottom: 10),
+                                                                                                    color: page,
+                                                                                                    child: Row(
+                                                                                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                                      children: [
+                                                                                                        Row(
+                                                                                                          children: [
+                                                                                                            Image.network(countries[i]['flag']),
+                                                                                                            SizedBox(
+                                                                                                              width: media.width * 0.02,
+                                                                                                            ),
+                                                                                                            SizedBox(
+                                                                                                                width: media.width * 0.4,
+                                                                                                                child: Text(
+                                                                                                                  countries[i]['name'],
+                                                                                                                  style: GoogleFonts.robotoCondensed(fontSize: media.width * sixteen, color: textColor),
+                                                                                                                )),
+                                                                                                          ],
+                                                                                                        ),
+                                                                                                        Text(
+                                                                                                          countries[i]['dial_code'],
+                                                                                                          style: GoogleFonts.robotoCondensed(fontSize: media.width * sixteen, color: textColor),
+                                                                                                        )
+                                                                                                      ],
+                                                                                                    ),
+                                                                                                  ))
+                                                                                              : (countries[i]['flag'] != null && countries[i]['name'].toLowerCase().contains(searchVal.toLowerCase()))
+                                                                                                  ? InkWell(
+                                                                                                      onTap: () {
+                                                                                                        setState(() {
+                                                                                                          phcode = i;
+                                                                                                        });
+                                                                                                        Navigator.pop(context);
+                                                                                                      },
+                                                                                                      child: Container(
+                                                                                                        padding: const EdgeInsets.only(top: 10, bottom: 10),
+                                                                                                        color: page,
+                                                                                                        child: Row(
+                                                                                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                                          children: [
+                                                                                                            Row(
+                                                                                                              children: [
+                                                                                                                Image.network(countries[i]['flag']),
+                                                                                                                SizedBox(
+                                                                                                                  width: media.width * 0.02,
+                                                                                                                ),
+                                                                                                                SizedBox(
+                                                                                                                    width: media.width * 0.4,
+                                                                                                                    child: Text(
+                                                                                                                      countries[i]['name'],
+                                                                                                                      style: GoogleFonts.robotoCondensed(fontSize: media.width * sixteen, color: textColor),
+                                                                                                                    )),
+                                                                                                              ],
+                                                                                                            ),
+                                                                                                            Text(
+                                                                                                              countries[i]['dial_code'],
+                                                                                                              style: GoogleFonts.robotoCondensed(fontSize: media.width * sixteen, color: textColor),
+                                                                                                            )
+                                                                                                          ],
+                                                                                                        ),
+                                                                                                      ))
+                                                                                                  : Container(),
+                                                                                        ));
+                                                                                  })
+                                                                                  .values
+                                                                                  .toList(),
+                                                                            ),
+                                                                          ),
+                                                                        ),
+                                                                      ],
+                                                                    ),
+                                                                  ),
+                                                                );
+                                                              }),
+                                                            );
+                                                          });
+                                                    } else {
+                                                      getCountryCode();
+                                                    }
+                                                    setState(() {});
+                                                  },
+                                                  //input field
+                                                  child: Container(
+                                                    height: 50,
+                                                    alignment: Alignment.center,
+                                                    child: Row(
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .center,
+                                                      children: [
+                                                        SizedBox(
+                                                          width: media.width *
+                                                              0.02,
+                                                        ),
+                                                        const SizedBox(
+                                                          width: 2,
+                                                        ),
+                                                        Icon(
+                                                            Icons
+                                                                .keyboard_arrow_down,
+                                                            color: textColor)
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ),
+                                                SizedBox(
+                                                  width: 10,
+                                                ),
+                                                Expanded(
+                                                  child: TextField(
+                                                    keyboardType:
+                                                        TextInputType.number,
+                                                    controller:
+                                                        numberController,
+                                                    onChanged: (value) {
+                                                      setState(() {
+                                                        selectedNumber = value;
+                                                      });
+                                                    },
+                                                  ),
+                                                ),
+                                                SizedBox(
+                                                  width: 30,
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          SizedBox(
+                                            height: 10,
+                                          ),
                                           Row(
                                             mainAxisAlignment:
                                                 MainAxisAlignment.spaceBetween,
-                                            children: [
-                                              Container(
-                                                child: Row(children: [
-                                                  Text(
-                                                      languages[choosenLanguage]
-                                                          ["text_paiement_min"],
-                                                      style:
-                                                          GoogleFonts.robotoCondensed(
-                                                              fontSize:
-                                                                  media.width *
-                                                                      eighteen,
-                                                              fontWeight:
-                                                                  FontWeight.normal,
-                                                              color: textColor)),
-                                                  SizedBox(
-                                                    width: 10,
-                                                  ),
-                                                  Text("2050 Fcfa",
-                                                      style:
-                                                          GoogleFonts.robotoCondensed(
-                                                              fontSize:
-                                                                  media.width * twenty,
-                                                              fontWeight:
-                                                                  FontWeight.normal,
-                                                              color: textColor)),
-                                                ]),
-                                              ),
-                                              Container(
-                                                child: Row(children: [
-                                                  Text(
-                                                      languages[choosenLanguage]
-                                                          ["text_paiement_max"],
-                                                      style:
-                                                          GoogleFonts.robotoCondensed(
-                                                              fontSize:
-                                                                  media.width *
-                                                                      eighteen,
-                                                              fontWeight:
-                                                                  FontWeight.normal,
-                                                              color: textColor)),
-                                                  SizedBox(
-                                                    width: 10,
-                                                  ),
-                                                  Text("2050 Fcfa",
-                                                      style:
-                                                          GoogleFonts.robotoCondensed(
-                                                              fontSize:
-                                                                  media.width * twenty,
-                                                              fontWeight:
-                                                                  FontWeight.normal,
-                                                              color: textColor)),
-                                                ]),
-                                              ),
-                                            ],
-                                          ),
-                                          SizedBox(
-                                            height: 10,
-                                          ),
-                                          Row(
-                                            children: [
-                                              Text(
-                                                  languages[choosenLanguage]
-                                                      ["text_paiement_from"],
-                                                  style: GoogleFonts.robotoCondensed(
-                                                      fontSize: media.width * eighteen,
-                                                      fontWeight: FontWeight.w200,
-                                                      color: textColor)),
-                                            ],
-                                          ),
-                                          addPayementMethodView(),
-                                          Row(
-                                            children: [
-                                              Text(
-                                                languages[choosenLanguage]
-                                                    ["text_paiement_number"],
-                                                textAlign: TextAlign.center,
-                                              ),
-                                              SizedBox(
-                                                width: 10,
-                                              ),
-                                              Expanded(
-                                                child: TextField(
-                                                  keyboardType: TextInputType.number,
-                                                  controller: numberController,
-                                                  onChanged: (value) {
-                                                    setState(() {
-                                                      selectedNumber = value;
-                                                    });
-                                                  },
-                                                ),
-                                              ),
-                                              SizedBox(
-                                                width: 30,
-                                              ),
-                                              GestureDetector(
-                                                onTap: () {
-                                                  _dialogBuilder(context);
-                                                },
-                                                child: Text(languages[choosenLanguage]
-                                                    ["text_paiement_number_choice"]),
-                                              )
-                                            ],
-                                          ),
-                                          SizedBox(
-                                            height: 10,
-                                          ),
-                                          Row(
                                             children: [
                                               Text(
                                                 languages[choosenLanguage]
@@ -346,7 +537,8 @@ class _AddMoneyPageState extends State<AddMoneyPage> {
                                               ),
                                               Expanded(
                                                 child: TextField(
-                                                  keyboardType: TextInputType.number,
+                                                  keyboardType:
+                                                      TextInputType.number,
                                                   controller: priceController,
                                                   onChanged: (value) {
                                                     setState(() {
@@ -370,22 +562,24 @@ class _AddMoneyPageState extends State<AddMoneyPage> {
                                                   splashColor: starColor,
                                                   onTap: () {
                                                     selectePrice = "300 Fcfa";
-                                                    priceController.text = selectePrice
-                                                        .replaceAll(" Fcfa", "");
+                                                    priceController.text =
+                                                        selectePrice.replaceAll(
+                                                            " Fcfa", "");
                                                   },
                                                   child: SizedBox(
                                                     width: media.width / 3.8,
                                                     height: 60,
                                                     child: Center(
                                                         child: Text("300 Fcfa",
-                                                            style: GoogleFonts
-                                                                .robotoCondensed(
-                                                                    fontSize:
-                                                                        media.width *
-                                                                            eighteen,
-                                                                    fontWeight:
-                                                                        FontWeight.w200,
-                                                                    color: textColor))),
+                                                            style: GoogleFonts.robotoCondensed(
+                                                                fontSize: media
+                                                                        .width *
+                                                                    eighteen,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w200,
+                                                                color:
+                                                                    textColor))),
                                                   ),
                                                 ),
                                               ),
@@ -395,22 +589,24 @@ class _AddMoneyPageState extends State<AddMoneyPage> {
                                                   splashColor: starColor,
                                                   onTap: () {
                                                     selectePrice = "500 Fcfa";
-                                                    priceController.text = selectePrice
-                                                        .replaceAll(" Fcfa", "");
+                                                    priceController.text =
+                                                        selectePrice.replaceAll(
+                                                            " Fcfa", "");
                                                   },
                                                   child: SizedBox(
                                                     width: media.width / 3.8,
                                                     height: 60,
                                                     child: Center(
                                                         child: Text("500 Fcfa",
-                                                            style: GoogleFonts
-                                                                .robotoCondensed(
-                                                                    fontSize:
-                                                                        media.width *
-                                                                            eighteen,
-                                                                    fontWeight:
-                                                                        FontWeight.w200,
-                                                                    color: textColor))),
+                                                            style: GoogleFonts.robotoCondensed(
+                                                                fontSize: media
+                                                                        .width *
+                                                                    eighteen,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w200,
+                                                                color:
+                                                                    textColor))),
                                                   ),
                                                 ),
                                               ),
@@ -420,22 +616,24 @@ class _AddMoneyPageState extends State<AddMoneyPage> {
                                                   splashColor: starColor,
                                                   onTap: () {
                                                     selectePrice = "1000 Fcfa";
-                                                    priceController.text = selectePrice
-                                                        .replaceAll(" Fcfa", "");
+                                                    priceController.text =
+                                                        selectePrice.replaceAll(
+                                                            " Fcfa", "");
                                                   },
                                                   child: SizedBox(
                                                     width: media.width / 3.8,
                                                     height: 60,
                                                     child: Center(
                                                         child: Text("1000 Fcfa",
-                                                            style: GoogleFonts
-                                                                .robotoCondensed(
-                                                                    fontSize:
-                                                                        media.width *
-                                                                            eighteen,
-                                                                    fontWeight:
-                                                                        FontWeight.w200,
-                                                                    color: textColor))),
+                                                            style: GoogleFonts.robotoCondensed(
+                                                                fontSize: media
+                                                                        .width *
+                                                                    eighteen,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w200,
+                                                                color:
+                                                                    textColor))),
                                                   ),
                                                 ),
                                               ),
@@ -451,22 +649,24 @@ class _AddMoneyPageState extends State<AddMoneyPage> {
                                                   splashColor: starColor,
                                                   onTap: () {
                                                     selectePrice = "2000 Fcfa";
-                                                    priceController.text = selectePrice
-                                                        .replaceAll(" Fcfa", "");
+                                                    priceController.text =
+                                                        selectePrice.replaceAll(
+                                                            " Fcfa", "");
                                                   },
                                                   child: SizedBox(
                                                     width: media.width / 3.8,
                                                     height: 60,
                                                     child: Center(
                                                         child: Text("2000 Fcfa",
-                                                            style: GoogleFonts
-                                                                .robotoCondensed(
-                                                                    fontSize:
-                                                                        media.width *
-                                                                            eighteen,
-                                                                    fontWeight:
-                                                                        FontWeight.w200,
-                                                                    color: textColor))),
+                                                            style: GoogleFonts.robotoCondensed(
+                                                                fontSize: media
+                                                                        .width *
+                                                                    eighteen,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w200,
+                                                                color:
+                                                                    textColor))),
                                                   ),
                                                 ),
                                               ),
@@ -476,22 +676,24 @@ class _AddMoneyPageState extends State<AddMoneyPage> {
                                                   splashColor: starColor,
                                                   onTap: () {
                                                     selectePrice = "5000 Fcfa";
-                                                    priceController.text = selectePrice
-                                                        .replaceAll(" Fcfa", "");
+                                                    priceController.text =
+                                                        selectePrice.replaceAll(
+                                                            " Fcfa", "");
                                                   },
                                                   child: SizedBox(
                                                     width: media.width / 3.8,
                                                     height: 60,
                                                     child: Center(
                                                         child: Text("5000 Fcfa",
-                                                            style: GoogleFonts
-                                                                .robotoCondensed(
-                                                                    fontSize:
-                                                                        media.width *
-                                                                            eighteen,
-                                                                    fontWeight:
-                                                                        FontWeight.w200,
-                                                                    color: textColor))),
+                                                            style: GoogleFonts.robotoCondensed(
+                                                                fontSize: media
+                                                                        .width *
+                                                                    eighteen,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w200,
+                                                                color:
+                                                                    textColor))),
                                                   ),
                                                 ),
                                               ),
@@ -501,22 +703,25 @@ class _AddMoneyPageState extends State<AddMoneyPage> {
                                                   splashColor: starColor,
                                                   onTap: () {
                                                     selectePrice = "10000 Fcfa";
-                                                    priceController.text = selectePrice
-                                                        .replaceAll(" Fcfa", "");
+                                                    priceController.text =
+                                                        selectePrice.replaceAll(
+                                                            " Fcfa", "");
                                                   },
                                                   child: SizedBox(
                                                     width: media.width / 3.8,
                                                     height: 60,
                                                     child: Center(
-                                                        child: Text("10000 Fcfa",
-                                                            style: GoogleFonts
-                                                                .robotoCondensed(
-                                                                    fontSize:
-                                                                        media.width *
-                                                                            eighteen,
-                                                                    fontWeight:
-                                                                        FontWeight.w200,
-                                                                    color: textColor))),
+                                                        child: Text(
+                                                            "10000 Fcfa",
+                                                            style: GoogleFonts.robotoCondensed(
+                                                                fontSize: media
+                                                                        .width *
+                                                                    eighteen,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w200,
+                                                                color:
+                                                                    textColor))),
                                                   ),
                                                 ),
                                               ),
@@ -528,7 +733,7 @@ class _AddMoneyPageState extends State<AddMoneyPage> {
                                           Button(
                                               onTap: () {
                                                 sendRequest();
-                                                },
+                                              },
                                               text: languages[choosenLanguage]
                                                   ["text_paiement_btn"])
                                         ],

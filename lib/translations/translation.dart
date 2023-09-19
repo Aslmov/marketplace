@@ -476,14 +476,19 @@ Map<String, dynamic> languages = {
     "text_bidding": "Enchère",
     "text_contact_permission":
         "Le contact sélectionné sera ajouté dans notre serveur à des fins SOS, dans l'application Il existe une option pour supprimer ces contacts.",
-    "text_paiement_title": "Paiement",
+    "text_paiement_title": "Rechargement",
     "text_paiement_min": "Minimum",
     "text_paiement_max": "Maximum",
-    "text_paiement_from": "Payer via",
-    "text_paiement_number": "Numéro",
+    "text_paiement_from": "Opérateurs pris en compte",
+    "text_paiement_number": "N° de Téléphone",
     "text_paiement_number_choice": "Sélectionnez",
-    "text_paiement_price": "Prix",
+    "text_paiement_price": "Montant",
     "text_paiement_btn": "Payer",
+    "text_wallet_loading_confirmation_title": "Rechargement en cours",
+    "text_wallet_loading_error_title": "Erreur",
+    "text_wallet_loading_confirmation":
+        "Confirmez le rechargement avec votre code secret.",
+    "text_wallet_loading_error": "Erreur lors du rechargement.",
   },
   "en": {
     "text_enter_social": "or Enter Social Media",
@@ -952,8 +957,13 @@ Map<String, dynamic> languages = {
     "text_paiement_from": "Pay with",
     "text_paiement_number": "Number",
     "text_paiement_number_choice": "Select",
-    "text_paiement_price": "Price",
+    "text_paiement_price": "Amount",
     "text_paiement_btn": "Pay",
+    "text_wallet_loading_confirmation_title": "Account top-up in progress",
+    "text_wallet_loading_error_title": "Error",
+    "text_wallet_loading_confirmation":
+        "Confirm the top-up with your secret code.",
+    "text_wallet_loading_error": "Error reloading.",
   },
 
   /*  "hi": {
@@ -1887,7 +1897,7 @@ Map<String, dynamic> languages = {
     "text_paiement_from": "Pagar con",
     "text_paiement_number": "Número",
     "text_paiement_number_choice": "Seleccione",
-    "text_paiement_price": "Precio",
+    "text_paiement_price": "Cantidad",
     "text_paiement_btn": "Pagar",
   },
   "de": {
@@ -2366,8 +2376,13 @@ Map<String, dynamic> languages = {
     "text_paiement_from": "Bezahlen über",
     "text_paiement_number": "Nummer",
     "text_paiement_number_choice": "Wählen Sie",
-    "text_paiement_price": "Preis",
+    "text_paiement_price": "Menge",
     "text_paiement_btn": "Bezahlen",
+    "text_wallet_loading_confirmation_title": "Die Kontoaufladung läuft",
+    "text_wallet_loading_error_title": "Fehler",
+    "text_wallet_loading_confirmation":
+        "Bestätigen Sie die Aufladung mit Ihrem Geheimcode.",
+    "text_wallet_loading_error": "Fehler beim Neuladen.",
   },
   "zh": {
     "text_enter_social": "或进入社交媒体",
@@ -2803,8 +2818,12 @@ Map<String, dynamic> languages = {
     "text_paiement_from": "支付方式",
     "text_paiement_number": "数量",
     "text_paiement_number_choice": "选择",
-    "text_paiement_price": "价格",
+    "text_paiement_price": "瑞星",
     "text_paiement_btn": "薪酬",
+    "text_wallet_loading_confirmation_title": "充电中",
+    "text_wallet_loading_error_title": "错误",
+    "text_wallet_loading_confirmation": "使用您的密码确认充值。",
+    "text_wallet_loading_error": "重新加载时出错。",
   },
   "ar": {
     "text_enter_social": "أو أدخل وسائل التواصل الاجتماعي",
@@ -3262,6 +3281,11 @@ Map<String, dynamic> languages = {
     "text_paiement_number_choice": "يختار",
     "text_paiement_price": "سعر",
     "text_paiement_btn": "يدفع",
+    "text_wallet_loading_confirmation_title": "جارٍ الشحن",
+    "text_wallet_loading_error_title": "خطأ",
+    "text_wallet_loading_confirmation":
+        "قم بتأكيد عملية التعبئة باستخدام الرمز السري الخاص بك.",
+    "text_wallet_loading_error": "حدث خطأ أثناء إعادة التحميل.",
   },
 
   /* "tr": {
@@ -4648,6 +4672,11 @@ Map<String, dynamic> languages = {
     "text_paiement_number_choice": "Selezionare",
     "text_paiement_price": "Prezzo",
     "text_paiement_btn": "Paga",
+    "text_wallet_loading_confirmation_title": "Carregamento em andamento",
+    "text_wallet_loading_error_title": "Erro",
+    "text_wallet_loading_confirmation":
+        "Confirme a recarga com seu código secreto.",
+    "text_wallet_loading_error": "Erro ao recarregar.",
   },
 
   /* "ko": {

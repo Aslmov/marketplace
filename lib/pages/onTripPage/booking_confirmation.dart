@@ -5199,8 +5199,6 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                   'fr_FR')
                                                               .format(val);
 
-                                                      print(
-                                                          '| $formattedDate | $dayOfWeek |');
                                                       choosenDateTime = val;
                                                     },
                                                   ),
