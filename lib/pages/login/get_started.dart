@@ -374,7 +374,7 @@ class _GetStartedState extends State<GetStarted> {
                                                               Container(
                                                                 padding:
                                                                     const EdgeInsets
-                                                                            .only(
+                                                                        .only(
                                                                         left:
                                                                             20,
                                                                         right:

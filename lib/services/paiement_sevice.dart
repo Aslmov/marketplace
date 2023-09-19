@@ -25,7 +25,6 @@ class PaiementService {
   Future<bool> addRecharge(Recharge recharge) async {
     var rep = await sendToPaiementApi(recharge);
     if (rep.success!) {
-      storeUserNumber(recharge.number);
       return true;
     }
     return false;
@@ -53,7 +52,7 @@ class PaiementService {
     return PaiementApiResponse(success: false);
   }
 
-  storeUserNumber(String number) async {
+  /* storeUserNumber(String number) async {
     var pref = await SharedPreferences.getInstance();
     String userNumbers = "";
     if (pref.containsKey(userNumberKey)) {
@@ -66,7 +65,7 @@ class PaiementService {
     }
     pref.setString(userNumberKey, userNumbers);
   }
-
+*/
   getUserNumber() async {
     var pref = await SharedPreferences.getInstance();
     String userNumbers = "";

@@ -1,5 +1,3 @@
-import 'recharge.dart';
-
 class GoChapPaiementModel {
   int? amount;
   String? msisdn;
@@ -10,11 +8,7 @@ class GoChapPaiementModel {
   String? countryIsoCode;
 
   GoChapPaiementModel(
-      {this.amount,
-      this.msisdn,
-      this.name,
-      this.type,
-      this.countryIsoCode});
+      {this.amount, this.msisdn, this.name, this.type, this.countryIsoCode});
 
   GoChapPaiementModel.fromJson(Map<String, dynamic> json) {
     amount = json['amount'];
@@ -24,8 +18,6 @@ class GoChapPaiementModel {
     type = json['type'];
     countryIsoCode = json['countryIsoCode'];
   }
-
-  
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();

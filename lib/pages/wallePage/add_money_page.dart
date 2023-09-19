@@ -19,6 +19,20 @@ class AddMoneyPage extends StatefulWidget {
 
 class _AddMoneyPageState extends State<AddMoneyPage> {
   bool _isLoading = false;
+  @override
+  void initState() {
+    countryCode();
+    super.initState();
+  }
+
+  countryCode() async {
+    await getCountryCode();
+    if (mounted) {
+      setState(() {
+        _isLoading = false;
+      });
+    }
+  }
 
   addPayementMethodView() {
     const double height = 70;
@@ -297,209 +311,38 @@ class _AddMoneyPageState extends State<AddMoneyPage> {
                                                       ["text_paiement_number"],
                                                   textAlign: TextAlign.center,
                                                 ),
-                                                InkWell(
-                                                  onTap: () async {
-                                                    if (countries.isNotEmpty) {
-                                                      //dialod box for select country for dial code
-                                                      await showDialog(
-                                                          context: context,
-                                                          barrierColor:
-                                                              (isDarkTheme ==
-                                                                      true)
-                                                                  ? textColor
-                                                                      .withOpacity(
-                                                                          0.3)
-                                                                  : Colors
-                                                                      .black
-                                                                      .withOpacity(
-                                                                          0.5),
-                                                          builder: (context) {
-                                                            var searchVal = '';
-                                                            return AlertDialog(
-                                                              backgroundColor:
-                                                                  page,
-                                                              insetPadding:
-                                                                  const EdgeInsets
-                                                                      .all(10),
-                                                              content: StatefulBuilder(
-                                                                  builder: (context,
-                                                                      setState) {
-                                                                return Container(
-                                                                  width: media
-                                                                          .width *
-                                                                      0.9,
-                                                                  color: page,
-                                                                  child:
-                                                                      Directionality(
-                                                                    textDirection: (languageDirection ==
-                                                                            'rtl')
-                                                                        ? TextDirection
-                                                                            .rtl
-                                                                        : TextDirection
-                                                                            .ltr,
-                                                                    child:
-                                                                        Column(
-                                                                      children: [
-                                                                        Container(
-                                                                          padding: const EdgeInsets
-                                                                              .only(
-                                                                              left: 20,
-                                                                              right: 20),
-                                                                          height:
-                                                                              40,
-                                                                          width:
-                                                                              media.width * 0.9,
-                                                                          decoration: BoxDecoration(
-                                                                              borderRadius: BorderRadius.circular(20),
-                                                                              border: Border.all(color: Colors.grey, width: 1.5)),
-                                                                          child:
-                                                                              TextField(
-                                                                            decoration: InputDecoration(
-                                                                                contentPadding: (languageDirection == 'rtl') ? EdgeInsets.only(bottom: media.width * 0.035) : EdgeInsets.only(bottom: media.width * 0.04),
-                                                                                border: InputBorder.none,
-                                                                                hintText: languages[choosenLanguage]['text_search'],
-                                                                                hintStyle: GoogleFonts.robotoCondensed(color: textColor.withOpacity(0.4), fontSize: media.width * sixteen)),
-                                                                            style:
-                                                                                GoogleFonts.robotoCondensed(color: textColor),
-                                                                            onChanged:
-                                                                                (val) {
-                                                                              setState(() {
-                                                                                searchVal = val;
-                                                                              });
-                                                                            },
-                                                                          ),
-                                                                        ),
-                                                                        const SizedBox(
-                                                                            height:
-                                                                                20),
-                                                                        Expanded(
-                                                                          child:
-                                                                              SingleChildScrollView(
-                                                                            child:
-                                                                                Column(
-                                                                              children: countries
-                                                                                  .asMap()
-                                                                                  .map((i, value) {
-                                                                                    return MapEntry(
-                                                                                        i,
-                                                                                        SizedBox(
-                                                                                          width: media.width * 0.9,
-                                                                                          child: (searchVal == '' && countries[i]['flag'] != null)
-                                                                                              ? InkWell(
-                                                                                                  onTap: () {
-                                                                                                    setState(() {
-                                                                                                      phcode = i;
-                                                                                                    });
-                                                                                                    Navigator.pop(context);
-                                                                                                  },
-                                                                                                  child: Container(
-                                                                                                    padding: const EdgeInsets.only(top: 10, bottom: 10),
-                                                                                                    color: page,
-                                                                                                    child: Row(
-                                                                                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                                                      children: [
-                                                                                                        Row(
-                                                                                                          children: [
-                                                                                                            Image.network(countries[i]['flag']),
-                                                                                                            SizedBox(
-                                                                                                              width: media.width * 0.02,
-                                                                                                            ),
-                                                                                                            SizedBox(
-                                                                                                                width: media.width * 0.4,
-                                                                                                                child: Text(
-                                                                                                                  countries[i]['name'],
-                                                                                                                  style: GoogleFonts.robotoCondensed(fontSize: media.width * sixteen, color: textColor),
-                                                                                                                )),
-                                                                                                          ],
-                                                                                                        ),
-                                                                                                        Text(
-                                                                                                          countries[i]['dial_code'],
-                                                                                                          style: GoogleFonts.robotoCondensed(fontSize: media.width * sixteen, color: textColor),
-                                                                                                        )
-                                                                                                      ],
-                                                                                                    ),
-                                                                                                  ))
-                                                                                              : (countries[i]['flag'] != null && countries[i]['name'].toLowerCase().contains(searchVal.toLowerCase()))
-                                                                                                  ? InkWell(
-                                                                                                      onTap: () {
-                                                                                                        setState(() {
-                                                                                                          phcode = i;
-                                                                                                        });
-                                                                                                        Navigator.pop(context);
-                                                                                                      },
-                                                                                                      child: Container(
-                                                                                                        padding: const EdgeInsets.only(top: 10, bottom: 10),
-                                                                                                        color: page,
-                                                                                                        child: Row(
-                                                                                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                                                          children: [
-                                                                                                            Row(
-                                                                                                              children: [
-                                                                                                                Image.network(countries[i]['flag']),
-                                                                                                                SizedBox(
-                                                                                                                  width: media.width * 0.02,
-                                                                                                                ),
-                                                                                                                SizedBox(
-                                                                                                                    width: media.width * 0.4,
-                                                                                                                    child: Text(
-                                                                                                                      countries[i]['name'],
-                                                                                                                      style: GoogleFonts.robotoCondensed(fontSize: media.width * sixteen, color: textColor),
-                                                                                                                    )),
-                                                                                                              ],
-                                                                                                            ),
-                                                                                                            Text(
-                                                                                                              countries[i]['dial_code'],
-                                                                                                              style: GoogleFonts.robotoCondensed(fontSize: media.width * sixteen, color: textColor),
-                                                                                                            )
-                                                                                                          ],
-                                                                                                        ),
-                                                                                                      ))
-                                                                                                  : Container(),
-                                                                                        ));
-                                                                                  })
-                                                                                  .values
-                                                                                  .toList(),
-                                                                            ),
-                                                                          ),
-                                                                        ),
-                                                                      ],
-                                                                    ),
-                                                                  ),
-                                                                );
-                                                              }),
-                                                            );
-                                                          });
-                                                    } else {
-                                                      getCountryCode();
-                                                    }
-                                                    setState(() {});
-                                                  },
-                                                  //input field
-                                                  child: Container(
-                                                    height: 50,
-                                                    alignment: Alignment.center,
-                                                    child: Row(
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .center,
-                                                      children: [
-                                                        SizedBox(
-                                                          width: media.width *
-                                                              0.02,
-                                                        ),
-                                                        const SizedBox(
-                                                          width: 2,
-                                                        ),
-                                                        Icon(
-                                                            Icons
-                                                                .keyboard_arrow_down,
-                                                            color: textColor)
-                                                      ],
-                                                    ),
-                                                  ),
-                                                ),
-                                                SizedBox(
+                                                const SizedBox(
                                                   width: 10,
+                                                ),
+                                                Container(
+                                                  height: 50,
+                                                  alignment: Alignment.center,
+                                                  child: Row(
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .center,
+                                                    children: [
+                                                      Image.network(
+                                                          "https:\/\/gochap.app\/images\/country\/flags\/TG.png"),
+                                                      SizedBox(
+                                                        width:
+                                                            media.width * 0.02,
+                                                      ),
+                                                      Text(
+                                                        "+228",
+                                                        style: GoogleFonts
+                                                            .robotoCondensed(
+                                                                fontSize: media
+                                                                        .width *
+                                                                    eighteen,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w500,
+                                                                color:
+                                                                    textColor),
+                                                      ),
+                                                    ],
+                                                  ),
                                                 ),
                                                 Expanded(
                                                   child: TextField(
@@ -511,6 +354,11 @@ class _AddMoneyPageState extends State<AddMoneyPage> {
                                                       setState(() {
                                                         selectedNumber = value;
                                                       });
+                                                      if (value.length == 8) {
+                                                        FocusManager.instance
+                                                            .primaryFocus
+                                                            ?.unfocus();
+                                                      }
                                                     },
                                                   ),
                                                 ),
