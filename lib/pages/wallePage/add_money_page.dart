@@ -36,7 +36,7 @@ class _AddMoneyPageState extends State<AddMoneyPage> {
 
   addPayementMethodView() {
     const double height = 70;
-    const double width = 100;
+    const double width = 80;
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 20),
       height: 100,
@@ -384,15 +384,18 @@ class _AddMoneyPageState extends State<AddMoneyPage> {
                                                 width: 10,
                                               ),
                                               Expanded(
-                                                child: TextField(
-                                                  keyboardType:
-                                                      TextInputType.number,
-                                                  controller: priceController,
-                                                  onChanged: (value) {
-                                                    setState(() {
-                                                      selectePrice = value;
-                                                    });
-                                                  },
+                                                child: Container(
+                                                  width: 50,
+                                                  child: TextField(
+                                                    keyboardType:
+                                                        TextInputType.number,
+                                                    controller: priceController,
+                                                    onChanged: (value) {
+                                                      setState(() {
+                                                        selectePrice = value;
+                                                      });
+                                                    },
+                                                  ),
                                                 ),
                                               ),
                                             ],
