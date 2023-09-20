@@ -177,7 +177,7 @@ class _WalletPageState extends State<WalletPage> {
                                       },
                                       text: languages[choosenLanguage]
                                           ['text_share_money'],
-                                      width: media.width * 0.3,
+                                      width: media.width * 0.5,
                                     ),
                                     SizedBox(
                                       height: media.width * 0.05,

@@ -1431,6 +1431,7 @@ Map<String, dynamic> languages = {
   */
 
   "es": {
+    "text_market": "MarketPlace",
     "text_enter_social": "o entrar en las redes sociales",
     "text_sign_up": "Inscribirse",
     "text_track_location": "Localización del controlador de seguimiento",
@@ -1901,6 +1902,7 @@ Map<String, dynamic> languages = {
     "text_paiement_btn": "Recargar",
   },
   "de": {
+    "text_market": "MarketPlace",
     "text_enter_social": "oder soziale Medien eingeben",
     "text_sign_up": "Anmeldung",
     "text_track_location": "Tracking -Fahrerort",
@@ -2385,6 +2387,7 @@ Map<String, dynamic> languages = {
     "text_wallet_loading_error": "Fehler beim Neuladen.",
   },
   "zh": {
+    "text_market": "MarketPlace",
     "text_enter_social": "或进入社交媒体",
     "text_sign_up": "报名",
     "text_track_location": "跟踪驱动程序位置",
@@ -2826,6 +2829,7 @@ Map<String, dynamic> languages = {
     "text_wallet_loading_error": "重新加载时出错。",
   },
   "ar": {
+    "text_market": "MarketPlace",
     "text_enter_social": "أو أدخل وسائل التواصل الاجتماعي",
     "text_sign_up": "اشتراك",
     "text_track_location": "تتبع موقع السائق",
@@ -4207,6 +4211,7 @@ Map<String, dynamic> languages = {
   */
 
   "it": {
+    "text_market": "MarketPlace",
     "text_enter_social": "o entrare nei social media",
     "text_sign_up": "Iscrizione",
     "text_track_location": "Posizione del driver di monitoraggio",

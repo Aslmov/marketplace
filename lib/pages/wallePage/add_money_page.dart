@@ -19,6 +19,8 @@ class AddMoneyPage extends StatefulWidget {
 
 class _AddMoneyPageState extends State<AddMoneyPage> {
   bool _isLoading = false;
+  bool showError = false;
+  bool numCheck = false;
 
   String telIndicator = "TMONEY";
 
@@ -329,7 +331,8 @@ class _AddMoneyPageState extends State<AddMoneyPage> {
                                                         " )",
                                                     textAlign: TextAlign.center,
                                                     style: TextStyle(
-                                                        color: textColor),
+                                                      color: textColor,
+                                                    ),
                                                   ),
                                                 ],
                                               ),
@@ -342,34 +345,50 @@ class _AddMoneyPageState extends State<AddMoneyPage> {
                                                       255, 240, 240, 240),
                                                   borderRadius:
                                                       BorderRadius.circular(
-                                                          10.0), // Border radius
+                                                          10.0),
                                                 ),
-                                                child: TextFormField(
-                                                  keyboardType:
-                                                      TextInputType.number,
-                                                  decoration: InputDecoration(
-                                                    border: InputBorder.none,
-                                                    prefixIcon: Padding(
-                                                      padding: EdgeInsets.only(
-                                                          left:
-                                                              10.0), // Ajustez la marge comme vous le souhaitez
-                                                      child: Image.network(
-                                                          "https:\/\/gochap.app\/images\/country\/flags\/TG.png"), // Remplacez 'assets/votre_image.png' par le chemin de votre image
+                                                child: Column(
+                                                  children: [
+                                                    TextField(
+                                                      keyboardType:
+                                                          TextInputType.number,
+                                                      decoration:
+                                                          InputDecoration(
+                                                        border:
+                                                            InputBorder.none,
+                                                        prefixIcon:
+                                                            Image.network(
+                                                          "https:\/\/gochap.app\/images\/country\/flags\/TG.png",
+                                                        ),
+                                                      ),
+                                                      controller:
+                                                          numberController,
+                                                      onChanged: (value) {
+                                                        setState(() {
+                                                          selectedNumber =
+                                                              value;
+                                                          showError = value
+                                                                  .length <
+                                                              8; // Met à jour showError en fonction de la longueur du texte
+                                                        });
+                                                        if (value.length == 8) {
+                                                          FocusManager.instance
+                                                              .primaryFocus
+                                                              ?.unfocus();
+                                                        }
+                                                      },
                                                     ),
-                                                  ),
-                                                  controller: numberController,
-                                                  onChanged: (value) {
-                                                    setState(() {
-                                                      selectedNumber = value;
-                                                    });
-                                                    if (value.length == 8) {
-                                                      FocusManager
-                                                          .instance.primaryFocus
-                                                          ?.unfocus();
-                                                    }
-                                                  },
+                                                  ],
                                                 ),
                                               ),
+                                              if (showError) // Affiche le texte d'erreur si showError est vrai
+                                                Text(
+                                                  'La longueur doit être au moins de 8 chiffres',
+                                                  style: TextStyle(
+                                                    color: Colors.red,
+                                                    // Autres styles de texte si nécessaire
+                                                  ),
+                                                ),
                                             ],
                                           ),
                                           SizedBox(
