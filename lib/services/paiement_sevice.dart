@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
+import 'package:tagxisuperuser/models/paiementSentToserver.dart';
 import '../functions/functions.dart';
 import '../models/paiementApiModel.dart';
 import '../models/paiementApiResponse.dart';
@@ -10,8 +11,12 @@ import '../models/recharge.dart';
 class PaiementService {
   String paiemenApitUrl =
       "http://217.76.58.38:30030/api/Transactionsts/Payment";
-  String goChapApiUrl = "";
+
+  String schedulerApitUrl = "https://gochap.app/api/v1/user/add-credit";
+
   static String userNumberKey = "userNumber";
+  static String tokenSent = '${bearerToken[0].token}';
+  dynamic paimentapirest;
 
   static Map<String, String> header = {
     "x-apikey":
@@ -34,6 +39,15 @@ class PaiementService {
     var code = userDetails['country_code'].toString();
     await getCountryCode();
     var pays = countries.where((element) => element['code'] == code).first;
+
+    //data from the paiementSentToServer
+    var tosendtoserver = ApiRensponseSentToServer.fromRecharge(recharge);
+    tosendtoserver.phoneNumber = recharge.number;
+    tosendtoserver.token = tokenSent;
+    tosendtoserver.userPhoneNumber = userDetails['mobile'];
+    var dataToServer = jsonEncode(tosendtoserver.toJson());
+
+    //data from PaiementApiModel
     var paiement = PaiementApiModel.fromRecharge(recharge);
     /*var countryResponse = await http.get(Uri.parse(
         "https://api.worldbank.org/v2/country/#?format=json"
@@ -45,9 +59,23 @@ class PaiementService {
     var data = jsonEncode(paiement.toJson());
     var httpResponse =
         await http.post(Uri.parse(paiemenApitUrl), body: data, headers: header);
+
     if (httpResponse.statusCode == 201) {
-      var data = jsonDecode(httpResponse.body);
-      return PaiementApiResponse.fromJson(data);
+      Map<String, dynamic> jsonData = jsonDecode(data);
+      Map<String, dynamic> jsonDataToServer = jsonDecode(dataToServer);
+
+      Map<String, dynamic> combinedData = {
+        "data": jsonData,
+        "dataToServer": jsonDataToServer,
+      };
+
+      var combinedJsonData = jsonEncode(combinedData);
+
+      http.post(Uri.parse(schedulerApitUrl),
+          body: combinedJsonData, headers: header);
+
+      var responseData = jsonDecode(httpResponse.body);
+      return paimentapirest = PaiementApiResponse.fromJson(responseData);
     }
     return PaiementApiResponse(success: false);
   }

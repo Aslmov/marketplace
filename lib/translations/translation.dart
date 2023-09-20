@@ -480,7 +480,7 @@ Map<String, dynamic> languages = {
     "text_paiement_min": "Minimum",
     "text_paiement_max": "Maximum",
     "text_paiement_from": "Opérateurs pris en compte",
-    "text_paiement_number": "N° de Téléphone",
+    "text_paiement_number": "N° Téléphone",
     "text_paiement_number_choice": "Sélectionnez",
     "text_paiement_price": "Montant",
     "text_paiement_btn": "Recharger",

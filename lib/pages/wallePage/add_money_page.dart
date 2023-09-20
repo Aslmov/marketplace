@@ -19,6 +19,9 @@ class AddMoneyPage extends StatefulWidget {
 
 class _AddMoneyPageState extends State<AddMoneyPage> {
   bool _isLoading = false;
+
+  String telIndicator = "TMONEY";
+
   @override
   void initState() {
     countryCode();
@@ -35,22 +38,31 @@ class _AddMoneyPageState extends State<AddMoneyPage> {
   }
 
   addPayementMethodView() {
-    const double height = 70;
-    const double width = 80;
+    const double height = 62;
+    const double width = 72;
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 20),
-      height: 100,
+      height: 72,
       child: Row(
         // This next line does the trick.
         // scrollDirection: Axis.horizontal,
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
           Card(
+            clipBehavior: Clip.hardEdge,
+            shape: RoundedRectangleBorder(
+              side: BorderSide(
+                color:
+                    telIndicator == "TMONEY" ? starColor : Colors.transparent,
+                width: 1.5,
+              ),
+              borderRadius: const BorderRadius.all(Radius.circular(10)),
+            ),
             child: InkWell(
               splashColor: starColor,
               onTap: () {
                 setState(() {
-                  selecteMethod = "TMONEY";
+                  telIndicator = "TMONEY";
                 });
               },
               child: Container(
@@ -67,11 +79,19 @@ class _AddMoneyPageState extends State<AddMoneyPage> {
             width: 20,
           ),
           Card(
+            clipBehavior: Clip.hardEdge,
+            shape: RoundedRectangleBorder(
+              side: BorderSide(
+                width: 1.5,
+                color: telIndicator == "FLOOZ" ? starColor : Colors.transparent,
+              ),
+              borderRadius: const BorderRadius.all(Radius.circular(10)),
+            ),
             child: InkWell(
               splashColor: starColor,
               onTap: () {
                 setState(() {
-                  selecteMethod = "Flooz";
+                  telIndicator = "FLOOZ";
                 });
               },
               child: Container(
@@ -232,7 +252,7 @@ class _AddMoneyPageState extends State<AddMoneyPage> {
                               children: [
                                 Container(
                                   padding: EdgeInsets.only(
-                                      bottom: media.width * 0.05),
+                                      bottom: media.width * 0.02),
                                   width: media.width * 1,
                                   alignment: Alignment.center,
                                   child: Text(
@@ -265,20 +285,19 @@ class _AddMoneyPageState extends State<AddMoneyPage> {
                                       //color: Colors.red,
                                       child: Column(
                                         children: [
-                                          SizedBox(
-                                            height: 10,
-                                          ),
                                           Center(
-                                            child: Card(
-                                              child: SizedBox(
-                                                width: 300,
-                                                height: 180,
-                                                child: Column(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .center,
-                                                    children: [
-                                                      Text(
+                                            child: SizedBox(
+                                              width: 280,
+                                              height: 150,
+                                              child: Column(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  children: [
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsets.only(
+                                                              top: 8.0),
+                                                      child: Text(
                                                           languages[
                                                                   choosenLanguage]
                                                               [
@@ -293,100 +312,101 @@ class _AddMoneyPageState extends State<AddMoneyPage> {
                                                                           .w500,
                                                                   color:
                                                                       textColor)),
-                                                      addPayementMethodView(),
-                                                    ]),
-                                              ),
+                                                    ),
+                                                    addPayementMethodView(),
+                                                  ]),
                                             ),
                                           ),
-                                          Padding(
-                                            padding:
-                                                const EdgeInsets.only(top: 3.0),
-                                            child: Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                              children: [
-                                                Text(
-                                                  languages[choosenLanguage]
-                                                      ["text_paiement_number"],
-                                                  textAlign: TextAlign.center,
-                                                ),
-                                                const SizedBox(
-                                                  width: 10,
-                                                ),
-                                                Container(
-                                                  height: 50,
-                                                  alignment: Alignment.center,
-                                                  child: Row(
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .center,
-                                                    children: [
-                                                      Image.network(
-                                                          "https:\/\/gochap.app\/images\/country\/flags\/TG.png"),
-                                                      SizedBox(
-                                                        width:
-                                                            media.width * 0.02,
-                                                      ),
-                                                      Text(
-                                                        "+228",
-                                                        style: GoogleFonts
-                                                            .robotoCondensed(
-                                                                fontSize: media
-                                                                        .width *
-                                                                    eighteen,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w500,
-                                                                color:
-                                                                    textColor),
-                                                      ),
-                                                    ],
+                                          Column(
+                                            children: [
+                                              Row(
+                                                children: [
+                                                  Text(
+                                                    languages[choosenLanguage][
+                                                            "text_paiement_number"] +
+                                                        " ( " +
+                                                        (telIndicator) +
+                                                        " )",
+                                                    textAlign: TextAlign.center,
+                                                    style: TextStyle(
+                                                        color: textColor),
                                                   ),
+                                                ],
+                                              ),
+                                              SizedBox(
+                                                height: 10,
+                                              ),
+                                              Container(
+                                                decoration: BoxDecoration(
+                                                  color: Color.fromARGB(
+                                                      255, 240, 240, 240),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          10.0), // Border radius
                                                 ),
-                                                Expanded(
-                                                  child: TextField(
-                                                    keyboardType:
-                                                        TextInputType.number,
-                                                    controller:
-                                                        numberController,
-                                                    onChanged: (value) {
-                                                      setState(() {
-                                                        selectedNumber = value;
-                                                      });
-                                                      if (value.length == 8) {
-                                                        FocusManager.instance
-                                                            .primaryFocus
-                                                            ?.unfocus();
-                                                      }
-                                                    },
+                                                child: TextFormField(
+                                                  keyboardType:
+                                                      TextInputType.number,
+                                                  decoration: InputDecoration(
+                                                    border: InputBorder.none,
+                                                    prefixIcon: Padding(
+                                                      padding: EdgeInsets.only(
+                                                          left:
+                                                              10.0), // Ajustez la marge comme vous le souhaitez
+                                                      child: Image.network(
+                                                          "https:\/\/gochap.app\/images\/country\/flags\/TG.png"), // Remplacez 'assets/votre_image.png' par le chemin de votre image
+                                                    ),
                                                   ),
+                                                  controller: numberController,
+                                                  onChanged: (value) {
+                                                    setState(() {
+                                                      selectedNumber = value;
+                                                    });
+                                                    if (value.length == 8) {
+                                                      FocusManager
+                                                          .instance.primaryFocus
+                                                          ?.unfocus();
+                                                    }
+                                                  },
                                                 ),
-                                                SizedBox(
-                                                  width: 30,
-                                                ),
-                                              ],
-                                            ),
+                                              ),
+                                            ],
                                           ),
                                           SizedBox(
                                             height: 10,
                                           ),
-                                          Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
+                                          Column(
                                             children: [
-                                              Text(
-                                                languages[choosenLanguage]
-                                                    ["text_paiement_price"],
-                                                textAlign: TextAlign.center,
+                                              Row(
+                                                children: [
+                                                  Text(
+                                                    languages[choosenLanguage]
+                                                        ["text_paiement_price"],
+                                                    textAlign: TextAlign.start,
+                                                    style: TextStyle(
+                                                        color: textColor),
+                                                  ),
+                                                ],
                                               ),
                                               SizedBox(
-                                                width: 10,
+                                                height: 10,
                                               ),
-                                              Expanded(
-                                                child: Container(
-                                                  width: 50,
+                                              Container(
+                                                decoration: BoxDecoration(
+                                                  color: Color.fromARGB(
+                                                      255, 240, 240, 240),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          10.0), // Border radius
+                                                ),
+                                                child: Padding(
+                                                  padding:
+                                                      const EdgeInsets.only(
+                                                          left: 10.0),
                                                   child: TextField(
+                                                    decoration: InputDecoration(
+                                                      border: InputBorder.none,
+                                                    ),
                                                     keyboardType:
                                                         TextInputType.number,
                                                     controller: priceController,
@@ -408,6 +428,7 @@ class _AddMoneyPageState extends State<AddMoneyPage> {
                                                 MainAxisAlignment.spaceBetween,
                                             children: [
                                               Card(
+                                                color: page,
                                                 clipBehavior: Clip.hardEdge,
                                                 child: InkWell(
                                                   splashColor: starColor,
@@ -435,6 +456,7 @@ class _AddMoneyPageState extends State<AddMoneyPage> {
                                                 ),
                                               ),
                                               Card(
+                                                color: page,
                                                 clipBehavior: Clip.hardEdge,
                                                 child: InkWell(
                                                   splashColor: starColor,
@@ -462,6 +484,7 @@ class _AddMoneyPageState extends State<AddMoneyPage> {
                                                 ),
                                               ),
                                               Card(
+                                                color: page,
                                                 clipBehavior: Clip.hardEdge,
                                                 child: InkWell(
                                                   splashColor: starColor,
@@ -495,6 +518,7 @@ class _AddMoneyPageState extends State<AddMoneyPage> {
                                                 MainAxisAlignment.spaceBetween,
                                             children: [
                                               Card(
+                                                color: page,
                                                 clipBehavior: Clip.hardEdge,
                                                 child: InkWell(
                                                   splashColor: starColor,
@@ -522,6 +546,7 @@ class _AddMoneyPageState extends State<AddMoneyPage> {
                                                 ),
                                               ),
                                               Card(
+                                                color: page,
                                                 clipBehavior: Clip.hardEdge,
                                                 child: InkWell(
                                                   splashColor: starColor,
@@ -549,6 +574,7 @@ class _AddMoneyPageState extends State<AddMoneyPage> {
                                                 ),
                                               ),
                                               Card(
+                                                color: page,
                                                 clipBehavior: Clip.hardEdge,
                                                 child: InkWell(
                                                   splashColor: starColor,
