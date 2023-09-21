@@ -2,6 +2,7 @@ import 'package:dropdownfield2/dropdownfield2.dart';
 import 'package:flutter/material.dart';
 import 'package:tagxisuperuser/functions/functions.dart';
 import 'package:tagxisuperuser/models/recharge.dart';
+import 'package:tagxisuperuser/pages/NavigatorPages/walletpage.dart';
 import 'package:tagxisuperuser/pages/loadingPage/loading.dart';
 import 'package:tagxisuperuser/services/paiement_sevice.dart';
 import 'package:tagxisuperuser/translations/translation.dart';
@@ -43,7 +44,7 @@ class _AddMoneyPageState extends State<AddMoneyPage> {
     const double height = 62;
     const double width = 72;
     return Container(
-      margin: const EdgeInsets.symmetric(vertical: 20),
+      margin: const EdgeInsets.symmetric(vertical: 15),
       height: 72,
       child: Row(
         // This next line does the trick.
@@ -76,9 +77,6 @@ class _AddMoneyPageState extends State<AddMoneyPage> {
                 ),
               ),
             ),
-          ),
-          SizedBox(
-            width: 20,
           ),
           Card(
             clipBehavior: Clip.hardEdge,
@@ -117,7 +115,7 @@ class _AddMoneyPageState extends State<AddMoneyPage> {
     });
 
     var rep = await paiement.addRecharge(new Recharge(
-        number: selectedNumber, method: "Moov", price: selectePrice));
+        number: selectedNumber, method: telIndicator, price: selectePrice));
 
     setState(() {
       _isLoading = false;
@@ -279,363 +277,357 @@ class _AddMoneyPageState extends State<AddMoneyPage> {
                               height: media.width * 0.05,
                             ),
                             SingleChildScrollView(
-                              child: Positioned(
-                                  top: 1,
-                                  child: SingleChildScrollView(
-                                    child: Container(
-                                      height: media.height * 0.8,
-                                      //color: Colors.red,
-                                      child: Column(
-                                        children: [
-                                          Center(
-                                            child: SizedBox(
-                                              width: 280,
-                                              height: 150,
-                                              child: Column(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.center,
-                                                  children: [
-                                                    Padding(
-                                                      padding:
-                                                          const EdgeInsets.only(
-                                                              top: 8.0),
-                                                      child: Text(
-                                                          languages[
-                                                                  choosenLanguage]
-                                                              [
-                                                              "text_paiement_from"],
-                                                          style: GoogleFonts
-                                                              .robotoCondensed(
-                                                                  fontSize: media
-                                                                          .width *
+                              child: SingleChildScrollView(
+                                child: Container(
+                                  height: media.height * 0.8,
+                                  //color: Colors.red,
+                                  child: Column(
+                                    children: [
+                                      Center(
+                                        child: SizedBox(
+                                          width: 280,
+                                          height: 150,
+                                          child: Column(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                Padding(
+                                                  padding:
+                                                      const EdgeInsets.only(
+                                                          top: 8.0),
+                                                  child: Text(
+                                                      languages[choosenLanguage]
+                                                          [
+                                                          "text_paiement_from"],
+                                                      style: GoogleFonts
+                                                          .robotoCondensed(
+                                                              fontSize:
+                                                                  media.width *
                                                                       eighteen,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w500,
-                                                                  color:
-                                                                      textColor)),
-                                                    ),
-                                                    addPayementMethodView(),
-                                                  ]),
-                                            ),
-                                          ),
-                                          Column(
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w500,
+                                                              color:
+                                                                  textColor)),
+                                                ),
+                                                addPayementMethodView(),
+                                              ]),
+                                        ),
+                                      ),
+                                      Column(
+                                        children: [
+                                          Row(
                                             children: [
-                                              Row(
-                                                children: [
-                                                  Text(
-                                                    languages[choosenLanguage][
-                                                            "text_paiement_number"] +
-                                                        " ( " +
-                                                        (telIndicator) +
-                                                        " )",
-                                                    textAlign: TextAlign.center,
-                                                    style: TextStyle(
-                                                      color: textColor,
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                              SizedBox(
-                                                height: 10,
-                                              ),
-                                              Container(
-                                                decoration: BoxDecoration(
-                                                  color: Color.fromARGB(
-                                                      255, 240, 240, 240),
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          10.0),
-                                                ),
-                                                child: Column(
-                                                  children: [
-                                                    TextField(
-                                                      keyboardType:
-                                                          TextInputType.number,
-                                                      decoration:
-                                                          InputDecoration(
-                                                        border:
-                                                            InputBorder.none,
-                                                        prefixIcon:
-                                                            Image.network(
-                                                          "https:\/\/gochap.app\/images\/country\/flags\/TG.png",
-                                                        ),
-                                                      ),
-                                                      controller:
-                                                          numberController,
-                                                      onChanged: (value) {
-                                                        setState(() {
-                                                          selectedNumber =
-                                                              value;
-                                                          showError = value
-                                                                  .length <
-                                                              8; // Met à jour showError en fonction de la longueur du texte
-                                                        });
-                                                        if (value.length == 8) {
-                                                          FocusManager.instance
-                                                              .primaryFocus
-                                                              ?.unfocus();
-                                                        }
-                                                      },
-                                                    ),
-                                                  ],
+                                              Text(
+                                                languages[choosenLanguage][
+                                                        "text_paiement_number"] +
+                                                    " ( " +
+                                                    (telIndicator) +
+                                                    " )",
+                                                textAlign: TextAlign.center,
+                                                style: TextStyle(
+                                                  color: textColor,
                                                 ),
                                               ),
-                                              if (showError) // Affiche le texte d'erreur si showError est vrai
-                                                Text(
-                                                  'La longueur doit être au moins de 8 chiffres',
-                                                  style: TextStyle(
-                                                    color: Colors.red,
-                                                    // Autres styles de texte si nécessaire
-                                                  ),
-                                                ),
                                             ],
                                           ),
                                           SizedBox(
                                             height: 10,
                                           ),
-                                          Column(
-                                            children: [
-                                              Row(
-                                                children: [
-                                                  Text(
-                                                    languages[choosenLanguage]
-                                                        ["text_paiement_price"],
-                                                    textAlign: TextAlign.start,
-                                                    style: TextStyle(
-                                                        color: textColor),
-                                                  ),
-                                                ],
-                                              ),
-                                              SizedBox(
-                                                height: 10,
-                                              ),
-                                              Container(
-                                                decoration: BoxDecoration(
-                                                  color: Color.fromARGB(
-                                                      255, 240, 240, 240),
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          10.0), // Border radius
-                                                ),
-                                                child: Padding(
-                                                  padding:
-                                                      const EdgeInsets.only(
-                                                          left: 10.0),
-                                                  child: TextField(
-                                                    decoration: InputDecoration(
-                                                      border: InputBorder.none,
+                                          Container(
+                                            decoration: BoxDecoration(
+                                              color: Color.fromARGB(
+                                                  255, 240, 240, 240),
+                                              borderRadius:
+                                                  BorderRadius.circular(10.0),
+                                            ),
+                                            child: Column(
+                                              children: [
+                                                TextField(
+                                                  keyboardType:
+                                                      TextInputType.number,
+                                                  decoration: InputDecoration(
+                                                    border: InputBorder.none,
+                                                    prefixIcon: Image.network(
+                                                      "https:\/\/gochap.app\/images\/country\/flags\/TG.png",
                                                     ),
-                                                    keyboardType:
-                                                        TextInputType.number,
-                                                    controller: priceController,
-                                                    onChanged: (value) {
-                                                      setState(() {
-                                                        selectePrice = value;
-                                                      });
-                                                    },
                                                   ),
+                                                  controller: numberController,
+                                                  onChanged: (value) {
+                                                    setState(() {
+                                                      selectedNumber = value;
+                                                      showError = value.length <
+                                                          8; // Met à jour showError en fonction de la longueur du texte
+                                                    });
+                                                    if (value.length == 8) {
+                                                      FocusManager
+                                                          .instance.primaryFocus
+                                                          ?.unfocus();
+                                                    }
+                                                  },
                                                 ),
-                                              ),
-                                            ],
+                                              ],
+                                            ),
                                           ),
-                                          SizedBox(
-                                            height: 30,
-                                          ),
-                                          Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
-                                            children: [
-                                              Card(
-                                                color: page,
-                                                clipBehavior: Clip.hardEdge,
-                                                child: InkWell(
-                                                  splashColor: starColor,
-                                                  onTap: () {
-                                                    selectePrice = "300 Fcfa";
-                                                    priceController.text =
-                                                        selectePrice.replaceAll(
-                                                            " Fcfa", "");
-                                                  },
-                                                  child: SizedBox(
-                                                    width: media.width / 3.8,
-                                                    height: 60,
-                                                    child: Center(
-                                                        child: Text("300 Fcfa",
-                                                            style: GoogleFonts.robotoCondensed(
-                                                                fontSize: media
-                                                                        .width *
-                                                                    eighteen,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w200,
-                                                                color:
-                                                                    textColor))),
-                                                  ),
-                                                ),
+                                          if (showError) // Affiche le texte d'erreur si showError est vrai
+                                            Text(
+                                              'La longueur doit être au moins de 8 chiffres',
+                                              style: TextStyle(
+                                                color: Colors.red,
+                                                // Autres styles de texte si nécessaire
                                               ),
-                                              Card(
-                                                color: page,
-                                                clipBehavior: Clip.hardEdge,
-                                                child: InkWell(
-                                                  splashColor: starColor,
-                                                  onTap: () {
-                                                    selectePrice = "500 Fcfa";
-                                                    priceController.text =
-                                                        selectePrice.replaceAll(
-                                                            " Fcfa", "");
-                                                  },
-                                                  child: SizedBox(
-                                                    width: media.width / 3.8,
-                                                    height: 60,
-                                                    child: Center(
-                                                        child: Text("500 Fcfa",
-                                                            style: GoogleFonts.robotoCondensed(
-                                                                fontSize: media
-                                                                        .width *
-                                                                    eighteen,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w200,
-                                                                color:
-                                                                    textColor))),
-                                                  ),
-                                                ),
-                                              ),
-                                              Card(
-                                                color: page,
-                                                clipBehavior: Clip.hardEdge,
-                                                child: InkWell(
-                                                  splashColor: starColor,
-                                                  onTap: () {
-                                                    selectePrice = "1000 Fcfa";
-                                                    priceController.text =
-                                                        selectePrice.replaceAll(
-                                                            " Fcfa", "");
-                                                  },
-                                                  child: SizedBox(
-                                                    width: media.width / 3.8,
-                                                    height: 60,
-                                                    child: Center(
-                                                        child: Text("1000 Fcfa",
-                                                            style: GoogleFonts.robotoCondensed(
-                                                                fontSize: media
-                                                                        .width *
-                                                                    eighteen,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w200,
-                                                                color:
-                                                                    textColor))),
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                          Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
-                                            children: [
-                                              Card(
-                                                color: page,
-                                                clipBehavior: Clip.hardEdge,
-                                                child: InkWell(
-                                                  splashColor: starColor,
-                                                  onTap: () {
-                                                    selectePrice = "2000 Fcfa";
-                                                    priceController.text =
-                                                        selectePrice.replaceAll(
-                                                            " Fcfa", "");
-                                                  },
-                                                  child: SizedBox(
-                                                    width: media.width / 3.8,
-                                                    height: 60,
-                                                    child: Center(
-                                                        child: Text("2000 Fcfa",
-                                                            style: GoogleFonts.robotoCondensed(
-                                                                fontSize: media
-                                                                        .width *
-                                                                    eighteen,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w200,
-                                                                color:
-                                                                    textColor))),
-                                                  ),
-                                                ),
-                                              ),
-                                              Card(
-                                                color: page,
-                                                clipBehavior: Clip.hardEdge,
-                                                child: InkWell(
-                                                  splashColor: starColor,
-                                                  onTap: () {
-                                                    selectePrice = "5000 Fcfa";
-                                                    priceController.text =
-                                                        selectePrice.replaceAll(
-                                                            " Fcfa", "");
-                                                  },
-                                                  child: SizedBox(
-                                                    width: media.width / 3.8,
-                                                    height: 60,
-                                                    child: Center(
-                                                        child: Text("5000 Fcfa",
-                                                            style: GoogleFonts.robotoCondensed(
-                                                                fontSize: media
-                                                                        .width *
-                                                                    eighteen,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w200,
-                                                                color:
-                                                                    textColor))),
-                                                  ),
-                                                ),
-                                              ),
-                                              Card(
-                                                color: page,
-                                                clipBehavior: Clip.hardEdge,
-                                                child: InkWell(
-                                                  splashColor: starColor,
-                                                  onTap: () {
-                                                    selectePrice = "10000 Fcfa";
-                                                    priceController.text =
-                                                        selectePrice.replaceAll(
-                                                            " Fcfa", "");
-                                                  },
-                                                  child: SizedBox(
-                                                    width: media.width / 3.8,
-                                                    height: 60,
-                                                    child: Center(
-                                                        child: Text(
-                                                            "10000 Fcfa",
-                                                            style: GoogleFonts.robotoCondensed(
-                                                                fontSize: media
-                                                                        .width *
-                                                                    eighteen,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w200,
-                                                                color:
-                                                                    textColor))),
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                          SizedBox(
-                                            height: 15,
-                                          ),
-                                          Button(
-                                              onTap: () {
-                                                sendRequest();
-                                              },
-                                              text: languages[choosenLanguage]
-                                                  ["text_paiement_btn"])
+                                            ),
                                         ],
                                       ),
-                                    ),
-                                  )),
+                                      SizedBox(
+                                        height: 10,
+                                      ),
+                                      Column(
+                                        children: [
+                                          Row(
+                                            children: [
+                                              Text(
+                                                languages[choosenLanguage]
+                                                    ["text_paiement_price"],
+                                                textAlign: TextAlign.start,
+                                                style:
+                                                    TextStyle(color: textColor),
+                                              ),
+                                            ],
+                                          ),
+                                          SizedBox(
+                                            height: 10,
+                                          ),
+                                          Container(
+                                            decoration: BoxDecoration(
+                                              color: Color.fromARGB(
+                                                  255, 240, 240, 240),
+                                              borderRadius:
+                                                  BorderRadius.circular(
+                                                      10.0), // Border radius
+                                            ),
+                                            child: Padding(
+                                              padding: const EdgeInsets.only(
+                                                  left: 10.0),
+                                              child: TextField(
+                                                decoration: InputDecoration(
+                                                  border: InputBorder.none,
+                                                ),
+                                                keyboardType:
+                                                    TextInputType.number,
+                                                controller: priceController,
+                                                onChanged: (value) {
+                                                  setState(() {
+                                                    selectePrice = value;
+                                                  });
+                                                },
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      SizedBox(
+                                        height: 30,
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Card(
+                                            color: page,
+                                            clipBehavior: Clip.hardEdge,
+                                            child: InkWell(
+                                              splashColor: starColor,
+                                              onTap: () {
+                                                selectePrice = "300 Fcfa";
+                                                priceController.text =
+                                                    selectePrice.replaceAll(
+                                                        " Fcfa", "");
+                                              },
+                                              child: SizedBox(
+                                                width: media.width / 3.8,
+                                                height: 60,
+                                                child: Center(
+                                                    child: Text("300 Fcfa",
+                                                        style: GoogleFonts
+                                                            .robotoCondensed(
+                                                                fontSize: media
+                                                                        .width *
+                                                                    eighteen,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w200,
+                                                                color:
+                                                                    textColor))),
+                                              ),
+                                            ),
+                                          ),
+                                          Card(
+                                            color: page,
+                                            clipBehavior: Clip.hardEdge,
+                                            child: InkWell(
+                                              splashColor: starColor,
+                                              onTap: () {
+                                                selectePrice = "500 Fcfa";
+                                                priceController.text =
+                                                    selectePrice.replaceAll(
+                                                        " Fcfa", "");
+                                              },
+                                              child: SizedBox(
+                                                width: media.width / 3.8,
+                                                height: 60,
+                                                child: Center(
+                                                    child: Text("500 Fcfa",
+                                                        style: GoogleFonts
+                                                            .robotoCondensed(
+                                                                fontSize: media
+                                                                        .width *
+                                                                    eighteen,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w200,
+                                                                color:
+                                                                    textColor))),
+                                              ),
+                                            ),
+                                          ),
+                                          Card(
+                                            color: page,
+                                            clipBehavior: Clip.hardEdge,
+                                            child: InkWell(
+                                              splashColor: starColor,
+                                              onTap: () {
+                                                selectePrice = "1000 Fcfa";
+                                                priceController.text =
+                                                    selectePrice.replaceAll(
+                                                        " Fcfa", "");
+                                              },
+                                              child: SizedBox(
+                                                width: media.width / 3.8,
+                                                height: 60,
+                                                child: Center(
+                                                    child: Text("1000 Fcfa",
+                                                        style: GoogleFonts
+                                                            .robotoCondensed(
+                                                                fontSize: media
+                                                                        .width *
+                                                                    eighteen,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w200,
+                                                                color:
+                                                                    textColor))),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Card(
+                                            color: page,
+                                            clipBehavior: Clip.hardEdge,
+                                            child: InkWell(
+                                              splashColor: starColor,
+                                              onTap: () {
+                                                selectePrice = "2000 Fcfa";
+                                                priceController.text =
+                                                    selectePrice.replaceAll(
+                                                        " Fcfa", "");
+                                              },
+                                              child: SizedBox(
+                                                width: media.width / 3.8,
+                                                height: 60,
+                                                child: Center(
+                                                    child: Text("2000 Fcfa",
+                                                        style: GoogleFonts
+                                                            .robotoCondensed(
+                                                                fontSize: media
+                                                                        .width *
+                                                                    eighteen,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w200,
+                                                                color:
+                                                                    textColor))),
+                                              ),
+                                            ),
+                                          ),
+                                          Card(
+                                            color: page,
+                                            clipBehavior: Clip.hardEdge,
+                                            child: InkWell(
+                                              splashColor: starColor,
+                                              onTap: () {
+                                                selectePrice = "5000 Fcfa";
+                                                priceController.text =
+                                                    selectePrice.replaceAll(
+                                                        " Fcfa", "");
+                                              },
+                                              child: SizedBox(
+                                                width: media.width / 3.8,
+                                                height: 60,
+                                                child: Center(
+                                                    child: Text("5000 Fcfa",
+                                                        style: GoogleFonts
+                                                            .robotoCondensed(
+                                                                fontSize: media
+                                                                        .width *
+                                                                    eighteen,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w200,
+                                                                color:
+                                                                    textColor))),
+                                              ),
+                                            ),
+                                          ),
+                                          Card(
+                                            color: page,
+                                            clipBehavior: Clip.hardEdge,
+                                            child: InkWell(
+                                              splashColor: starColor,
+                                              onTap: () {
+                                                selectePrice = "10000 Fcfa";
+                                                priceController.text =
+                                                    selectePrice.replaceAll(
+                                                        " Fcfa", "");
+                                              },
+                                              child: SizedBox(
+                                                width: media.width / 3.8,
+                                                height: 60,
+                                                child: Center(
+                                                    child: Text("10000 Fcfa",
+                                                        style: GoogleFonts
+                                                            .robotoCondensed(
+                                                                fontSize: media
+                                                                        .width *
+                                                                    eighteen,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w200,
+                                                                color:
+                                                                    textColor))),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      SizedBox(
+                                        height: 15,
+                                      ),
+                                      Button(
+                                          onTap: () {
+                                            sendRequest();
+                                          },
+                                          text: languages[choosenLanguage]
+                                              ["text_paiement_btn"])
+                                    ],
+                                  ),
+                                ),
+                              ),
                             )
                           ],
                         ),

@@ -1,29 +1,46 @@
 import 'recharge.dart';
 
 class ApiRensponseSentToServer {
+  String? reference;
+  int? id;
   String? userPhoneNumber;
-  String? token;
   String? phoneNumber;
+  String? statusCode;
+  String? source;
   ApiRensponseSentToServer(
-      {this.userPhoneNumber, this.token, this.phoneNumber});
+      {this.reference,
+      this.userPhoneNumber,
+      this.id,
+      this.phoneNumber,
+      this.statusCode,
+      this.source});
 
   ApiRensponseSentToServer.fromJson(Map<String, dynamic> json) {
-    userPhoneNumber = json['numUser'];
-    token = json['token'];
-    phoneNumber = json['profilNum'];
+    reference = json["reference"];
+    id = json['user_Id'];
+    userPhoneNumber = json['userPhoneNumber'];
+    phoneNumber = json['phoneNumber'];
+    statusCode = json['status'];
+    source = json['source'];
   }
 
   ApiRensponseSentToServer.fromRecharge(Recharge recharge) {
+    reference = "";
     userPhoneNumber = recharge.number;
-    token = "";
+    id;
     phoneNumber = "";
+    statusCode = "03";
+    source = "user";
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> dataSent = new Map<String, dynamic>();
-    dataSent['numUser'] = this.userPhoneNumber;
-    dataSent['token'] = this.token;
-    dataSent['profilNums'] = this.phoneNumber;
+    dataSent['reference'] = this.reference;
+    dataSent['user_Id'] = this.id;
+    dataSent['userPhoneNumber'] = this.userPhoneNumber;
+    dataSent['phoneNumber'] = this.phoneNumber;
+    dataSent['statusCode'] = this.statusCode;
+    dataSent['source'] = this.source;
     return dataSent;
   }
 }

@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter/foundation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 import 'package:tagxisuperuser/models/paiementSentToserver.dart';
@@ -36,16 +37,7 @@ class PaiementService {
   }
 
   Future<PaiementApiResponse> sendToPaiementApi(Recharge recharge) async {
-    var code = userDetails['country_code'].toString();
-    await getCountryCode();
-    var pays = countries.where((element) => element['code'] == code).first;
-
-    //data from the paiementSentToServer
-    var tosendtoserver = ApiRensponseSentToServer.fromRecharge(recharge);
-    tosendtoserver.phoneNumber = recharge.number;
-    tosendtoserver.token = tokenSent;
-    tosendtoserver.userPhoneNumber = userDetails['mobile'];
-    var dataToServer = jsonEncode(tosendtoserver.toJson());
+    //  var code = userDetails['country_code'].toString();
 
     //data from PaiementApiModel
     var paiement = PaiementApiModel.fromRecharge(recharge);
@@ -55,27 +47,36 @@ class PaiementService {
     var temp = jsonDecode(countryResponse.body)[1];
     var isocode = temp[0]["id"];*/
     paiement.countryIsoCode = 'TGO';
-    paiement.msisdn = pays['dial_code'] + recharge.number;
+    paiement.msisdn = countries[phcode]['dial_code'] + recharge.number;
     var data = jsonEncode(paiement.toJson());
+    debugPrint(data);
     var httpResponse =
         await http.post(Uri.parse(paiemenApitUrl), body: data, headers: header);
 
+    //data from the paiementSentToServer
+    var tosendtoserver = ApiRensponseSentToServer.fromRecharge(recharge);
+    tosendtoserver.phoneNumber =
+        countries[phcode]['dial_code'] + recharge.number;
+    tosendtoserver.id = userDetails['id'];
+    tosendtoserver.userPhoneNumber = userDetails['mobile'];
+    var dataToServer = jsonEncode(tosendtoserver.toJson());
+
     if (httpResponse.statusCode == 201) {
-      Map<String, dynamic> jsonData = jsonDecode(data);
+      var data = jsonDecode(httpResponse.body);
       Map<String, dynamic> jsonDataToServer = jsonDecode(dataToServer);
 
-      Map<String, dynamic> combinedData = {
-        "data": jsonData,
-        "dataToServer": jsonDataToServer,
-      };
+      var ourReference = data["ourReference"];
+      debugPrint(ourReference);
+      jsonDataToServer["reference"] = ourReference;
 
-      var combinedJsonData = jsonEncode(combinedData);
-
-      http.post(Uri.parse(schedulerApitUrl),
-          body: combinedJsonData, headers: header);
-
-      var responseData = jsonDecode(httpResponse.body);
-      return paimentapirest = PaiementApiResponse.fromJson(responseData);
+      String jsonDataToServerJson = jsonEncode(jsonDataToServer);
+      debugPrint(jsonDataToServerJson);
+      http.post(
+        Uri.parse(schedulerApitUrl),
+        body: jsonDataToServerJson,
+        headers: header,
+      );
+      return PaiementApiResponse.fromJson(data);
     }
     return PaiementApiResponse(success: false);
   }
