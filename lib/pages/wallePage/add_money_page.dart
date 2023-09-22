@@ -4,6 +4,7 @@ import 'package:tagxisuperuser/functions/functions.dart';
 import 'package:tagxisuperuser/models/recharge.dart';
 import 'package:tagxisuperuser/pages/NavigatorPages/walletpage.dart';
 import 'package:tagxisuperuser/pages/loadingPage/loading.dart';
+import 'package:tagxisuperuser/pages/onTripPage/map_page.dart';
 import 'package:tagxisuperuser/services/paiement_sevice.dart';
 import 'package:tagxisuperuser/translations/translation.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -137,6 +138,8 @@ class _AddMoneyPageState extends State<AddMoneyPage> {
               child: Text("OK"),
               onPressed: () {
                 Navigator.of(context).pop();
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const Maps()));
               },
             ),
           ],
@@ -371,7 +374,7 @@ class _AddMoneyPageState extends State<AddMoneyPage> {
                                           ),
                                           if (showError) // Affiche le texte d'erreur si showError est vrai
                                             Text(
-                                              'La longueur doit être au moins de 8 chiffres',
+                                              'La longueur doit être de 8 chiffres',
                                               style: TextStyle(
                                                 color: Colors.red,
                                                 // Autres styles de texte si nécessaire

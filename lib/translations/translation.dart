@@ -469,7 +469,7 @@ Map<String, dynamic> languages = {
     "text_continue_with": "Continue avec",
     "text_sign_up_email": "Connectez-vous avec un e-mail",
     "text_email_verify": "vérification de l'E-mail",
-    "text_select_theme": "Sélectionne un thème",
+    "text_select_theme": "Sélectionnez un thème",
     "text_update_available":
         "Une nouvelle version de cette application est disponible en magasin, veuillez mettre à jour l'application pour continuer à utiliser",
     "text_more_vehicles": "Vous pouvez choisir plus d'un type de véhicules",
