@@ -7,7 +7,7 @@ import 'package:tagxisuperuser/styles/styles.dart';
 import '../../functions/functions.dart';
 import '../../models/marketPlaceModels/FoodModel.dart';
 import '../../translations/translation.dart';
-import 'Categorie_Box.dart';
+import 'category/Categorie_Box.dart';
 import 'FoodAddAddress.dart';
 import 'FoodBookCart.dart';
 import 'FoodDescription.dart';
@@ -52,6 +52,8 @@ class FoodDashboardState extends State<FoodDashboard> {
 
   @override
   Widget build(BuildContext context) {
+    final FloatingSearchBarController controller =
+        FloatingSearchBarController();
     changeStatusColor(isDarkTheme ? black : white);
     Widget topGradient(var gradientColor1, var gradientColor2, var icon,
         var heading, var subHeading) {
@@ -105,59 +107,52 @@ class FoodDashboardState extends State<FoodDashboard> {
                 ),
               ),
             ),
+            // Intégration de la FloatingSearchBar
+            Container(
+              height: 54,
+              child: FloatingSearchBar(
+                controller: controller,
+                hint: 'Recherchez : Ramco, Slatpizz ...',
+                openAxisAlignment: 0.0,
+                width: 600,
+                axisAlignment: 0.0,
+                scrollPadding: EdgeInsets.only(top: 16, bottom: 20),
+                elevation: 4.0,
+                physics: BouncingScrollPhysics(),
+                onQueryChanged: (query) {},
+                actions: [
+                  FloatingSearchBarAction.searchToClear(),
+                ],
+                builder: (context, transition) {
+                  return Container(
+                    margin: EdgeInsets.only(top: 65),
+                    child: Card(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      elevation: 4,
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          ListTile(
+                            title: Text('Résultat de la recherche 1'),
+                            onTap: () {},
+                          ),
+                          ListTile(
+                            title: Text('Résultat de la recherche 2'),
+                            onTap: () {},
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
             Expanded(
               child: SingleChildScrollView(
                 child: Column(
                   children: <Widget>[
-                    Container(
-                      decoration: BoxDecoration(
-                          boxShadow: defaultBoxShadow(),
-                          color: context.cardColor),
-                      padding: EdgeInsets.all(16),
-                      child: Column(
-                        children: <Widget>[
-                          //mAddress(context),
-                          SizedBox(height: 16),
-                          SizedBox(height: 16),
-                          //AdsBox(revere: false),
-                          CategorieBox(
-                            BoxTitle: languages[choosenLanguage]
-                                    ['text_categories_resto']
-                                .toUpperCase(),
-                            onPressed: () {
-                              // Navigator.of(context).push(MaterialPageRoute(
-                              //     builder: (BuildContext context) =>
-                              //     const CategorieScreen()));
-                            },
-                          ),
-                          // Row(
-                          //   children: <Widget>[
-                          //     Expanded(
-                          //       child: topGradient(
-                          //         food_color_blue_gradient1,
-                          //         food_color_blue_gradient2,
-                          //         food_cloche,
-                          //         food_lbl_food_order,
-                          //         food_lbl_find_near_by_restaurants,
-                          //       ),
-                          //       flex: 1,
-                          //     ),
-                          //     SizedBox(width: 10),
-                          //     Expanded(
-                          //       child: topGradient(
-                          //         food_color_orange_gradient1,
-                          //         food_color_orange_gradient2,
-                          //         food_ic_table,
-                          //         food_lbl_book_a_table,
-                          //         food_lbl_may_take_upto_3_mins,
-                          //       ),
-                          //       flex: 1,
-                          //     )
-                          //   ],
-                          // ),
-                        ],
-                      ),
-                    ),
                     SizedBox(height: 16),
                     Container(
                       decoration: BoxDecoration(
@@ -186,150 +181,22 @@ class FoodDashboardState extends State<FoodDashboard> {
                         ],
                       ),
                     ),
-                    SizedBox(height: 16),
-                    // Container(
-                    //   decoration: BoxDecoration(boxShadow: defaultBoxShadow(), color: context.cardColor),
-                    //   child: Column(
-                    //     crossAxisAlignment: CrossAxisAlignment.start,
-                    //     children: <Widget>[
-                    //       heading(food_lbl_cake_ice_cream_and_bakery),
-                    //       SizedBox(
-                    //         height: 250,
-                    //         child: ListView.builder(
-                    //           scrollDirection: Axis.horizontal,
-                    //           itemCount: mBakeryList.length,
-                    //           padding: EdgeInsets.only(bottom: 4, right: 16),
-                    //           shrinkWrap: true,
-                    //           itemBuilder: (context, index) {
-                    //             return Item(mBakeryList[index], index);
-                    //           },
-                    //         ),
-                    //       ),
-                    //       mViewAll(context, food_lbl_view_all_restaurants, onTap: () {
-                    //         FoodViewRestaurants().launch(context);
-                    //       }),
-                    //     ],
-                    //   ),
-                    // ),
-                    // SizedBox(height: 16),
                     Container(
                       decoration: BoxDecoration(
                           boxShadow: defaultBoxShadow(),
                           color: context.cardColor),
+                      padding: EdgeInsets.all(16),
                       child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
-                          heading(
-                            languages[choosenLanguage]['text_Restourants'],
-                          ),
-                          Container(
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(15.0)),
-                            child: SizedBox(
-                              height: 155,
-                              child: ListView.builder(
-                                scrollDirection: Axis.horizontal,
-                                padding: EdgeInsets.only(bottom: 4, right: 16),
-                                itemCount: mDeliveryList.length,
-                                shrinkWrap: true,
-                                itemBuilder: (context, index) {
-                                  return Item(mDeliveryList[index], index);
-                                },
-                              ),
-                            ),
-                          ),
-                          mViewAll(context,
-                              languages[choosenLanguage]['text_see_all_resto'],
-                              onTap: () {
-                            FoodViewRestaurants().launch(context);
-                          }),
-                        ],
-                      ),
-                    ),
-                    SizedBox(height: 16),
-                    Container(
-                      decoration: BoxDecoration(
-                          boxShadow: defaultBoxShadow(),
-                          color: context.cardColor),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          heading(
-                              languages[choosenLanguage]['text_see_all_resto']),
-                          SizedBox(
-                            height: 155,
-                            child: ListView.builder(
-                              scrollDirection: Axis.horizontal,
-                              itemCount: mDineOutList.length,
-                              padding: EdgeInsets.only(bottom: 4, right: 16),
-                              shrinkWrap: true,
-                              itemBuilder: (context, index) {
-                                return Item(mDineOutList[index], index);
-                              },
-                            ),
-                          ),
-                          mViewAll(context,
-                              languages[choosenLanguage]['text_see_all_resto'],
-                              onTap: () {
-                            FoodViewRestaurants().launch(context);
-                          }),
-                        ],
-                      ),
-                    ),
-                    SizedBox(height: 16),
-                    Container(
-                      decoration: BoxDecoration(
-                          boxShadow: defaultBoxShadow(),
-                          color: context.cardColor),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          heading(languages[choosenLanguage]
-                              ['text_experience_your_favourite_cuisine_resto']),
-                          SizedBox(
-                            height: 250,
-                            child: ListView.builder(
-                              scrollDirection: Axis.horizontal,
-                              padding: EdgeInsets.only(right: 16),
-                              itemCount: mExperienceList.length,
-                              shrinkWrap: true,
-                              itemBuilder: (context, index) {
-                                return Collection(
-                                    mExperienceList[index], index);
-                              },
-                            ),
-                          ),
+                          //mAddress(context),
                           SizedBox(height: 16),
-                        ],
-                      ),
-                    ),
-                    SizedBox(height: 16),
-                    Container(
-                      decoration: BoxDecoration(
-                          boxShadow: defaultBoxShadow(),
-                          color: context.cardColor),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          heading(
-                              languages[choosenLanguage]['text_Cafe_resto']),
-                          SizedBox(
-                            height: 155,
-                            child: ListView.builder(
-                              scrollDirection: Axis.horizontal,
-                              padding: EdgeInsets.only(bottom: 4, right: 16),
-                              itemCount: mCafeList.length,
-                              shrinkWrap: true,
-                              itemBuilder: (context, index) {
-                                return Item(mCafeList[index], index);
-                              },
-                            ),
+                          //AdsBox(revere: false),
+                          CategorieBox(
+                            BoxTitle: languages[choosenLanguage]
+                                    ['text_categories_resto']
+                                .toUpperCase(),
+                            onPressed: () {},
                           ),
-                          mViewAll(context,
-                              languages[choosenLanguage]['text_see_all_resto'],
-                              onTap: () {
-                            FoodViewRestaurants().launch(context);
-                          }),
                         ],
                       ),
                     ),

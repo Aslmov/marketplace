@@ -5,6 +5,7 @@ import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:provider/provider.dart';
 import 'package:tagxisuperuser/functions/functions.dart';
 import 'package:tagxisuperuser/functions/notifications.dart';
 import 'package:tagxisuperuser/pages/onTripPage/booking_confirmation.dart';
@@ -15,6 +16,8 @@ import 'package:flutter/services.dart';
 import 'package:receive_intent/receive_intent.dart';
 import '../../data/data.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+
+import 'pages/marketPlace/utils/provider/category_data.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -33,7 +36,12 @@ void main() async {
     FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
     return true;
   };
-  runApp(const MyApp());
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider(create: (_) => Categorie()),
+    ],
+    child: MyApp(),
+  ));
 }
 
 class MyApp extends StatefulWidget {
