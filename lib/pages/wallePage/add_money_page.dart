@@ -1,8 +1,6 @@
-import 'package:dropdownfield2/dropdownfield2.dart';
 import 'package:flutter/material.dart';
 import 'package:tagxisuperuser/functions/functions.dart';
 import 'package:tagxisuperuser/models/recharge.dart';
-import 'package:tagxisuperuser/pages/NavigatorPages/walletpage.dart';
 import 'package:tagxisuperuser/pages/loadingPage/loading.dart';
 import 'package:tagxisuperuser/pages/onTripPage/map_page.dart';
 import 'package:tagxisuperuser/services/paiement_sevice.dart';

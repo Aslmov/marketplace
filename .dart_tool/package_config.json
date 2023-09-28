@@ -38,6 +38,30 @@
       "languageVersion": "2.17"
     },
     {
+      "name": "cached_network_image",
+      "rootUri": "file:///C:/Users/Mr%20KOUMANA/AppData/Local/Pub/Cache/hosted/pub.dev/cached_network_image-3.3.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
+      "name": "cached_network_image_platform_interface",
+      "rootUri": "file:///C:/Users/Mr%20KOUMANA/AppData/Local/Pub/Cache/hosted/pub.dev/cached_network_image_platform_interface-3.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
+      "name": "cached_network_image_web",
+      "rootUri": "file:///C:/Users/Mr%20KOUMANA/AppData/Local/Pub/Cache/hosted/pub.dev/cached_network_image_web-1.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
+      "name": "carousel_slider",
+      "rootUri": "file:///C:/Users/Mr%20KOUMANA/AppData/Local/Pub/Cache/hosted/pub.dev/carousel_slider-4.2.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "cashfree_pg",
       "rootUri": "file:///C:/Users/Mr%20KOUMANA/AppData/Local/Pub/Cache/hosted/pub.dev/cashfree_pg-2.0.12+32",
       "packageUri": "lib/",
@@ -58,6 +82,12 @@
     {
       "name": "cli_util",
       "rootUri": "file:///C:/Users/Mr%20KOUMANA/AppData/Local/Pub/Cache/hosted/pub.dev/cli_util-0.3.5",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "clippy_flutter",
+      "rootUri": "file:///C:/Users/Mr%20KOUMANA/AppData/Local/Pub/Cache/hosted/pub.dev/clippy_flutter-2.0.0-nullsafety.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -124,6 +154,12 @@
     {
       "name": "dbus",
       "rootUri": "file:///C:/Users/Mr%20KOUMANA/AppData/Local/Pub/Cache/hosted/pub.dev/dbus-0.7.8",
+      "packageUri": "lib/",
+      "languageVersion": "2.15"
+    },
+    {
+      "name": "dio",
+      "rootUri": "file:///C:/Users/Mr%20KOUMANA/AppData/Local/Pub/Cache/hosted/pub.dev/dio-5.3.3",
       "packageUri": "lib/",
       "languageVersion": "2.15"
     },
@@ -272,6 +308,12 @@
       "languageVersion": "3.0"
     },
     {
+      "name": "flutter_cache_manager",
+      "rootUri": "file:///C:/Users/Mr%20KOUMANA/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_cache_manager-3.3.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
       "name": "flutter_inappwebview",
       "rootUri": "file:///C:/Users/Mr%20KOUMANA/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_inappwebview-5.7.2+3",
       "packageUri": "lib/",
@@ -318,6 +360,12 @@
       "rootUri": "file:///C:/Users/Mr%20KOUMANA/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_stripe-9.3.0",
       "packageUri": "lib/",
       "languageVersion": "2.17"
+    },
+    {
+      "name": "flutter_svg",
+      "rootUri": "file:///C:/Users/Mr%20KOUMANA/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_svg-2.0.7",
+      "packageUri": "lib/",
+      "languageVersion": "2.19"
     },
     {
       "name": "flutter_test",
@@ -566,6 +614,12 @@
       "languageVersion": "2.17"
     },
     {
+      "name": "material_floating_search_bar_2",
+      "rootUri": "file:///C:/Users/Mr%20KOUMANA/AppData/Local/Pub/Cache/hosted/pub.dev/material_floating_search_bar_2-0.5.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
       "name": "meta",
       "rootUri": "file:///C:/Users/Mr%20KOUMANA/AppData/Local/Pub/Cache/hosted/pub.dev/meta-1.9.1",
       "packageUri": "lib/",
@@ -578,8 +632,20 @@
       "languageVersion": "2.18"
     },
     {
+      "name": "nb_utils",
+      "rootUri": "file:///C:/Users/Mr%20KOUMANA/AppData/Local/Pub/Cache/hosted/pub.dev/nb_utils-6.0.4",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
+    },
+    {
       "name": "nm",
       "rootUri": "file:///C:/Users/Mr%20KOUMANA/AppData/Local/Pub/Cache/hosted/pub.dev/nm-0.5.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "octo_image",
+      "rootUri": "file:///C:/Users/Mr%20KOUMANA/AppData/Local/Pub/Cache/hosted/pub.dev/octo_image-2.0.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -598,6 +664,18 @@
     {
       "name": "path",
       "rootUri": "file:///C:/Users/Mr%20KOUMANA/AppData/Local/Pub/Cache/hosted/pub.dev/path-1.8.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "path_drawing",
+      "rootUri": "file:///C:/Users/Mr%20KOUMANA/AppData/Local/Pub/Cache/hosted/pub.dev/path_drawing-1.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "path_parsing",
+      "rootUri": "file:///C:/Users/Mr%20KOUMANA/AppData/Local/Pub/Cache/hosted/pub.dev/path_parsing-1.0.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -710,6 +788,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "rxdart",
+      "rootUri": "file:///C:/Users/Mr%20KOUMANA/AppData/Local/Pub/Cache/hosted/pub.dev/rxdart-0.27.7",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "sanitize_html",
       "rootUri": "file:///C:/Users/Mr%20KOUMANA/AppData/Local/Pub/Cache/hosted/pub.dev/sanitize_html-2.0.0",
       "packageUri": "lib/",
@@ -729,9 +813,9 @@
     },
     {
       "name": "shared_preferences",
-      "rootUri": "file:///C:/Users/Mr%20KOUMANA/AppData/Local/Pub/Cache/hosted/pub.dev/shared_preferences-2.2.0",
+      "rootUri": "file:///C:/Users/Mr%20KOUMANA/AppData/Local/Pub/Cache/hosted/pub.dev/shared_preferences-2.2.1",
       "packageUri": "lib/",
-      "languageVersion": "2.18"
+      "languageVersion": "2.19"
     },
     {
       "name": "shared_preferences_android",
@@ -782,6 +866,18 @@
       "languageVersion": "2.18"
     },
     {
+      "name": "sqflite",
+      "rootUri": "file:///C:/Users/Mr%20KOUMANA/AppData/Local/Pub/Cache/hosted/pub.dev/sqflite-2.3.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
+      "name": "sqflite_common",
+      "rootUri": "file:///C:/Users/Mr%20KOUMANA/AppData/Local/Pub/Cache/hosted/pub.dev/sqflite_common-2.5.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
       "name": "stack_trace",
       "rootUri": "file:///C:/Users/Mr%20KOUMANA/AppData/Local/Pub/Cache/hosted/pub.dev/stack_trace-1.11.0",
       "packageUri": "lib/",
@@ -822,6 +918,12 @@
       "rootUri": "file:///C:/Users/Mr%20KOUMANA/AppData/Local/Pub/Cache/hosted/pub.dev/stripe_platform_interface-9.3.0",
       "packageUri": "lib/",
       "languageVersion": "2.17"
+    },
+    {
+      "name": "synchronized",
+      "rootUri": "file:///C:/Users/Mr%20KOUMANA/AppData/Local/Pub/Cache/hosted/pub.dev/synchronized-3.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
     },
     {
       "name": "term_glyph",
@@ -902,6 +1004,24 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "vector_graphics",
+      "rootUri": "file:///C:/Users/Mr%20KOUMANA/AppData/Local/Pub/Cache/hosted/pub.dev/vector_graphics-1.1.7",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
+      "name": "vector_graphics_codec",
+      "rootUri": "file:///C:/Users/Mr%20KOUMANA/AppData/Local/Pub/Cache/hosted/pub.dev/vector_graphics_codec-1.1.7",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
+      "name": "vector_graphics_compiler",
+      "rootUri": "file:///C:/Users/Mr%20KOUMANA/AppData/Local/Pub/Cache/hosted/pub.dev/vector_graphics_compiler-1.1.7",
+      "packageUri": "lib/",
+      "languageVersion": "2.19"
+    },
+    {
       "name": "vector_math",
       "rootUri": "file:///C:/Users/Mr%20KOUMANA/AppData/Local/Pub/Cache/hosted/pub.dev/vector_math-2.1.4",
       "packageUri": "lib/",
@@ -968,7 +1088,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2023-09-14T10:23:10.652811Z",
+  "generated": "2023-09-28T13:25:24.681223Z",
   "generator": "pub",
   "generatorVersion": "3.1.0"
 }

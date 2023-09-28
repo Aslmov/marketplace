@@ -4,10 +4,6 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../functions/functions.dart';
 import '../../styles/styles.dart';
 import '../../translations/translation.dart';
-import '../../widgets/widgets.dart';
-import '../NavigatorPages/walletpage.dart';
-import '../loadingPage/loading.dart';
-import '../noInternet/nointernet.dart';
 
 class InProgress extends StatefulWidget {
   const InProgress({Key? key}) : super(key: key);

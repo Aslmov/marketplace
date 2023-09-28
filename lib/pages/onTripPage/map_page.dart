@@ -23,6 +23,7 @@ import 'dart:async';
 import 'package:location/location.dart';
 import 'package:tagxisuperuser/widgets/widgets.dart';
 import 'dart:ui' as ui;
+import '../marketPlace/FoodDashboard.dart';
 import '../navDrawer/nav_drawer.dart';
 import 'package:geolocator/geolocator.dart' as geolocs;
 import 'package:permission_handler/permission_handler.dart' as perm;
@@ -1076,7 +1077,7 @@ class _MapsState extends State<Maps>
                                                                               decoration: InputDecoration(
                                                                                 contentPadding: (languageDirection == 'rtl') ? EdgeInsets.only(bottom: media.width * 0.035) : EdgeInsets.only(bottom: media.width * 0.047),
                                                                                 hintText: languages[choosenLanguage]['text_4lettersforautofilltop'],
-                                                                                hintStyle: GoogleFonts.robotoCondensed(fontSize: media.width * twelve, color: hintColor),
+                                                                                hintStyle: GoogleFonts.robotoCondensed(fontSize: media.width * twelve, color: navText),
                                                                                 border: InputBorder.none,
                                                                               ),
                                                                               maxLines: 1,
@@ -1803,7 +1804,7 @@ class _MapsState extends State<Maps>
                                                                               ? Expanded(
                                                                                   child: TextField(
                                                                                       autofocus: true,
-                                                                                      decoration: InputDecoration(contentPadding: (languageDirection == 'rtl') ? EdgeInsets.only(bottom: media.width * 0.035) : EdgeInsets.only(bottom: media.width * 0.047), border: InputBorder.none, hintText: languages[choosenLanguage]['text_4lettersforautofilltop'], hintStyle: GoogleFonts.robotoCondensed(fontSize: media.width * twelve, color: (isDarkTheme == true) ? textColor.withOpacity(0.3) : hintColor)),
+                                                                                      decoration: InputDecoration(contentPadding: (languageDirection == 'rtl') ? EdgeInsets.only(bottom: media.width * 0.035) : EdgeInsets.only(bottom: media.width * 0.047), border: InputBorder.none, hintText: languages[choosenLanguage]['text_4lettersforautofilltop'], hintStyle: GoogleFonts.robotoCondensed(fontSize: media.width * twelve, color: (isDarkTheme == true) ? navText : navText)),
                                                                                       style: GoogleFonts.robotoCondensed(color: textColor),
                                                                                       maxLines: 1,
                                                                                       onChanged: (val) {
@@ -1829,7 +1830,7 @@ class _MapsState extends State<Maps>
                                                                               : Expanded(
                                                                                   child: Text(
                                                                                   languages[choosenLanguage]['text_4lettersforautofill'],
-                                                                                  style: GoogleFonts.roboto(fontSize: media.width * twelve, color: (isDarkTheme == true) ? textColor.withOpacity(0.3) : hintColor),
+                                                                                  style: GoogleFonts.roboto(fontSize: media.width * twelve, color: (isDarkTheme == true) ? navText : navText),
                                                                                 )),
                                                                         ],
                                                                       )),
@@ -2201,7 +2202,7 @@ class _MapsState extends State<Maps>
                                                                                   //alignment: Alignment.center,
                                                                                   child: Text(
                                                                                     languages[choosenLanguage]['text_rental'],
-                                                                                    style: GoogleFonts.roboto(fontSize: media.width * twelve, fontWeight: FontWeight.bold, color: textColor),
+                                                                                    style: GoogleFonts.roboto(fontSize: media.width * twelve, fontWeight: FontWeight.bold, color: navText),
                                                                                   ),
                                                                                 ),
                                                                               ],
@@ -2216,13 +2217,12 @@ class _MapsState extends State<Maps>
                                                                       BorderRadius.circular(
                                                                           media.width *
                                                                               0.04),
-                                                                  child:
-                                                                      InkWell(
+                                                                                                                                  child: InkWell(
                                                                     onTap: () {
                                                                       Navigator.push(
                                                                           context,
                                                                           MaterialPageRoute(
-                                                                              builder: (context) => InProgress()));
+                                                                              builder: (context) => FoodDashboard()));
                                                                     },
                                                                     child:
                                                                         Container(
@@ -2282,7 +2282,7 @@ class _MapsState extends State<Maps>
                                                                             child:
                                                                                 Text(
                                                                               languages[choosenLanguage]['text_market'],
-                                                                              style: GoogleFonts.roboto(fontSize: media.width * twelve, fontWeight: FontWeight.bold, color: textColor),
+                                                                              style: GoogleFonts.roboto(fontSize: media.width * twelve, fontWeight: FontWeight.bold, color: navText),
                                                                             ),
                                                                           ),
                                                                         ],

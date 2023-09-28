@@ -150,7 +150,8 @@ class _SignInwithEmailState extends State<SignInwithEmail> {
                             ),
                             InkWell(
                               onTap: () {
-                                openBrowser('terms and conditions url');
+                                openBrowser(
+                                    'https://gochap.solutions/index.php/conditions-utilisation');
                               },
                               child: Text(
                                 languages[choosenLanguage]['text_terms'],
@@ -167,7 +168,8 @@ class _SignInwithEmailState extends State<SignInwithEmail> {
                             ),
                             InkWell(
                               onTap: () {
-                                openBrowser('privacy policy url');
+                                openBrowser(
+                                    'https://gochap.solutions/index.php/politique-confidentialite');
                               },
                               child: Text(
                                 languages[choosenLanguage]['text_privacy'],

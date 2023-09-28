@@ -74,7 +74,7 @@ class _AboutState extends State<About> {
                     //terms and condition
                     InkWell(
                       onTap: () {
-                        openBrowser('terms and conditions url');
+                        openBrowser('https://gochap.solutions/index.php/conditions-utilisation');
                       },
                       child: Text(
                         languages[choosenLanguage]['text_termsandconditions'],
@@ -90,7 +90,7 @@ class _AboutState extends State<About> {
                     //privacy policy
                     InkWell(
                       onTap: () {
-                        openBrowser('privacy policy url');
+                        openBrowser('https://gochap.solutions/index.php/politique-confidentialite');
                       },
                       child: Text(
                         languages[choosenLanguage]['text_privacy'],

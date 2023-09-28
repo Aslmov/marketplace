@@ -1121,7 +1121,7 @@ class _DropLocationState extends State<DropLocation>
                                                               true)
                                                           ? textColor
                                                               .withOpacity(0.5)
-                                                          : hintColor)),
+                                                          : navText)),
                                           style: GoogleFonts.robotoCondensed(
                                               color: textColor),
                                           maxLines: 1,

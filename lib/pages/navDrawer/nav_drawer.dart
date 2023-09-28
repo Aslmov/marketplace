@@ -176,6 +176,7 @@ class _NavDrawerState extends State<NavDrawer> {
                                               buttonColor = Colors.white;
                                               loaderColor = Colors.white;
                                               buttonText = Colors.black;
+                                              navText = Colors.black;
                                             } else {
                                               page = Colors.white;
                                               textColor = Colors.black;
@@ -183,6 +184,8 @@ class _NavDrawerState extends State<NavDrawer> {
                                               loaderColor = theme;
                                               buttonText =
                                                   const Color(0xffFFFFFF);
+                                              navText = Colors.black;
+
                                             }
                                             pref.setBool(
                                                 'isDarkTheme', isDarkTheme);
