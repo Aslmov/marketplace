@@ -1,12 +1,10 @@
 // ignore_for_file: file_names, non_constant_identifier_names, unused_local_variable
 import 'package:dio/dio.dart';
-import 'package:http/http.dart';
-import '../BeneficiaryCategorie_Model.dart';
-import '../Categorie_Modal.dart'; 
-import '../BeneficiaryCategorie_Model.dart';
+import 'package:tagxisuperuser/models/marketPlaceModels/BeneficiaryCategorie_Model.dart';
+
 class CategorieData {
   static Future<List<BeneficiaryCategorie>> GetCategories() async {
-    var response = await Dio()
+    Response  response = await Dio()
         .get('https://www.themealdb.com/api/json/v1/1/categories.php');
 
     return (response.data['categories'] as List)
@@ -15,7 +13,7 @@ class CategorieData {
   }
 
   static Future<List<String>> GetCategorieTitle() async {
-    var response = await Dio()
+    Response response = await Dio()
         .get('Get: http://wari:5050/api/Marketplace/BeneficiaryCategories');
 
     List<String> CategorieTitleList = [];

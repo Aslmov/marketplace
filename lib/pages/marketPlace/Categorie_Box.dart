@@ -4,8 +4,6 @@ import 'package:nb_utils/nb_utils.dart';
 import '../../models/marketPlaceModels/BeneficiaryCategorie_Model.dart';
 import '../../models/marketPlaceModels/Controler/Categorie_Data.dart';
 
-
-
 class CategorieBox extends StatelessWidget {
   const CategorieBox({
     Key? key,
