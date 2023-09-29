@@ -1,141 +1,116 @@
 import 'package:flutter/material.dart';
-import 'package:nb_utils/nb_utils.dart';
-import 'package:provider/provider.dart';
-import 'package:tagxisuperuser/functions/functions.dart';
-import 'package:tagxisuperuser/pages/marketPlace/utils/provider/category_data.dart';
-import 'package:tagxisuperuser/translations/translation.dart';
 
-class CategoryMorePage extends StatefulWidget {
-  const CategoryMorePage({
-    Key? key,
-  }) : super(key: key);
+import '../../../models/marketPlaceModels/testFolder/Categorie_Data.dart';
 
-  @override
-  State<CategoryMorePage> createState() => _CategorieBoxState();
-}
-
-class _CategorieBoxState extends State<CategoryMorePage> {
-  @override
-  void didChangeDependencies() {
-    context.read<Categorie>().fecthCategories();
-    super.didChangeDependencies();
-  }
+class MoreCategoryPage extends StatelessWidget {
+  MoreCategoryPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final categorieData = context.watch<Categorie>();
-    return ListView.builder(
-      itemCount: 1,
-      itemBuilder: (context, index) {
-        return Container(
-          margin: const EdgeInsets.symmetric(vertical: 10),
-          width: double.infinity,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    categorieData.categories.isNotEmpty
-                        ? Text(
-                            languages[choosenLanguage]['text_categories_resto'],
-                            style: boldTextStyle(size: 25))
-                        : Container(
-                            height: 15,
-                            width: 80,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(7),
-                              color: Colors.grey.shade300,
-                            ),
-                          ),
-                  ],
-                ),
-              ),
-              SizedBox(
-                height: 130,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  shrinkWrap: true,
-                  itemCount: categorieData.categories.length,
-                  itemBuilder: (context, index) {
-                    return GestureDetector(
-                      onTap: () {},
-                      child: Container(
-                        width: 100,
-                        alignment: Alignment.center,
-                        margin:
-                            const EdgeInsets.only(left: 15, top: 5, bottom: 10),
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: Color(0xffC3211A),
-                            boxShadow: const [
-                              BoxShadow(
-                                offset: Offset(0, 2),
-                                blurRadius: 5,
-                                color: Color.fromARGB(117, 0, 0, 0),
-                              )
-                            ]),
-                        child: Column(
-                          children: [
-                            Expanded(
-                              child: Container(
-                                margin: const EdgeInsets.only(
-                                    top: 3, left: 3, right: 3, bottom: 7),
-                                decoration: BoxDecoration(
-                                  color: categorieData.categories.isNotEmpty
-                                      ? Colors.white
-                                      : Colors.grey.shade300,
-                                  borderRadius: BorderRadius.circular(7),
-                                  image: categorieData.categories.isNotEmpty
-                                      ? DecorationImage(
-                                          image: NetworkImage(
-                                            categorieData.categories[index]
-                                                .strCategoryThumb!,
-                                          ),
-                                          fit: BoxFit.contain)
-                                      : null,
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 10),
-                              child: categorieData.categories.isNotEmpty
-                                  ? Text(
-                                      categorieData
-                                          .categories[index].strCategory!,
-                                      overflow: TextOverflow.ellipsis,
-                                      style: const TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w800,
-                                      ),
-                                    )
-                                  : Container(
-                                      height: 15,
-                                      width: 80,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(7),
-                                        color: Colors.grey.shade300,
-                                      ),
-                                    ),
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            )
-                          ],
-                        ),
-                      ),
-                    );
-                  },
-                ),
-              )
-            ],
-          ),
-        );
-      },
+    return Column(
+      children: <Widget>[
+        Container(
+          height: 500,
+          width: 500,
+          child: ListView.builder(
+              itemCount: categoriesList.length,
+              itemBuilder: (BuildContext context, int index) {
+                Categories category = categoriesList[index];
+                return ListTile(
+                  leading: Image.asset(
+                    category.strCategoryThumb!,
+                    width: 50,
+                    height: 50,
+                  ),
+                  title: Text(category.strCategory ?? ''),
+                  subtitle: Text(category.strCategoryDescription ?? ''),
+                );
+              }),
+        ),
+      ],
     );
   }
+
+  List<Categories> categoriesList = [
+    Categories(
+      isTop: true,
+      idCategory: "1",
+      strCategory: "Restaurant",
+      strCategoryThumb:
+          "lib/models/marketPlaceModels/testFolder/images/Restaurant.jpg",
+      strCategoryDescription: "Description 1",
+    ),
+    Categories(
+      isTop: false,
+      idCategory: "2",
+      strCategory: "Supermarché",
+      strCategoryThumb:
+          "lib/models/marketPlaceModels/testFolder/images/Supermarché.jpg",
+      strCategoryDescription: "Description 2",
+    ),
+    Categories(
+      isTop: false,
+      idCategory: "3",
+      strCategory: "Electronique",
+      strCategoryThumb:
+          "lib/models/marketPlaceModels/testFolder/images/Electronique.jpg",
+      strCategoryDescription: "Description 2",
+    ),
+    Categories(
+      isTop: false,
+      idCategory: "4",
+      strCategory: "Produits Bio",
+      strCategoryThumb:
+          "lib/models/marketPlaceModels/testFolder/images/ProduitsBio.jpg",
+      strCategoryDescription: "Description 2",
+    ),
+    Categories(
+      isTop: false,
+      idCategory: "5",
+      strCategory: "Cosmétique",
+      strCategoryThumb:
+          "lib/models/marketPlaceModels/testFolder/images/Cosmétique.jpg",
+      strCategoryDescription: "Description 2",
+    ),
+    Categories(
+      isTop: false,
+      idCategory: "6",
+      strCategory: "Liqueur",
+      strCategoryThumb:
+          "lib/models/marketPlaceModels/testFolder/images/Liqueur.jpg",
+      strCategoryDescription: "Description 2",
+    ),
+    Categories(
+      isTop: false,
+      idCategory: "7",
+      strCategory: "Parfumerie",
+      strCategoryThumb:
+          "lib/models/marketPlaceModels/testFolder/images/Outillage.jpg",
+      strCategoryDescription: "Description 2",
+    ),
+    Categories(
+      isTop: false,
+      idCategory: "8",
+      strCategory: "Outillage",
+      strCategoryThumb:
+          "lib/models/marketPlaceModels/testFolder/images/Outillage.jpg",
+      strCategoryDescription: "Description 2",
+    ),
+    Categories(
+      isTop: false,
+      idCategory: "9",
+      strCategory: "Animalerie",
+      strCategoryThumb:
+          "lib/models/marketPlaceModels/testFolder/images/Animalerie.jpg",
+      strCategoryDescription: "Description 2",
+    ),
+    Categories(
+      isTop: false,
+      idCategory: "10",
+      strCategory: "Téléphonie",
+      strCategoryThumb:
+          "lib/models/marketPlaceModels/testFolder/images/Téléphonie.jpg",
+      strCategoryDescription: "Description 2",
+    ),
+  ];
 }

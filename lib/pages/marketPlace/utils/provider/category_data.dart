@@ -22,14 +22,14 @@ class Categorie with ChangeNotifier {
       if (jsonResponse == null) {
         return;
       }
-
       (jsonResponse['categories'] as List<dynamic>)
           .map((e) => {
                 loadedCategories.add(Categories(
                     idCategory: e['idCategory'],
                     strCategory: e['strCategory'],
                     strCategoryDescription: e['strCategoryDescription'],
-                    strCategoryThumb: e['strCategoryThumb']))
+                    strCategoryThumb: e['strCategoryThumb']
+                    ))
               })
           .toList();
       _categories = loadedCategories.reversed.toList();

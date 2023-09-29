@@ -3,6 +3,9 @@ import 'package:nb_utils/nb_utils.dart';
 import 'package:provider/provider.dart';
 import 'package:tagxisuperuser/pages/marketPlace/utils/provider/category_data.dart';
 
+import '../../../models/marketPlaceModels/testFolder/Categorie_Data.dart';
+import 'category_more_page.dart';
+
 class CategorieBox extends StatefulWidget {
   const CategorieBox({
     Key? key,
@@ -21,6 +24,47 @@ class _CategorieBoxState extends State<CategorieBox> {
   void didChangeDependencies() {
     context.read<Categorie>().fecthCategories();
     super.didChangeDependencies();
+  }
+
+  void _showCategoryDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Catégories'),
+          content: Container(
+            height: 400,
+            width: 600,
+            child: ListView.builder(
+              itemCount: categoriesList.length,
+              itemBuilder: (BuildContext context, int index) {
+                Categories category = categoriesList[index];
+                return ListTile(
+                  leading: ClipRRect(
+                    borderRadius: BorderRadius.circular(550),
+                    child: Image.asset(
+                      category.strCategoryThumb!,
+                      width: 50,
+                      height: 50,
+                    ),
+                  ),
+                  title: Text(category.strCategory ?? ''),
+                  subtitle: Text(category.strCategoryDescription ?? ''),
+                );
+              },
+            ),
+          ),
+          actions: <Widget>[
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text('Fermer'),
+            ),
+          ],
+        );
+      },
+    );
   }
 
   @override
@@ -57,7 +101,9 @@ class _CategorieBoxState extends State<CategorieBox> {
                       ),
                 categorieData.categories.isNotEmpty
                     ? TextButton(
-                        onPressed: widget.onPressed,
+                        onPressed: () {
+                          _showCategoryDialog(context);
+                        },
                         child: const Text(
                           'Voir Tout',
                           style: TextStyle(
