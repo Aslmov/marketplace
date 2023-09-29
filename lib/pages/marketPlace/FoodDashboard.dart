@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:material_floating_search_bar_2/material_floating_search_bar_2.dart';
 import 'package:nb_utils/nb_utils.dart';
+import 'package:tagxisuperuser/models/marketPlaceModels/testFolder/Categorie_Data.dart';
+import '../../models/marketPlaceModels/testFolder/Category_fake_data.dart';
 import 'package:tagxisuperuser/styles/styles.dart';
 import '../../functions/functions.dart';
 import '../../models/marketPlaceModels/FoodModel.dart';
@@ -108,45 +110,48 @@ class FoodDashboardState extends State<FoodDashboard> {
               ),
             ),
             // Intégration de la FloatingSearchBar
-            Container(
-              height: 54,
-              child: FloatingSearchBar(
-                controller: controller,
-                hint: 'Recherchez : Ramco, Slatpizz ...',
-                openAxisAlignment: 0.0,
-                width: 600,
-                axisAlignment: 0.0,
-                scrollPadding: EdgeInsets.only(top: 16, bottom: 20),
-                elevation: 4.0,
-                physics: BouncingScrollPhysics(),
-                onQueryChanged: (query) {},
-                actions: [
-                  FloatingSearchBarAction.searchToClear(),
-                ],
-                builder: (context, transition) {
-                  return Container(
-                    margin: EdgeInsets.only(top: 65),
-                    child: Card(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 8.0),
+              child: Container(
+                height: 54,
+                child: FloatingSearchBar(
+                  controller: controller,
+                  hint: 'Recherchez : Ramco, Slatpizz ...',
+                  openAxisAlignment: 0.0,
+                  width: 600,
+                  axisAlignment: 0.0,
+                  scrollPadding: EdgeInsets.only(top: 16, bottom: 20),
+                  elevation: 4.0,
+                  physics: BouncingScrollPhysics(),
+                  onQueryChanged: (query) {},
+                  actions: [
+                    FloatingSearchBarAction.searchToClear(),
+                  ],
+                  builder: (context, transition) {
+                    return Container(
+                      margin: EdgeInsets.only(top: 65),
+                      child: Card(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        elevation: 4,
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            ListTile(
+                              title: Text('Résultat de la recherche 1'),
+                              onTap: () {},
+                            ),
+                            ListTile(
+                              title: Text('Résultat de la recherche 2'),
+                              onTap: () {},
+                            ),
+                          ],
+                        ),
                       ),
-                      elevation: 4,
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          ListTile(
-                            title: Text('Résultat de la recherche 1'),
-                            onTap: () {},
-                          ),
-                          ListTile(
-                            title: Text('Résultat de la recherche 2'),
-                            onTap: () {},
-                          ),
-                        ],
-                      ),
-                    ),
-                  );
-                },
+                    );
+                  },
+                ),
               ),
             ),
             Expanded(
@@ -204,11 +209,10 @@ class FoodDashboardState extends State<FoodDashboard> {
                   ],
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),
-      //drawer: FoodSideMenu(),
     );
   }
 }

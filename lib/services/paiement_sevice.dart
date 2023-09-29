@@ -66,11 +66,9 @@ class PaiementService {
       Map<String, dynamic> jsonDataToServer = jsonDecode(dataToServer);
 
       var ourReference = data["ourReference"];
-      debugPrint(ourReference);
       jsonDataToServer["reference"] = ourReference;
 
       String jsonDataToServerJson = jsonEncode(jsonDataToServer);
-      debugPrint(jsonDataToServerJson);
       http.post(
         Uri.parse(schedulerApitUrl),
         body: jsonDataToServerJson,
