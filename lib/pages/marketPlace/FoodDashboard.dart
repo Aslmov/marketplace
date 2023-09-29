@@ -4,12 +4,10 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:material_floating_search_bar_2/material_floating_search_bar_2.dart';
 import 'package:nb_utils/nb_utils.dart';
 import 'package:tagxisuperuser/models/marketPlaceModels/testFolder/Categorie_Data.dart';
-import '../../models/marketPlaceModels/testFolder/Category_fake_data.dart';
 import 'package:tagxisuperuser/styles/styles.dart';
 import '../../functions/functions.dart';
 import '../../models/marketPlaceModels/FoodModel.dart';
 import '../../translations/translation.dart';
-import 'category/Categorie_Box.dart';
 import 'FoodAddAddress.dart';
 import 'FoodBookCart.dart';
 import 'FoodDescription.dart';
@@ -57,6 +55,7 @@ class FoodDashboardState extends State<FoodDashboard> {
     final FloatingSearchBarController controller =
         FloatingSearchBarController();
     changeStatusColor(isDarkTheme ? black : white);
+
     Widget topGradient(var gradientColor1, var gradientColor2, var icon,
         var heading, var subHeading) {
       var width = MediaQuery.of(context).size.width;
@@ -196,12 +195,7 @@ class FoodDashboardState extends State<FoodDashboard> {
                           //mAddress(context),
                           SizedBox(height: 16),
                           //AdsBox(revere: false),
-                          CategorieBox(
-                            BoxTitle: languages[choosenLanguage]
-                                    ['text_categories_resto']
-                                .toUpperCase(),
-                            onPressed: () {},
-                          ),
+                          _showCategoryCards(context),
                         ],
                       ),
                     ),
@@ -212,6 +206,128 @@ class FoodDashboardState extends State<FoodDashboard> {
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  void _showCategoryDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Catégories'),
+          content: Container(
+            height: 400,
+            width: 600,
+            child: ListView.builder(
+              itemCount: categoriesList.length,
+              itemBuilder: (BuildContext context, int index) {
+                Categories category = categoriesList[index];
+                return ListTile(
+                  leading: ClipRRect(
+                    borderRadius: BorderRadius.circular(550),
+                    child: Image.asset(
+                      category.strCategoryThumb!,
+                      width: 50,
+                      height: 50,
+                    ),
+                  ),
+                  title: Text(category.strCategory ?? ''),
+                  subtitle: Text(category.strCategoryDescription ?? ''),
+                );
+              },
+            ),
+          ),
+          actions: <Widget>[
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text('Fermer'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  Widget _showCategoryCards(BuildContext context) {
+    final topCategories =
+        categoriesList.where((category) => category.isTop == true).toList();
+    final cardWidth = 160.0; // Largeur fixe de chaque carte
+    final cardSpacing = 16.0; // Espacement entre les cartes
+
+    return Container(
+      height: 200, // Ajustez la hauteur selon vos besoins
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              TextButton(
+                onPressed: () {
+                  _showCategoryDialog(context);
+                },
+                child: const Text(
+                  'Voir Tout',
+                  style: TextStyle(
+                    color: Color(0xffC3211A),
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              )
+            ],
+          ),
+          SizedBox(
+            height: 8, // Ajoutez de l'espace entre le bouton et les cartes
+          ),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: topCategories.asMap().entries.map((entry) {
+                final index = entry.key;
+                final category = entry.value;
+
+                return Padding(
+                  padding: EdgeInsets.only(left: index == 0 ? 0 : cardSpacing),
+                  child: SizedBox(
+                    width: cardWidth,
+                    child: Card(
+                      elevation: 2,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      child: Column(
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.vertical(
+                              top: Radius.circular(10.0),
+                            ),
+                            child: Image.asset(
+                              category.strCategoryThumb!,
+                              width: cardWidth,
+                              height: 120,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          ListTile(
+                            title: Text(
+                              category.strCategory ?? '',
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                            subtitle:
+                                Text(category.strCategoryDescription ?? ''),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                );
+              }).toList(),
+            ),
+          ),
+        ],
       ),
     );
   }
