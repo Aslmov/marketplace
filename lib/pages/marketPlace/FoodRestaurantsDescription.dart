@@ -482,7 +482,18 @@ class FoodRestaurantsDescriptionState extends State<FoodRestaurantsDescription> 
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      heading(food_lbl_what_people_love_here),
+                      heading(food_lbl_what_people_love_here,TextButton(
+                        onPressed: () {
+                        },
+                        child: const Text(
+                          'Voir Tout',
+                          style: TextStyle(
+                            color: Color(0xffC3211A),
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      )),
                       ListView.builder(
                         scrollDirection: Axis.vertical,
                         itemCount: mList2.length,

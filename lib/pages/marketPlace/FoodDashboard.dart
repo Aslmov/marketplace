@@ -166,8 +166,19 @@ class FoodDashboardState extends State<FoodDashboard> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           heading(
-                            languages[choosenLanguage]['text_front_page_resto'],
-                          ),
+                              languages[choosenLanguage]
+                                  ['text_front_page_resto'],
+                              TextButton(
+                                onPressed: () {},
+                                child: const Text(
+                                  'Voir Tout',
+                                  style: TextStyle(
+                                    color: Color(0xffC3211A),
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                              )),
                           SizedBox(
                             height: 250,
                             child: ListView.builder(
@@ -307,7 +318,7 @@ class FoodDashboardState extends State<FoodDashboard> {
                             child: Image.asset(
                               category.strCategoryThumb!,
                               width: cardWidth,
-                              height: 120,
+                              height: 64,
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -316,8 +327,6 @@ class FoodDashboardState extends State<FoodDashboard> {
                               category.strCategory ?? '',
                               style: TextStyle(fontWeight: FontWeight.bold),
                             ),
-                            subtitle:
-                                Text(category.strCategoryDescription ?? ''),
                           ),
                         ],
                       ),

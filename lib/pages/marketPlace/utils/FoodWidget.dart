@@ -8,7 +8,7 @@ import '../FoodAddAddress.dart';
 import 'FoodColors.dart';
 import 'FoodString.dart';
 
-Widget heading(String value) {
+Widget heading(String value, TextButton textButton) {
   return Container(
     margin: EdgeInsets.all(16),
     child: Text(value.toString().toUpperCase(), style: boldTextStyle(size: 25)),
