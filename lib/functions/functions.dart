@@ -30,7 +30,6 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:tagxisuperuser/pages/NavigatorPages/walletpage.dart';
 import '../pages/mobileMoney/mobile_money.dart';
 import '../services/paiement_sevice.dart';
-import '../translations/translation_choose_goods.dart';
 import 'package:uuid/uuid.dart';
 
 //languages code

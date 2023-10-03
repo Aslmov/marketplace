@@ -32,6 +32,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "banner_carousel",
+      "rootUri": "file:///C:/Users/Mr%20KOUMANA/AppData/Local/Pub/Cache/hosted/pub.dev/banner_carousel-1.2.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "boolean_selector",
       "rootUri": "file:///C:/Users/Mr%20KOUMANA/AppData/Local/Pub/Cache/hosted/pub.dev/boolean_selector-2.1.1",
       "packageUri": "lib/",
@@ -1100,7 +1106,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2023-09-29T12:19:55.927211Z",
+  "generated": "2023-10-02T11:37:42.684052Z",
   "generator": "pub",
   "generatorVersion": "3.1.0"
 }

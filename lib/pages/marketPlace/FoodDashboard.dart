@@ -1,9 +1,12 @@
+import 'package:banner_carousel/banner_carousel.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:material_floating_search_bar_2/material_floating_search_bar_2.dart';
 import 'package:nb_utils/nb_utils.dart';
 import 'package:tagxisuperuser/models/marketPlaceModels/testFolder/Categorie_Data.dart';
+import 'package:tagxisuperuser/pages/marketPlace/Ads_Box.dart';
+import 'package:tagxisuperuser/pages/marketPlace/category/Categorie_Box.dart';
 import 'package:tagxisuperuser/styles/styles.dart';
 import '../../functions/functions.dart';
 import '../../models/marketPlaceModels/FoodModel.dart';
@@ -39,6 +42,8 @@ class FoodDashboardState extends State<FoodDashboard> {
   late List<DashboardCollections> mExperienceList;
   late List<Restaurants> mCafeList;
 
+  get onPressed => ();
+
   @override
   void initState() {
     super.initState();
@@ -52,8 +57,6 @@ class FoodDashboardState extends State<FoodDashboard> {
 
   @override
   Widget build(BuildContext context) {
-    final FloatingSearchBarController controller =
-        FloatingSearchBarController();
     changeStatusColor(isDarkTheme ? black : white);
 
     Widget topGradient(var gradientColor1, var gradientColor2, var icon,
@@ -108,51 +111,6 @@ class FoodDashboardState extends State<FoodDashboard> {
                 ),
               ),
             ),
-            // Intégration de la FloatingSearchBar
-            Padding(
-              padding: const EdgeInsets.only(bottom: 8.0),
-              child: Container(
-                height: 54,
-                child: FloatingSearchBar(
-                  controller: controller,
-                  hint: 'Recherchez : Ramco, Slatpizz ...',
-                  openAxisAlignment: 0.0,
-                  width: 600,
-                  axisAlignment: 0.0,
-                  scrollPadding: EdgeInsets.only(top: 16, bottom: 20),
-                  elevation: 4.0,
-                  physics: BouncingScrollPhysics(),
-                  onQueryChanged: (query) {},
-                  actions: [
-                    FloatingSearchBarAction.searchToClear(),
-                  ],
-                  builder: (context, transition) {
-                    return Container(
-                      margin: EdgeInsets.only(top: 65),
-                      child: Card(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        elevation: 4,
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            ListTile(
-                              title: Text('Résultat de la recherche 1'),
-                              onTap: () {},
-                            ),
-                            ListTile(
-                              title: Text('Résultat de la recherche 2'),
-                              onTap: () {},
-                            ),
-                          ],
-                        ),
-                      ),
-                    );
-                  },
-                ),
-              ),
-            ),
             Expanded(
               child: SingleChildScrollView(
                 child: Column(
@@ -165,6 +123,15 @@ class FoodDashboardState extends State<FoodDashboard> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
+                          _showCategoryCards(context),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 20.0),
+                            child: BannerCarousel(
+                              banners: BannerImages.listBanners,
+                              activeColor: Colors.orange,
+                              disableColor: Colors.grey,
+                            ),
+                          ),
                           heading(
                               languages[choosenLanguage]
                                   ['text_front_page_resto'],
@@ -206,7 +173,8 @@ class FoodDashboardState extends State<FoodDashboard> {
                           //mAddress(context),
                           SizedBox(height: 16),
                           //AdsBox(revere: false),
-                          _showCategoryCards(context),
+
+                          _showCategoryCards2(context),
                         ],
                       ),
                     ),
@@ -265,81 +233,160 @@ class FoodDashboardState extends State<FoodDashboard> {
   Widget _showCategoryCards(BuildContext context) {
     final topCategories =
         categoriesList.where((category) => category.isTop == true).toList();
-    final cardWidth = 160.0; // Largeur fixe de chaque carte
+    final cardWidth = 90.0; // Largeur fixe de chaque carte
     final cardSpacing = 16.0; // Espacement entre les cartes
 
-    return Container(
-      height: 200, // Ajustez la hauteur selon vos besoins
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              TextButton(
-                onPressed: () {
-                  _showCategoryDialog(context);
-                },
-                child: const Text(
-                  'Voir Tout',
-                  style: TextStyle(
-                    color: Color(0xffC3211A),
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-              )
-            ],
-          ),
-          SizedBox(
-            height: 8, // Ajoutez de l'espace entre le bouton et les cartes
-          ),
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              children: topCategories.asMap().entries.map((entry) {
-                final index = entry.key;
-                final category = entry.value;
+    return Padding(
+      padding: const EdgeInsets.only(top: 20.0),
+      child: Container(
+        height: 112, // Ajustez la hauteur selon vos besoins
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(
+              height: 8, // Ajoutez de l'espace entre le bouton et les cartes
+            ),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: topCategories.asMap().entries.map((entry) {
+                  final index = entry.key;
+                  final category = entry.value;
 
-                return Padding(
-                  padding: EdgeInsets.only(left: index == 0 ? 0 : cardSpacing),
-                  child: SizedBox(
-                    width: cardWidth,
-                    child: Card(
-                      elevation: 2,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                      child: Column(
-                        children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.vertical(
-                              top: Radius.circular(10.0),
+                  return Padding(
+                    padding:
+                        EdgeInsets.only(left: index == 0 ? 0 : cardSpacing),
+                    child: SizedBox(
+                      width: cardWidth,
+                      child: Card(
+                        elevation: 2,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        child: Column(
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.vertical(
+                                top: Radius.circular(10.0),
+                              ),
+                              child: Image.asset(
+                                category.strCategoryThumb!,
+                                width: cardWidth,
+                                height: 48,
+                                fit: BoxFit.cover,
+                              ),
                             ),
-                            child: Image.asset(
-                              category.strCategoryThumb!,
-                              width: cardWidth,
-                              height: 64,
-                              fit: BoxFit.cover,
+                            ListTile(
+                              title: Center(
+                                child: Text(
+                                  category.strCategory ?? '',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 10,
+                                  ),
+                                ),
+                              ),
+                              contentPadding: EdgeInsets.symmetric(
+                                  vertical: 4, horizontal: 8),
+                              minVerticalPadding: 0,
+                              dense: true,
+                              visualDensity: VisualDensity.compact,
                             ),
-                          ),
-                          ListTile(
-                            title: Text(
-                              category.strCategory ?? '',
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                );
-              }).toList(),
+                  );
+                }).toList(),
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
+}
+
+Widget _showCategoryCards2(BuildContext context) {
+  final topCategories =
+      categoriesList.where((category) => category.isTop == true).toList();
+  final cardWidth = 250.0; // Largeur fixe de chaque carte
+  final cardSpacing = 16.0; // Espacement entre les cartes
+
+  return Container(
+    height: 500, // Ajustez la hauteur selon vos besoins
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+                languages[choosenLanguage]['text_categories_resto']
+                    .toUpperCase(),
+                style: boldTextStyle(size: 25)),
+            TextButton(
+              onPressed: () {},
+              child: const Text(
+                'Voir Tout',
+                style: TextStyle(
+                  color: Color(0xffC3211A),
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            )
+          ],
+        ),
+        SizedBox(
+          height: 8, // Ajoutez de l'espace entre le bouton et les cartes
+        ),
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            children: topCategories.asMap().entries.map((entry) {
+              final index = entry.key;
+              final category = entry.value;
+
+              return Padding(
+                padding: EdgeInsets.only(left: index == 0 ? 0 : cardSpacing),
+                child: SizedBox(
+                  width: cardWidth,
+                  child: Card(
+                    elevation: 2,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                    child: Column(
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.vertical(
+                            top: Radius.circular(10.0),
+                          ),
+                          child: Image.asset(
+                            category.strCategoryThumb!,
+                            width: cardWidth,
+                            height: 150,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                        ListTile(
+                          title: Text(
+                            category.strCategory ?? '',
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              );
+            }).toList(),
+          ),
+        ),
+      ],
+    ),
+  );
 }
 
 // ignore: must_be_immutable

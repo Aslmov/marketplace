@@ -30,6 +30,8 @@ import 'package:permission_handler/permission_handler.dart' as perm;
 import 'package:vector_math/vector_math.dart' as vector;
 import 'package:http/http.dart' as http;
 
+import '../wallePage/add_money_page.dart';
+
 class Maps extends StatefulWidget {
   const Maps({Key? key}) : super(key: key);
 
@@ -81,14 +83,15 @@ class _MapsState extends State<Maps>
   String state = '';
   dynamic _controller;
   Map myBearings = {};
-
+  bool _isLoading = false;
+  bool _completed = true;
   dynamic pinLocationIcon;
   dynamic deliveryIcon;
   dynamic bikeIcon;
   dynamic userLocationIcon;
   bool favAddressAdd = false;
   bool contactus = false;
-
+  bool wallet = false;
   final _mapMarkerSC = StreamController<List<Marker>>();
   StreamSink<List<Marker>> get _mapMarkerSink => _mapMarkerSC.sink;
   Stream<List<Marker>> get carMarkerStream => _mapMarkerSC.stream;
@@ -111,6 +114,18 @@ class _MapsState extends State<Maps>
             : 1;
     getLocs();
     super.initState();
+    getWallet();
+  }
+
+  getWallet() async {
+    var val = await getWalletHistory();
+    if (val == 'success') {
+      _isLoading = false;
+      _completed = true;
+      valueNotifierBook.incrementNotifier();
+    } else if (val == 'logout') {
+      navigateLogout();
+    }
   }
 
   @override
@@ -674,6 +689,11 @@ class _MapsState extends State<Maps>
                                                                             myMarkers.lastWhere((e) => e.markerId.toString().contains('car${element['id']}')).position.longitude,
                                                                             element['l'][0],
                                                                             element['l'][1]);
+                                                                        debugPrint(
+                                                                            dist.toString());
+                                                                        debugPrint(
+                                                                            dist);
+
                                                                         if (dist >
                                                                                 100 &&
                                                                             _controller !=
@@ -1319,6 +1339,171 @@ class _MapsState extends State<Maps>
                                                                       ],
                                                                     ),
                                                                   )
+                                                                ],
+                                                              )),
+                                                        ),
+                                                      )
+                                                    : Container(),
+                                                Positioned(
+                                                  right: 10,
+                                                  top: 100,
+                                                  child: InkWell(
+                                                    onTap: () async {
+                                                      if (wallet == false) {
+                                                        setState(() {
+                                                          wallet = true;
+                                                        });
+                                                      } else {
+                                                        setState(() {
+                                                          wallet = false;
+                                                        });
+                                                      }
+                                                    },
+                                                    child: Container(
+                                                      height: media.width * 0.1,
+                                                      width: media.width * 0.1,
+                                                      decoration: BoxDecoration(
+                                                          boxShadow: [
+                                                            BoxShadow(
+                                                                blurRadius: 2,
+                                                                color: Colors
+                                                                    .black
+                                                                    .withOpacity(
+                                                                        0.09),
+                                                                spreadRadius: 2)
+                                                          ],
+                                                          color: page,
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(media
+                                                                          .width *
+                                                                      0.02)),
+                                                      alignment:
+                                                          Alignment.center,
+                                                      child: Image.asset(
+                                                        'assets/images/wallet.png',
+                                                        fit: BoxFit.contain,
+                                                        width:
+                                                            media.width * 0.06,
+                                                        color: textColor,
+                                                      ),
+                                                      // Icon(
+                                                      //     Icons
+                                                      //         .my_location_sharp,
+                                                      //     size: media
+                                                      //             .width *
+                                                      //         0.06),
+                                                    ),
+                                                  ),
+                                                ),
+                                                (wallet == true)
+                                                    ? Positioned(
+                                                        right: 10,
+                                                        top: 105 +
+                                                            media.width * 0.1,
+                                                        child: InkWell(
+                                                          onTap: () async {},
+                                                          child: Container(
+                                                              padding:
+                                                                  const EdgeInsets
+                                                                      .all(10),
+                                                              height: media.width *
+                                                                  0.3,
+                                                              width: media
+                                                                      .width *
+                                                                  0.45,
+                                                              decoration: BoxDecoration(
+                                                                  boxShadow: [
+                                                                    BoxShadow(
+                                                                        blurRadius:
+                                                                            2,
+                                                                        color: Colors
+                                                                            .black
+                                                                            .withOpacity(
+                                                                                0.2),
+                                                                        spreadRadius:
+                                                                            2)
+                                                                  ],
+                                                                  color: page,
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(media.width *
+                                                                              0.02)),
+                                                              alignment:
+                                                                  Alignment
+                                                                      .center,
+                                                              child: Column(
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .spaceEvenly,
+                                                                children: [
+                                                                  InkWell(
+                                                                    onTap:
+                                                                        () {},
+                                                                    child: Row(
+                                                                      children: [
+                                                                        Expanded(
+                                                                            flex:
+                                                                                80,
+                                                                            child:
+                                                                                Center(
+                                                                              child: Text(
+                                                                                languages[choosenLanguage]['text_availablebalance'],
+                                                                                style: GoogleFonts.robotoCondensed(fontSize: media.width * fourteen, color: textColor),
+                                                                              ),
+                                                                            ))
+                                                                      ],
+                                                                    ),
+                                                                  ),
+                                                                  InkWell(
+                                                                    onTap:
+                                                                        () {},
+                                                                    child: Row(
+                                                                      children: [
+                                                                        Expanded(
+                                                                            flex:
+                                                                                80,
+                                                                            child:
+                                                                                Center(
+                                                                              child: Text(
+                                                                                walletBalance['currency_symbol'] + ' ' + walletBalance['wallet_balance'].toString(),
+                                                                                style: GoogleFonts.robotoCondensed(fontSize: media.width * twenty, color: textColor),
+                                                                              ),
+                                                                            ))
+                                                                      ],
+                                                                    ),
+                                                                  ),
+                                                                  SizedBox(
+                                                                    width: 100,
+                                                                    height: 30,
+                                                                    child:
+                                                                        ElevatedButton(
+                                                                      style: ElevatedButton
+                                                                          .styleFrom(
+                                                                        primary:
+                                                                            buttonColor,
+                                                                        onPrimary:
+                                                                            buttonText,
+                                                                      ),
+                                                                      onPressed:
+                                                                          () {
+                                                                        Navigator.push(
+                                                                            context,
+                                                                            MaterialPageRoute(builder: (context) => const AddMoneyPage()));
+                                                                        wallet ==
+                                                                            false;
+                                                                      },
+                                                                      child:
+                                                                          Text(
+                                                                        languages[choosenLanguage]
+                                                                            [
+                                                                            "text_paiement_btn"],
+                                                                        style: TextStyle(
+                                                                            fontSize:
+                                                                                12), // Définissez la taille de la police
+                                                                      ),
+                                                                    ),
+                                                                  ),
                                                                 ],
                                                               )),
                                                         ),
@@ -2217,7 +2402,8 @@ class _MapsState extends State<Maps>
                                                                       BorderRadius.circular(
                                                                           media.width *
                                                                               0.04),
-                                                                                                                                  child: InkWell(
+                                                                  child:
+                                                                      InkWell(
                                                                     onTap: () {
                                                                       Navigator.push(
                                                                           context,

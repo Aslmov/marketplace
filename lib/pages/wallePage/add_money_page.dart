@@ -26,6 +26,7 @@ class _AddMoneyPageState extends State<AddMoneyPage> {
 
   @override
   void initState() {
+    getCountryCode();
     countryCode();
     super.initState();
   }
@@ -51,15 +52,6 @@ class _AddMoneyPageState extends State<AddMoneyPage> {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
           Card(
-            clipBehavior: Clip.hardEdge,
-            shape: RoundedRectangleBorder(
-              side: BorderSide(
-                color:
-                    telIndicator == "TMONEY" ? starColor : Colors.transparent,
-                width: 1.5,
-              ),
-              borderRadius: const BorderRadius.all(Radius.circular(10)),
-            ),
             child: InkWell(
               splashColor: starColor,
               onTap: () {
@@ -79,13 +71,6 @@ class _AddMoneyPageState extends State<AddMoneyPage> {
           ),
           Card(
             clipBehavior: Clip.hardEdge,
-            shape: RoundedRectangleBorder(
-              side: BorderSide(
-                width: 1.5,
-                color: telIndicator == "FLOOZ" ? starColor : Colors.transparent,
-              ),
-              borderRadius: const BorderRadius.all(Radius.circular(10)),
-            ),
             child: InkWell(
               splashColor: starColor,
               onTap: () {
@@ -320,11 +305,8 @@ class _AddMoneyPageState extends State<AddMoneyPage> {
                                           Row(
                                             children: [
                                               Text(
-                                                languages[choosenLanguage][
-                                                        "text_paiement_number"] +
-                                                    " ( " +
-                                                    (telIndicator) +
-                                                    " )",
+                                                languages[choosenLanguage]
+                                                    ["text_paiement_number"],
                                                 textAlign: TextAlign.center,
                                                 style: TextStyle(
                                                   color: textColor,
@@ -344,7 +326,7 @@ class _AddMoneyPageState extends State<AddMoneyPage> {
                                             ),
                                             child: Column(
                                               children: [
-                                                TextField(
+                                                TextFormField(
                                                   keyboardType:
                                                       TextInputType.number,
                                                   decoration: InputDecoration(
@@ -356,9 +338,21 @@ class _AddMoneyPageState extends State<AddMoneyPage> {
                                                   controller: numberController,
                                                   onChanged: (value) {
                                                     setState(() {
+                                                      if (value.length > 8) {
+                                                        numberController.text =
+                                                            value.substring(
+                                                                0, 8);
+                                                        numberController
+                                                                .selection =
+                                                            TextSelection
+                                                                .fromPosition(
+                                                          TextPosition(
+                                                              offset: 8),
+                                                        );
+                                                      }
                                                       selectedNumber = value;
-                                                      showError = value.length <
-                                                          8; // Met à jour showError en fonction de la longueur du texte
+                                                      showError =
+                                                          value.length < 8;
                                                     });
                                                     if (value.length == 8) {
                                                       FocusManager
@@ -370,7 +364,7 @@ class _AddMoneyPageState extends State<AddMoneyPage> {
                                               ],
                                             ),
                                           ),
-                                          if (showError) // Affiche le texte d'erreur si showError est vrai
+                                          if (showError) 
                                             Text(
                                               'La longueur doit être de 8 chiffres',
                                               style: TextStyle(

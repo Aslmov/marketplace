@@ -6,7 +6,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tagxisuperuser/functions/functions.dart';
 import 'package:tagxisuperuser/functions/geohash.dart';
@@ -1757,7 +1756,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                                                                   height: media.width * 0.015,
                                                                                                                 ),
                                                                                                                 Text(
-                                                                                                                  rentalOption[i]['currency'] + ' ' + rentalOption[i]['fare_amount'].toStringAsFixed(0),
+                                                                                                                  rentalOption[i]['currency'] + ' ' + rentalOption[i]['fare_amount'].toStringAsFixed(0), 
                                                                                                                   style: (rentalOption[i]['has_discount'] != true) ? GoogleFonts.robotoCondensed(fontSize: media.width * twelve, color: textColor, fontWeight: FontWeight.w600) : GoogleFonts.robotoCondensed(fontSize: media.width * twelve, color: textColor, fontWeight: FontWeight.w600, decoration: TextDecoration.lineThrough),
                                                                                                                 ),
                                                                                                                 (rentalOption[i]['has_discount'] == true)
@@ -5189,16 +5188,6 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                         .add(const Duration(
                                                             days: 4)),
                                                     onDateTimeChanged: (val) {
-                                                      String formattedDate =
-                                                          DateFormat('d MMMM y',
-                                                                  'fr_FR')
-                                                              .format(val);
-
-                                                      String dayOfWeek =
-                                                          DateFormat('EEEE',
-                                                                  'fr_FR')
-                                                              .format(val);
-
                                                       choosenDateTime = val;
                                                     },
                                                   ),
@@ -7480,17 +7469,21 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                               alignment:
                                                                   Alignment
                                                                       .center,
-                                                              child: Text(
-                                                                "${etaDetails[0]['distance'].toString()} ${etaDetails[0]['unit_in_words'].toString()} ",
-                                                                style: GoogleFonts.robotoCondensed(
-                                                                    color:
-                                                                        textColor,
-                                                                    fontSize: media
-                                                                            .width *
-                                                                        twelve,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w600),
+                                                              child: Column(
+                                                                children: [
+                                                                  Text(
+                                                                    "${etaDetails[0]['distance'].toString()} ${etaDetails[0]['unit_in_words'].toString()}",
+                                                                    style: GoogleFonts.robotoCondensed(
+                                                                        color:
+                                                                            textColor,
+                                                                        fontSize: media
+                                                                                .width *
+                                                                            twelve,
+                                                                        fontWeight:
+                                                                            FontWeight
+                                                                                .w600),
+                                                                  ),
+                                                                ],
                                                               )))
                                                 ],
                                               )),
@@ -7506,6 +7499,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
       ),
     );
   }
+
 
   double getBearing(LatLng begin, LatLng end) {
     double lat = (begin.latitude - end.latitude).abs();

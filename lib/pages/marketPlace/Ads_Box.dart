@@ -1,49 +1,19 @@
-import "package:carousel_slider/carousel_slider.dart";
-import 'package:flutter/material.dart';
+import 'package:banner_carousel/banner_carousel.dart';
 
-class AdsBox extends StatelessWidget {
-  AdsBox({Key? key, required this.revere}) : super(key: key);
+class BannerImages {
+  static const String banner1 =
+      "lib/models/marketPlaceModels/testFolder/images/champion.jpg";
+  static const String banner2 =
+      "lib/models/marketPlaceModels/testFolder/images/dauphine.jpeg";
+  static const String banner3 =
+      "lib/models/marketPlaceModels/testFolder/images/ramco.png";
+  static const String banner4 =
+      "lib/models/marketPlaceModels/testFolder/images/téléchargement.png";
 
-  List<String> UrlImageAds = [
-    'assets/images.jpg',
-    'assets/family-meal-deals-top-banner-100.jpg',
-    'assets/images (1).jpg',
-    'assets/peakyblinders-platters.jpg',
+  static List<BannerModel> listBanners = [
+    BannerModel(imagePath: banner1, id: "1"),
+    BannerModel(imagePath: banner2, id: "2"),
+    BannerModel(imagePath: banner3, id: "3"),
+    BannerModel(imagePath: banner4, id: "4"),
   ];
-  final bool revere;
-
-  @override
-  Widget build(BuildContext context) {
-    return CarouselSlider.builder(
-        itemCount: 4,
-        options: CarouselOptions(
-          height: 200,
-          autoPlay: true,
-          reverse: revere,
-          enlargeCenterPage: true,
-          autoPlayInterval: const Duration(seconds: 4),
-        ),
-        itemBuilder: (context, index, realindex) {
-          return Padding(
-            padding: const EdgeInsets.symmetric(vertical: 15),
-            child: Container(
-              width: double.infinity,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  image: DecorationImage(
-                      image: AssetImage(
-                        UrlImageAds[index],
-                      ),
-                      fit: BoxFit.cover),
-                  boxShadow: const [
-                    BoxShadow(
-                      offset: Offset(0, 2),
-                      blurRadius: 5,
-                      color: Color.fromARGB(117, 0, 0, 0),
-                    )
-                  ]),
-            ),
-          );
-        });
-  }
 }

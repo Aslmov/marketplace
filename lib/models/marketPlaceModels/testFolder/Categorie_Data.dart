@@ -77,7 +77,7 @@ List<Categories> categoriesList = [
     idCategory: "6",
     strCategory: "Liqueur",
     strCategoryThumb:
-        "lib/models/marketPlaceModels/testFolder/images/Liqueur.jpg",
+        "lib/models/marketPlaceModels/testFolder/images/Liqueur.jpg", 
     strCategoryDescription: "Description 2",
   ),
   Categories(
